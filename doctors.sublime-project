@@ -1,0 +1,13 @@
+{
+	"folders":
+	[
+		{
+			"folder_exclude_patterns":
+			[
+				"app/cache", "app/logs", "vendor", "bin"
+			],
+			"follow_symlinks": true,
+			"path": "C:\\wamp\\www\\doctors"
+		}
+	]
+}
