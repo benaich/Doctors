@@ -1,0 +1,32 @@
+{% extends "BenDoctorsBundle::layout.html.twig" %}
+{% block title %}
+Tableau de bord | {{ parent() }}
+{% endblock %}
+{% block body %}
+<div class="col-md-12"><h3><span class="glyphicon glyphicon-tag"></span> Ajout d'un Antecedent</h3></div>
+<form action="{{ path('antecedent_create') }}" class="form-horizontal col-md-8" method="post" {{ form_enctype(form) }}>
+    <div class="form-group ">
+		<label class="col-md-6 control-label" for="user">Etudiant</label>
+		<div class="col-md-6">
+			<input id="user" class="form-control disabled" disabled="disabled" type="text" name="unused" value="{{ entity.person.fullName }}">
+		</div>
+	</div>
+
+    {% include "BenDoctorsBundle:antecedent:form.html.twig" %}
+
+    <div class="form-group">
+      <div class="col-md-offset-6 col-md-6">
+        <button type="submit" name="subvalider" class="btn btn-primary"><span class="glyphicon glyphicon-edit"></span> Ajouter</button>
+      </div>
+    </div>
+</form>
+
+{% endblock body %}
+{% block javascripts %}
+{{ parent() }}
+<script> 
+    (function($) {
+        $('#ben_antecedent_person').closest('.form-group').hide();
+    })(jQuery);
+</script>
+{% endblock %}

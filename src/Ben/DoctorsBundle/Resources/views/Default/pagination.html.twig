@@ -1,0 +1,15 @@
+{% if pagination|length > 1 %}
+<tr class="mypagination hide-print">
+    <td colspan="10">
+      <div class="text-center">
+          <ul class="pagination">
+            {% for p in pagination %}
+            <li{% if p.is_current %} class="active"{% endif %}>
+              <a href="#" class="js-page" data-page="{{ p.page_number }}" >{{ p.label }}</a>
+            </li>
+            {% endfor %}
+          </ul>
+      </div>
+    </td>
+</tr>
+{% endif %}

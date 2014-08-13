@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<!--
+         ===================================================================
+        ||          designed & developed by benaich.med@gmail.com          ||
+         ===================================================================
+-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="application-name" content="doctors"/>
+    <meta name="author" content="benaich.med@gmail.com">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    {% block meta %}{% endblock %}
+    {% block stylesheet %}
+        <link href="{{ asset('bootstrap/css/bootstrap.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/layout.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/main.css') }}" rel="stylesheet">
+    {% endblock %}
+    <title>{% block title %}{{ app_config.app_name }}{% endblock %}</title>
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('icon.png') }}" />
+    <style>{{ app_config.app_css }}</style>
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.js"></script>
+    <![endif]-->
+</head>
+<body>
+{% block container %}
+    {% include "BenDoctorsBundle:Default:menu.html.twig" %}
+
+    <div class="visible-print col-md-12 text-left"><img src="{{ asset( 'images/header.png' )}}" alt="logo" /></div>
+    <section class="wrap">
+        <header id="adminbar">
+            <div id="logo"><img src="{{ asset( app_config.app_logo )}}" alt="logo" class="img-small" /> <span>{{ app_config.app_name }}</span></div>
+
+                 <div class="dropdown pull-right user-profile">
+                  <a href="#" id="drop3" role="button" class="dropdown-toggle" data-toggle="dropdown">
+                  <img class="img-small" src="{{ asset( app.user.image.getwebpath)}}" alt="{{ app.user.username }}">
+                  {{ app.user.fullName }} <span class="glyphicon glyphicon-chevron-down"></span></a>
+
+                    <ul class="dropdown-menu">
+                        <li>
+                            <div class="navbar-content">
+                                <div class="row">
+                                    <div class="col-md-5">
+                                        <img src="{{ asset( app.user.image.getwebpath)}}" alt="Alternate Text" class="img-responsive" />
+                                        <div class="clearfix"></div>
+                                        <p></p>
+                                    </div>
+                                    <div class="col-md-7">
+                                        <span>{{ app.user.username }}</span>
+                                        <p class="text-muted small">{{ app.user.email }}</p>
+                                        <div class="divider"></div>
+                                        <a href="{{ path('ben_profile_edit', { 'name': app.user.username}) }}" class="btn btn-primary btn-sm">Afficher mon profil</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="navbar-footer">
+                                <div class="navbar-footer-content">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <a href="{{ path('fos_user_profile_edit') }}" class="btn btn-default btn-sm">Compte</a>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <a href="{{ path('fos_user_security_logout') }}" class="btn btn-default btn-sm pull-right">Déconnexion</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+        </header>
+
+        <div class="container">
+            {% include "BenDoctorsBundle:Default:flashes.html.twig" %}
+            {% block breadcrumb %} {% endblock %}
+            {% block body %}{% endblock %}
+        </div>
+    </section>
+
+    {% block javascripts %}
+    <script src="{{ asset('js/jquery.min.js') }}"></script>
+    <script src="{{ asset('bootstrap/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('bootstrap/js/bootstrap-select.js') }}"></script>
+    <script src="{{ asset('js/jquery.cookie.js') }}"></script>
+    <script src="{{ asset('js/application.js') }}"></script>
+    {% endblock javascripts %}
+{% endblock container %}
+</body>
+</html>

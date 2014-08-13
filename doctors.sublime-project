@@ -4,10 +4,24 @@
 		{
 			"folder_exclude_patterns":
 			[
-				"app/cache", "app/logs", "vendor", "bin"
+				"app/cache",
+				"app/logs",
+				"bin"
 			],
 			"follow_symlinks": true,
 			"path": "C:\\wamp\\www\\doctors"
+		},
+		{
+			"follow_symlinks": true,
+			"path": "C:\\wamp\\www\\doctors\\src\\Ben\\DoctorsBundle\\Resources\\views"
+		},
+		{
+			"follow_symlinks": true,
+			"path": "C:\\wamp\\www\\doctors\\src\\Ben\\DoctorsBundle"
+		},
+		{
+			"follow_symlinks": true,
+			"path": "C:\\wamp\\www\\doctors\\src\\Ben\\UserBundle"
 		}
 	]
 }

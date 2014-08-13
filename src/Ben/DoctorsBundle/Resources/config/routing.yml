@@ -1,0 +1,26 @@
+ben_doctors_default:
+    resource: "@BenDoctorsBundle/Resources/config/routing/default.yml"
+
+ben_doctors_person:
+    resource: "@BenDoctorsBundle/Resources/config/routing/person.yml"
+    prefix:   /person
+
+ben_doctors_test:
+    resource: "@BenDoctorsBundle/Resources/config/routing/test.yml"
+    prefix:   /examen
+
+ben_doctors_meds:
+    resource: "@BenDoctorsBundle/Resources/config/routing/meds.yml"
+    prefix:   /medicaments
+
+ben_doctors_consultation:
+    resource: "@BenDoctorsBundle/Resources/config/routing/consultation.yml"
+    prefix:   /consultation
+
+ben_doctors_antecedent:
+    resource: "@BenDoctorsBundle/Resources/config/routing/antecedent.yml"
+    prefix:   /antecedent
+
+ben_doctors_config:
+    resource: "@BenDoctorsBundle/Resources/config/routing/config.yml"
+    prefix:   /config

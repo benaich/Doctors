@@ -1,0 +1,264 @@
+body{
+	margin-left: 155px;
+	font-size: 14px;
+	color: #34495e;
+	background: #f5f5f5;
+}
+body.shelf{
+	margin-left: 57px;
+}
+a:hover, a:focus {
+	text-decoration: none;
+}
+.container {
+	width: 100%;
+}
+#adminmenu{
+	background: #222;
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	top: 0;
+	z-index: 1030;
+	margin-top: 50px;
+}
+#adminmenu header{
+	color: white;
+	padding: 10px 20px;
+	line-height: 30px;
+	background: rgba(128, 128, 128, 0.48);
+}
+#adminmenu ul{
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+#adminmenu li.has-submenu{
+	/*border-bottom: 1px solid #0D0D0D;
+	border-top: 1px solid #373738;*/
+	position: relative;
+	-webkit-transition: all 0.4s ease 0s;
+	-moz-transition: all 0.4s ease 0s;
+	-ms-transition: all 0.4s ease 0s;
+	-o-transition: all 0.4s ease 0s;
+	transition: all 0.4s ease 0s;
+}
+#adminmenu .top-menu > li:hover, .menu-profile:hover{
+	background: #111;
+}
+#adminmenu .top-menu li.current{
+	background: #0074a2;
+}
+#adminmenu li a{
+	display: block;
+	padding: 10px 20px;
+	color: #d2d3d4;
+}
+#adminmenu li span.block{
+	/*font-size: 16px;*/
+	margin-right: 3px;
+}
+#adminmenu li.current ul{
+	background: #333;
+}
+
+/* sub menu */
+#adminmenu .sub-menu a:hover{
+	color: #2ea2cc;
+	background: inherit;
+}
+#adminmenu .submenu-head{
+	display: none;
+}
+#adminmenu li a:hover, #adminmenu li a.active {
+	color: #2ea2cc!important;
+}
+/* collapse menu */
+.shelf #adminbar #logo{
+	width: 57px;
+}
+.shelf #adminbar #logo span{
+	display: none;
+}
+.shelf #adminmenu .submenu-head{
+	display: block;
+	color: white;
+	padding: 10px 20px;
+}
+.shelf #adminmenu .current.has-submenu .submenu-head{
+	background: #0074a2;
+}
+.shelf #adminmenu li.has-submenu.current:hover:after {
+	border-right-color: transparent;
+}
+.shelf #adminmenu li.current.has-submenu .sub-menu{
+	-webkit-box-shadow: none!important;
+	box-shadow: none!important;
+}
+.shelf #adminmenu .menu-title{
+	display: none;
+}
+#adminmenu li.not-current.has-submenu:hover .sub-menu, .shelf #adminmenu li.current.has-submenu:hover .sub-menu{
+	opacity: 1;
+	top: 0;
+}
+#adminmenu li.not-current.has-submenu ul, .menu-profile .menu-profile-hover, .shelf #adminmenu li.current.has-submenu .sub-menu{
+	opacity: 0;
+	position: absolute;
+	top: -9999px;
+	left: 100%;
+	background: #333;
+	-webkit-box-shadow: 0 3px 5px rgba(0,0,0,.2);
+	box-shadow: 0 3px 5px rgba(0,0,0,.2);
+	-webkit-transition: opacity 0.4s ease 0s, left 0.4s ease 0s;
+	-moz-transition: opacity 0.4s ease 0s, left 0.4s ease 0s;
+	-ms-transition: opacity 0.4s ease 0s, left 0.4s ease 0s;
+	-o-transition: opacity 0.4s ease 0s, left 0.4s ease 0s;
+	transition: opacity 0.4s ease 0s, left 0.4s ease 0s;
+}
+#adminmenu li.has-submenu:hover:after, #adminmenu li.has-submenu.current:after {
+	right: 0;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+	border-width: 8px;
+	top: 12px;
+	z-index: 10000;
+}
+#adminmenu li.has-submenu.not-current:hover:after {
+	border-right-color: #333;
+}
+#adminmenu li.has-submenu.current:after {
+	border-right-color: #f5f5f5;
+}
+#adminmenu li.not-current.has-submenu li, .shelf #adminmenu .submenu-head{
+	width: 160px;
+}
+#adminmenu li.has-submenu li a{
+	text-align: left;
+	padding: 5px 10px 5px 20px;
+	line-height: normal;
+	font-size: 13px;
+	color: rgb(170, 170, 170);
+}
+.menu-profile {
+	width: 60px;
+	border-bottom: 1px solid #0d0d0d;
+	padding: 15px 5px 40px;
+	position: relative;
+	-webkit-transition: opacity 0.4s ease 0s, left 0.4s ease 0s;
+	-moz-transition: opacity 0.4s ease 0s, left 0.4s ease 0s;
+	-ms-transition: opacity 0.4s ease 0s, left 0.4s ease 0s;
+	-o-transition: opacity 0.4s ease 0s, left 0.4s ease 0s;
+	transition: opacity 0.4s ease 0s, left 0.4s ease 0s;
+}
+.menu-profile img{
+	border-radius: 100%;
+	width: 100%;
+}
+.menu-profile:hover .menu-profile-hover{
+	padding: 10px;
+}
+.wrap {
+	width: 100%;
+	padding: 50px 0px 0 0;
+}
+/* adminbar */
+#adminbar{
+	height: 50px; 
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	min-width: 600px;
+	z-index: 1020;
+	background: #222;
+}
+#adminbar #logo{
+	float: left;
+	width: 155px;
+	height: 50px;
+	color: rgb(189, 189, 189);
+	padding: 2px 10px;
+	line-height: 47px;
+	background: rgba(128, 128, 128, 0.48);
+}
+#logo span{
+	font-size: 15px;
+}
+.user-profile{margin-right: 5px;}
+.user-profile>a {
+	display: block;
+	height: 50px;
+	line-height: 50px;
+	margin: 0 0 0 10px;
+	padding: 0 15px 0 10px;
+	color: #9c9c9c;
+}
+.user-profile>a img {
+	border-radius: 4px;
+}
+.user-profile>a:hover {
+background: #2d2d2d;
+}
+.img-small{
+	width: 34px;
+	height: 34px;
+}
+#adminbar .dropdown-menu li>a:hover{
+background: #e7e7e7;
+color: #333;
+}
+.header-btn{
+	padding: 8px 20px;
+}
+.header-btn a{
+	color: white !important;
+}
+/* Special class on .container surrounding .navbar, used for positioning it into place. */
+.navbar-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 20;
+  margin-top: 20px;
+}
+
+/* Flip around the padding for proper display in narrow viewports */
+.navbar-wrapper .container {
+  padding-left: 0;
+  padding-right: 0;
+}
+.navbar-wrapper .navbar {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.navbar-content
+{
+    width:320px;
+    padding: 15px;
+    padding-bottom:0px;
+}
+.navbar-content:before, .navbar-content:after
+{
+    display: table;
+    content: "";
+    line-height: 0;
+}
+.navbar-nav.navbar-right:last-child {
+margin-right: 15px !important;
+}
+.navbar-footer 
+{
+    background-color:#DDD;
+}
+.navbar-footer-content { padding:15px 15px 15px 15px; }
+.dropdown-menu {
+padding: 0px;
+overflow: hidden;
+}

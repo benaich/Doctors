@@ -1,0 +1,27 @@
+{% extends "BenUserBundle::layout.html.twig" %}
+{% block title %}
+Tableau de bord | {{ parent() }}
+{% endblock %}
+{% block body %}
+<div class="col-md-12">      
+	<h3><span class="glyphicon glyphicon-user"></span> Mise à jour d'un utilisateur</h3>
+	<form class="form-horizontal col-md-8" action="{{ path('ben_update_user', {id: entity.id})}}" method="POST" role="form" {{ form_enctype(form) }}>
+		{% include "BenUserBundle:admin:form.html.twig" %}
+  
+  <div class="form-group">
+      <div class="col-sm-offset-6 col-sm-6">
+        <button type="submit" name="subvalider" class="btn btn-primary"><span class="glyphicon glyphicon-edit"></span>  Mettre à jour</button>
+      </div>
+    </div>
+
+	</form> 
+</div>
+{% endblock body %}
+
+ {% block javascripts %}
+{{ parent() }}
+<script> 
+    (function($) {
+    })(jQuery);
+</script>
+{% endblock %}

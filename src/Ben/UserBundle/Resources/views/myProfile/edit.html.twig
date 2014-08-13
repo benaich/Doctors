@@ -1,0 +1,30 @@
+{% extends "FOSUserBundle::layout.html.twig" %}
+{% block title %}
+Profile - {{ parent() }}
+{% endblock %}
+
+{% block fos_user_content %}
+
+<div class="col-md-12"><h3><span class=" glyphicon glyphicon-user"></span> Mon Profile</h3></div>
+<form class="form-horizontal col-md-8" action="{{ path('ben_profile_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(form) }}>
+
+  <div class="form-group">
+    <label for="" class="col-md-6 control-label">Photo</label>
+    <div class="col-md-6">
+      <img class="myavatar col-md-4" src="{{ asset( entity.avatar)}}">
+    </div>
+  </div>
+  {{ form_row(form.image.file, { 'label': ' '}) }}
+  {{ form_row(form.family_name, { 'label': 'Nom'}) }}
+  {{ form_row(form.first_name, { 'label': 'Prénom'}) }}
+  {{ form_row(form.tel, { 'label': 'Tél'}) }}
+  {{ form_rest(form) }}
+
+    <div class="form-group">
+      <div class="col-md-offset-6 col-md-6">
+        <button type="submit" name="subvalider" class="btn btn-primary"><span class="fui-new"></span> Mettre à jours</button>
+      </div>
+    </div>
+</form>
+
+{% endblock fos_user_content %}

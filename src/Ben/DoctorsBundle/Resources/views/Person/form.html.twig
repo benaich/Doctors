@@ -1,0 +1,27 @@
+<legend>Identité de l'étudiant</legend>  
+  {{ form_row(form.familyname, { 'label': 'Nom'}) }}
+  {{ form_row(form.firstname, { 'label': 'Prénom'}) }}
+  {{ form_row(form.birthday, { 'label': 'Date de naissance'}) }}
+  {{ form_row(form.birthcity, { 'label': 'Lieu de naissance'}) }}
+  {{ form_row(form.gender, { 'label': 'Sexe'}) }}
+  {{ form_row(form.contry, { 'label': 'Nationalité'}) }}
+  {{ form_row(form.cin, { 'label': 'CIN'}) }}
+  {{ form_row(form.cne, { 'label': 'CNE'}) }}
+
+<legend>Informations générale</legend>
+  {{ form_row(form.etablissement, { 'label': 'etablissement'}) }}
+  {{ form_row(form.university, { 'label': 'university'}) }}
+  {{ form_row(form.etablissement, { 'label': 'Adresse'}) }}
+  {{ form_row(form.city, { 'label': 'Province'}) }}
+  {{ form_row(form.parentAddress, { 'label': 'Adresse des parents'}) }}
+  {{ form_row(form.gsm, { 'label': 'gsm'}) }}
+  {{ form_row(form.email, { 'label': 'email'}) }}
+  {{ form_row(form.cnsstype, { 'label': 'type de couverture sociale'})  }}
+  {{ form_row(form.cnss, { 'label': 'N° de couverture sociale'})  }}
+
+  <legend>Personne à contacter en cas d'urgence</legend>
+  {{ form_row(form.parentName, { 'label': 'nom et prenom'}) }}
+  {{ form_row(form.parentGsm, { 'label': 'gsm'}) }}
+  {{ form_row(form.parentFixe, { 'label': 'fixe'}) }}
+  {{ form_rest(form) }} 
+      

@@ -1,0 +1,30 @@
+config:
+    pattern:  /
+    defaults: { _controller: "BenDoctorsBundle:Config:index" }
+
+config_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "BenDoctorsBundle:Config:show" }
+
+config_new:
+    pattern:  /new
+    defaults: { _controller: "BenDoctorsBundle:Config:new" }
+
+config_create:
+    pattern:  /create
+    defaults: { _controller: "BenDoctorsBundle:Config:create" }
+    requirements: { _method: post }
+
+config_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "BenDoctorsBundle:Config:edit" }
+
+config_update:
+    pattern:  /update
+    defaults: { _controller: "BenDoctorsBundle:Config:update" }
+    requirements: { _method: post }
+
+config_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "BenDoctorsBundle:Config:delete" }
+    requirements: { _method: post }

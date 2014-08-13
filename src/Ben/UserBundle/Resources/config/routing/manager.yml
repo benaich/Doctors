@@ -1,0 +1,64 @@
+#admin section
+ben_users:
+    pattern:  /
+    defaults: { _controller: BenUserBundle:Admin:index }
+ben_users_ajax:
+    pattern:  /userslist
+    defaults: { _controller: BenUserBundle:Admin:ajaxList }
+    requirements: { _method: post }
+ben_show_user:
+    pattern:  /show/{id}
+    defaults: { _controller: BenUserBundle:Admin:show }
+ben_new_user:
+    pattern:  /new
+    defaults: { _controller: BenUserBundle:Admin:new }
+ben_add_user:
+    pattern:  /add
+    defaults: { _controller: BenUserBundle:Admin:add }
+    requirements: { _method: post }
+ben_edit_user:
+    pattern:  /edit/{id}
+    defaults: { _controller: BenUserBundle:Admin:edit }
+ben_update_user:
+    pattern:  /update/{id}
+    defaults: { _controller: BenUserBundle:Admin:update }
+    requirements: { _method: post }
+ben_users_list:
+    pattern:  /users/list
+    defaults: { _controller: "BenUserBundle:Admin:usersList" }
+    requirements: { _method: post }
+ben_enable_users:
+    pattern:  /users/active/{etat}
+    defaults: { _controller: "BenUserBundle:Admin:enableUsers" , etat: 1}
+    requirements: { _method: post }
+ben_promote_users:
+    pattern:  /promote/{role}
+    defaults: { _controller: "BenUserBundle:Admin:setRole" , role: user}
+    requirements: { _method: post }
+ben_delete_user:
+    pattern:  /delete/{id}
+    defaults: { _controller: BenUserBundle:Admin:delete }
+ben_remove_users:
+    pattern:  /delete
+    defaults: { _controller: "BenUserBundle:Admin:removeUsers" }
+    requirements: { _method: post }
+ben_users_export:
+    pattern:  /export
+    defaults: { _controller: "BenUserBundle:Admin:export" }
+
+
+ben_profile_edit:
+    pattern:  /me/edit/{name}
+    defaults: { _controller: "BenUserBundle:Admin:editMe" }
+ben_profile_update:
+    pattern:  _me/{id}/update
+    defaults: { _controller: "BenUserBundle:Admin:updateMe" }
+    requirements: { _method: post }
+
+ben_pdf:
+    pattern:  /pdf/{users}
+    defaults: { _controller: "BenUserBundle:Admin:pdf" }
+
+ben_badge_user:
+    pattern:  /badge/{users}
+    defaults: { _controller: "BenUserBundle:Admin:showBadge" }

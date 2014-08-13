@@ -1,0 +1,66 @@
+{% extends "BenDoctorsBundle::layout.html.twig" %}
+{% block title %}
+Tableau de bord | {{ parent() }}
+{% endblock %}
+{% block body %}
+<div class="col-md-12"><h3><span class="glyphicon glyphicon-tag"></span> Ajout d'une consultation</h3></div>
+<form action="{{ path('consultation_create') }}" class="form-horizontal col-md-8" method="post" {{ form_enctype(form) }}>
+    <div class="form-group ">
+		<label class="col-md-6 control-label" for="user">Etudiant</label>
+		<div class="col-md-6">
+			<input id="user" class="form-control disabled" disabled="disabled" type="text" name="unused" value="{{ entity.person.fullName }}">
+		</div>
+	</div>
+
+    {% include "BenDoctorsBundle:Consultation:form.html.twig" %}
+
+    <div class="form-group">
+      <div class="col-md-offset-6 col-md-6">
+        <button type="button" id="add-another-item" class="btn btn-info"><span class="glyphicon glyphicon-plus"></span></button>
+        <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-edit"></span> Ajouter</button>
+      </div>
+    </div>
+</form>
+
+
+{% endblock body %}
+{% block javascripts %}
+{{ parent() }}
+<script> 
+    (function($) {
+        $('#ben_consultation_person').closest('.form-group').hide();
+
+        var itemCount = '{{ form.consultationmeds|length }}',
+            datacontainer = $('#ben_consultation_consultationmeds'),
+            prototype = datacontainer.attr('data-prototype');
+
+        datacontainer.find('label').removeClass('col-md-6').addClass('col-md-4');
+
+        $('#add-another-item').on('click', function() {
+            newWidget = prototype.replace(/__name__/g, itemCount++);
+            item = $(newWidget);
+            item.find('label').removeClass('col-md-6').addClass('col-md-4');
+            item.appendTo(datacontainer);
+            addTagFormDeleteLink(item);
+
+            return false;
+        });
+
+        datacontainer.children('.form-group').each(function() {
+            addTagFormDeleteLink($(this));
+        });
+
+        function addTagFormDeleteLink(tagFormLi) {
+            console.log(tagFormLi);
+            var removeFormA = $('<a class="js-remove" href="#">x</a>');
+            tagFormLi.append(removeFormA);
+        }
+
+        datacontainer.on('click', '.js-remove', function(e) {
+            e.preventDefault();
+            $(this).parent().remove();
+        });
+
+    })(jQuery);
+</script>
+{% endblock %}

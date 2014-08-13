@@ -1,0 +1,9 @@
+{% extends "FOSUserBundle::layout.html.twig" %}
+
+{% block fos_user_content %}
+
+<div class="alert alert-success fade in">
+    <button type="button" class="close" data-dismiss="alert">×</button>
+    <strong><i class="icon-ok"></i> </strong> {{ 'resetting.check_email'|trans({'%email%': email}, 'FOSUserBundle') }}
+</div>
+{% endblock %}

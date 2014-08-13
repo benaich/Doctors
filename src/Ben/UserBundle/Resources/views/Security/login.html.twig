@@ -1,0 +1,46 @@
+{% extends "BenDoctorsBundle::layout.html.twig" %}
+{% block title %}
+Login - {{ parent() }}
+{% endblock %}
+
+{% block container %}
+
+<body class="sign-in-bg">
+    <div class="sign-in">
+        <div class="sign-in-head text-center">
+            <h1>{{ app_config.app_name }}</h1>
+        </div>
+        <div class="sign-in-form">
+            <h5 class="text-center" >Connexion</h5>
+            {% if error %}
+                <div class="alert alert-danger fade in">
+                    <strong><i class="icon-warning-sign"></i> erreur : </strong> {{ error|trans({}, 'FOSUserBundle') }}
+                </div>
+            {% endif %} 
+            <form action="{{ path("fos_user_security_check") }}" method="post">
+                <div class="form-group">
+                    <div class="input-group input-group-lg">
+                      <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+                      <input type="text" class="form-control" placeholder="Login/E-mail" name="_username" value="{{ last_username }}" required="required" autofocus="true" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group input-group-lg">
+                      <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+                       <input type="password" class="form-control" id="password" name="_password" required="required" placeholder="Password"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="remeberme">
+                   <input id="remeberme" type="checkbox" name="_remember_me" value="on">
+                    Garder ma session active
+                  </label>
+                </div>
+               <p class="text-center btn-area">
+              <button type="submit" class="btn btn-primary btn-wide btn-huge" href="adherents.html">Login</button>
+              </p>
+            </form>
+        </div>
+    </div>
+  </body>
+{% endblock container %}

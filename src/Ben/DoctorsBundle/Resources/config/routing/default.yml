@@ -1,0 +1,3 @@
+ben_dashboard:
+    pattern:  /
+    defaults: { _controller: BenDoctorsBundle:Default:index }

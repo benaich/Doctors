@@ -1,6 +1,8 @@
 imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
+    - { resource: "@BenUserBundle/Resources/config/config.yml" }
+    - { resource: "@BenUserBundle/Resources/config/services.yml" }
 
 framework:
     #esi:             ~
@@ -26,9 +28,11 @@ framework:
 
 # Twig Configuration
 twig:
+    form:
+        resources:
+            - 'BenDoctorsBundle:Form:fields.html.twig'
     debug:            "%kernel.debug%"
     strict_variables: "%kernel.debug%"
-
 # Assetic Configuration
 assetic:
     debug:          "%kernel.debug%"

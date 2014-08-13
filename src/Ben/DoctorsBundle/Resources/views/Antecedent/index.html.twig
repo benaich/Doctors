@@ -1,0 +1,49 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Antecedent list</h1>
+
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Allergies</th>
+                <th>Autres</th>
+                <th>Traitement</th>
+                <th>Chirurgicaux</th>
+                <th>Type</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('antecedent_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{{ entity.allergies }}</td>
+                <td>{{ entity.autres }}</td>
+                <td>{{ entity.traitement }}</td>
+                <td>{{ entity.chirurgicaux }}</td>
+                <td>{{ entity.type }}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('antecedent_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('antecedent_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a href="{{ path('antecedent_new') }}">
+                Create a new entry
+            </a>
+        </li>
+    </ul>
+    {% endblock %}

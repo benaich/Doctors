@@ -1,0 +1,152 @@
+{% extends "BenDoctorsBundle::layout.html.twig" %}
+{% block title %}
+Tableau de bord | {{ parent() }}
+{% endblock %}
+{% block body %}
+<div class="col-md-12">
+<div class="btn-group pull-right" style="margin-top: 15px;">              
+  <button class="btn btn-primary "><span class="glyphicon glyphicon-cog"></span> Action</button>
+  <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" role="menu">
+    <li><a href="{{ path('person_edit', { 'id': entity.id }) }}"><span class="glyphicon glyphicon-edit"></span> modifier</a></li>
+    <li><a href="{{ path('antecedent_new', { 'id': entity.id }) }}"><span class="glyphicon glyphicon-plus"></span> Antécedent</a></li>
+    <li><a href="{{ path('consultation_new', { 'id': entity.id }) }}"><span class="glyphicon glyphicon-plus"></span> Consultation</a></li>
+    <li><a id="btnPrint"><span class="glyphicon glyphicon-print"></span> imprimer</a></li>
+    <li><a href="#" id="js-delete"><span class="glyphicon glyphicon-trash"></span> Supprimer</a></li>
+  </ul>
+</div>
+<h3><span class="glyphicon glyphicon-user"></span> {{ entity.fullName }}</h3>
+</div>
+
+<div class="col-md-4">
+    <div class="box">
+      <header>
+          <h4><span class="glyphicon glyphicon-file"></span> Identité de l'étudiant</h4>
+      </header>
+        <ul class="list-group">
+          <li class="list-group-item"><strong>Nom :</strong> {{ entity.familyname }}</li>
+          <li class="list-group-item"><strong>Preom :</strong>  {{ entity.firstname }} </li>
+          <li class="list-group-item"><strong>CIN :</strong> {{ entity.cin }}</li>
+          <li class="list-group-item"><strong>CNE :</strong> {{ entity.cne }}</li>
+          <li class="list-group-item"><strong>Sexe :</strong> {{ entity.gender }}</li>
+          <li class="list-group-item"><strong>Date de naissance :</strong> {% if entity.birthday %}{{ entity.birthday|date('d/m/Y') }}{% endif %}</li>
+          <li class="list-group-item"><strong>Lieu de naissance :</strong> {{ entity.birthcity }}</li>
+        </ul>
+    </div>
+</div>
+<div class="col-md-4">
+    <div class="box">
+      <header>
+          <h4><span class="glyphicon glyphicon-pushpin"></span> Informations générale</h4>
+      </header>
+      <ul class="list-group">
+          <li class="list-group-item"><strong>Etablissement :</strong> {{ entity.etablissement }}</li>
+          <li class="list-group-item"><strong>Université :</strong> {{ entity.university }}</li>
+          <li class="list-group-item"><strong>Adresse :</strong> {{ entity.address }}</li>
+          <li class="list-group-item"><strong>Province :</strong> {{ entity.city }}</li>
+          <li class="list-group-item"><strong>Pay :</strong> {{ entity.contry }}</li>
+          <li class="list-group-item"><strong>Tél :</strong> {{ entity.gsm }}</li>
+          <li class="list-group-item"><strong>adresse email :</strong> <a href="mailto:{{ entity.email }}">{{ entity.email }}</a></li>
+          <li class="list-group-item"><strong>type de couverture sociale :</strong> {{ entity.cnsstype }}</li>
+          <li class="list-group-item"><strong>N° de couverture sociale :</strong> {{ entity.cnss }}</li>
+      </ul>
+    </div>
+</div>
+<div class="col-md-4">
+    <div class="box">
+      <header>
+          <h4><span class="glyphicon glyphicon-pushpin"></span> Tuteur</h4>
+      </header>
+      <ul class="list-group">
+          <li class="list-group-item"><strong>Nom :</strong> {{ entity.parentName }}</li>
+          <li class="list-group-item"><strong>Adresse :</strong> {{ entity.parentAddress }}</li>
+          <li class="list-group-item"><strong>Gsm :</strong> {{ entity.parentGsm }}</li>
+          <li class="list-group-item"><strong>Fixe :</strong> {{ entity.parentFixe }}</li>
+          <li class="list-group-item"><strong>Tél :</strong> {{ entity.gsm }}</li>
+      </ul>
+    </div>
+</div>
+<div class="col-md-12">
+      <div class="box">
+        <header>
+            <h4><span class="glyphicon glyphicon-tag"></span> Antécedents</h4>
+        </header>
+        <table class="table table-hover table-bordered">
+            <thead>
+                <tr>
+                    <th>type</th>
+                    <th>allergies</th>
+                    <th>autres</th>
+                    <th>traitement</th>
+                    <th>chirurgicaux</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for item in entity.antecedents %}
+              <tr>
+                <td>{{ item.type }}</td>
+                <td>{{ item.allergies|nl2br }}</td>
+                <td>{{ item.autres|nl2br }}</td>
+                <td>{{ item.traitement|nl2br }}</td>
+                <td>{{ item.chirurgicaux|nl2br }}
+                <a class="btn btn-info btn-xs pull-right" href="{{ path('antecedent_edit', { 'id': item.id }) }}"><span class="glyphicon glyphicon-edit"></span></a>
+                </td>
+              </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div> 
+</div>
+
+<div class="col-md-12">
+      <div class="box">
+        <header>
+            <h4><span class="glyphicon glyphicon-tag"></span> Consultations</h4>
+        </header>
+        <table class="table table-hover table-bordered">
+            <thead>
+                <tr>
+                    <th>Motif</th>
+                    <th>Date</th>
+                    <th>Medecin</th>
+                    <th>Diagnostic</th>
+                    <th>Traitement</th>
+                    <th>action</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for item in entity.consultations %}
+              <tr>
+                <td>{{ item.name }}</td>
+                <td>{{ item.created|date('d/m/Y') }}</td>
+                <td>{{ item.user.fullname }}</td>
+                <td>{{ item.diagnosis|nl2br }}</td>
+                <td>{{ item.treatment|nl2br }}</td>
+                <td>
+                <a class="btn btn-info btn-xs pull-right" href="{{ path('consultation_show', { 'id': item.id }) }}"><span class="glyphicon glyphicon-search"></span></a>
+                </td>
+              </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div> 
+</div>
+
+<form id="deleteForm" action="{{ path('person_delete', { 'id': entity.id }) }}" method="DELETE">
+    {{ form_widget(delete_form) }}
+</form> 
+{% endblock %}
+{% block javascripts %}
+{{ parent() }}
+<script> 
+    (function($) {
+
+        $('#js-delete').on('click', function(){
+            $('#deleteForm').submit();
+            return false;
+        });
+    })(jQuery);
+</script>
+{% endblock %}

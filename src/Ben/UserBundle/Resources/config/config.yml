@@ -1,0 +1,11 @@
+#fos userbundle
+fos_user:
+    db_driver:     orm
+    firewall_name: main
+    user_class: Ben\UserBundle\Entity\User
+    from_email:
+        address:        info@onousc.com
+        sender_name:    admin
+    registration:
+        confirmation:
+            enabled:    true

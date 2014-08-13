@@ -1,0 +1,6 @@
+services:
+    activity_listener:
+        class: Ben\UserBundle\Listener\ActivityListener
+        arguments: ["@security.context", "@doctrine.orm.entity_manager"]
+        tags:
+            - { name: kernel.event_listener, event: kernel.controller, method: onCoreController }

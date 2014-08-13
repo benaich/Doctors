@@ -1,0 +1,112 @@
+<?php
+
+namespace Ben\DoctorsBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Test
+ *
+ * @ORM\Table()
+ * @ORM\Entity(repositoryClass="Ben\DoctorsBundle\Entity\TestRepository")
+ */
+class Test
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="name", type="string", length=255)
+     */
+    private $name;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="type", type="string", length=255)
+     */
+    private $type;
+    
+    /**
+    * @ORM\ManyToOne(targetEntity="Ben\DoctorsBundle\Entity\Consultation", inversedBy="tests")
+    * @ORM\JoinColumn(name="consultation_id", referencedColumnName="id", nullable=false)
+    */
+    private $consultation;
+
+    /**
+    * @ORM\OneToMany(targetEntity="Ben\DoctorsBundle\Entity\Metadata", mappedBy="test", cascade={"remove", "persist"})
+    */
+    protected $metadata;
+    
+    /************ constructeur ************/
+    
+    public function __construct()
+    {
+    }
+    
+    /************ getters & setters  ************/
+
+   /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set name
+     *
+     * @param string $name
+     * @return Test
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string 
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * Set type
+     *
+     * @param string $type
+     * @return Test
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
+
+        return $this;
+    }
+
+    /**
+     * Get type
+     *
+     * @return string 
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+}

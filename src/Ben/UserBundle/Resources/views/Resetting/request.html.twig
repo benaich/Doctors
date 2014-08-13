@@ -1,0 +1,44 @@
+{% extends "FOSUserBundle::layout.html.twig" %}
+
+{% block breadcrumb %} 
+<ul id="breadcrumbtrail">
+    <li class="home" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+        <a href="{{ path('home') }}" itemprop="url"><span itemprop="title"><i class="icon-home"></i> Accueil</span></a>
+        <div class="divider"></div>
+    </li>
+    <li class="home" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+        <a href="{{ path('fos_user_security_login') }}" itemprop="url"><span itemprop="title"><i class="icon-lock"></i> Login</span></a>
+        <div class="divider"></div>
+    </li>
+    <li class="home" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+        <span itemprop="title">Mot de passe oublié</span>
+    </li>
+</ul>
+{% endblock %}
+
+{% block headband %}
+<section class="headband">
+    <div class="mycontainer unit">
+        <h1><div class="secure-badge hspan"></div>Mot de passe oublié ?</h1>
+        <p>Trous de mémoires !!!</p> 
+    </div>
+</section>
+{% endblock %}
+
+{% block fos_user_content %}
+<form class="form-inline formstyle" action="{{ path('fos_user_resetting_send_email') }}" method="POST" class="fos_user_resetting_request">
+   <fieldset>
+        <legend>Récupération du Mot de passe</legend>
+    
+        {% if invalid_username is defined %}
+            <div class="alert alert-error fade in">
+            <button type="button" class="close" data-dismiss="alert">×</button>
+            <strong><i class="icon-warning-sign"></i> erreur : </strong> {{ 'resetting.request.invalid_username'|trans({'%username%': invalid_username}, 'FOSUserBundle') }}
+            </div>
+        {% endif %}
+        <input type="text" id="username" name="username" required="required" placeholder="Nom d'utilisateur ou adresse e-mail" />
+    
+        <button type="submit" style="border-radius: 0;margin-left: 10px; padding: 7px 10px;" class="btn btn-info">Réinitialiser le mot de passe <i class="icon-white icon-refresh"></i></button>
+    </fieldset>
+</form>
+{% endblock fos_user_content %}

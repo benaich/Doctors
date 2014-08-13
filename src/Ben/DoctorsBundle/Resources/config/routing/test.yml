@@ -1,0 +1,40 @@
+test:
+    path:     /
+    defaults: { _controller: "BenDoctorsBundle:Test:index" }
+
+test_ajax:
+    path:     /ajaxlist
+    defaults: { _controller: "BenDoctorsBundle:Test:ajaxList" }
+    requirements: { _method: post }
+
+test_show:
+    path:     /{id}/show
+    defaults: { _controller: "BenDoctorsBundle:Test:show" }
+
+test_new:
+    path:     /{id}/new
+    defaults: { _controller: "BenDoctorsBundle:Test:new" }
+
+test_create:
+    path:     /create
+    defaults: { _controller: "BenDoctorsBundle:Test:create" }
+    requirements: { _method: post }
+
+test_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "BenDoctorsBundle:Test:edit" }
+
+test_update:
+    path:     /{id}/update
+    defaults: { _controller: "BenDoctorsBundle:Test:update" }
+    requirements: { _method: post|put }
+
+test_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "BenDoctorsBundle:Test:delete" }
+    requirements: { _method: post|delete }
+
+test_remove:
+    path:     /remove
+    defaults: { _controller: "BenDoctorsBundle:Test:remove" }
+    requirements: { _method: post|delete }

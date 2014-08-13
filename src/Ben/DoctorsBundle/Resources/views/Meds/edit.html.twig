@@ -1,0 +1,35 @@
+{% extends "BenDoctorsBundle::layout.html.twig" %}
+{% block title %}
+Medicament edit | {{ parent() }}
+{% endblock %}
+{% block body %}
+
+<div class="col-md-12"><h3><span class="glyphicon glyphicon-tag"></span> Mise à jour d'un medicament</h3></div>
+
+<form action="{{ path('meds_update', { 'id': entity.id }) }}" class="form-horizontal col-md-8" method="post" {{ form_enctype(form) }}>
+    {% include "BenDoctorsBundle:Meds:form.html.twig" %}
+    <div class="form-group">
+      <div class="col-md-offset-5 col-md-7">
+        <button type="submit" name="subvalider" class="btn btn-primary"><span class="glyphicon glyphicon-edit"></span> Modifier</button>
+        <a href="#" id="js-delete" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> Supprimer</a>
+        <a href="{{ path('meds') }}" class="btn btn-success"><span class="glyphicon glyphicon-ok"></span> Retourner vers la liste</a>
+      </div>
+    </div>
+</form>
+
+<form id="deleteForm" action="{{ path('meds_delete', { 'id': entity.id }) }}" method="DELETE">
+    {{ form_widget(delete_form) }}
+</form> 
+{% endblock body %}
+{% block javascripts %}
+{{ parent() }}
+<script> 
+    (function($) {
+
+        $('#js-delete').on('click', function(){
+            $('#deleteForm').submit();
+            return false;
+        });
+    })(jQuery);
+</script>
+{% endblock %}

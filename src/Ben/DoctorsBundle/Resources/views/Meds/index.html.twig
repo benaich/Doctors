@@ -1,0 +1,41 @@
+{% extends "BenDoctorsBundle::layout.html.twig" %}
+{% block title %}
+Tableau de bord | {{ parent() }}
+{% endblock %}
+{% block body %}
+
+<h3><span class="glyphicon glyphicon-user"></span> Liste des médicaments
+<a href="{{ path('meds_new') }}" class="btn btn-info pull-right">Nouveau</a>
+</h3>
+
+    <table class="table table-striped table-hover table-bordered">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Nom</th>
+                <th>Quantité</th>
+                <th>Type</th>
+                <th>Description</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td>{{ loop.index }}</td>
+                <td>{{ entity.name }}</td>
+                <td>{{ entity.count }}</td>
+                <td>{{ entity.type }}</td>
+                <td>{{ entity.about|nl2br }}</td>
+        <td class="hidden-print">
+            <div class="text-center">
+                <a class="btn btn-info btn-xs" href="{{ path('meds_show', { 'id': entity.id }) }}"><span class="glyphicon glyphicon-search"></span></a>
+                <a class="btn btn-danger btn-xs" href="{{ path('meds_edit', { 'id': entity.id }) }}"><span class="glyphicon glyphicon-edit"></span></a>
+            </div>
+        </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    {% endblock %}

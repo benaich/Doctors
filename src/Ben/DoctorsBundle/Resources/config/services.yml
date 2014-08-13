@@ -1,0 +1,9 @@
+parameters:
+#    ben_doctors.example.class: Ben\DoctorsBundle\Example
+
+services:
+    ben.twig.extension.config:
+        class: Ben\DoctorsBundle\Twig\ConfigExtension
+        arguments: ["@doctrine.orm.entity_manager"]
+        tags:
+        - { name: twig.extension }

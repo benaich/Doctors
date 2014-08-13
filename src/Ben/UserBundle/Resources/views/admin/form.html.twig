@@ -1,0 +1,15 @@
+  <div class="form-group">
+    <label for="" class="col-sm-6 control-label">Photo</label>
+    <div class="col-sm-6">
+      <img class="myavatar col-md-4" src="{{ asset( entity.avatar)}}">
+    </div>
+  </div>
+  {{ form_row(form.image.file, { 'label': ' '}) }}
+  {{ form_row(form.username, { 'label': 'Identifiant'}) }}
+  {{ form_row(form.plainpassword, { 'label': 'Mot de passe'}) }}
+  {{ form_row(form.family_name, { 'label': 'Nom'}) }}
+  {{ form_row(form.first_name, { 'label': 'Prénom'}) }}
+  {{ form_row(form.email, { 'label': 'Adresse email'}) }}
+  {{ form_row(form.tel, { 'label': 'Tél'}) }}
+  {{ form_row(form.enabled, { 'label': 'Activé'}) }}
+  {{ form_rest(form) }}

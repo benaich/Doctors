@@ -1,0 +1,41 @@
+{% extends "BenDoctorsBundle::layout.html.twig" %}
+{% block title %}
+Tableau de bord | {{ parent() }}
+{% endblock %}
+{% block body -%}
+<h3>Examen médical</h3>
+<div class="row">
+    <div class="col-md-10">    
+        <table class="table table-striped table-hover table-bordered">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ entity.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ entity.name }}</td>
+            </tr>
+            <tr>
+                <th>Type</th>
+                <td>{{ entity.type }}</td>
+            </tr>
+            {% for item in entity.metadata %}
+            <tr>
+                <th>{{ item.theKey }}</th>
+                <td>{{ item.theValue}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    </div>
+    <div class="col-md-2">
+        <form id="deleteForm" action="{{ path('test_delete', { 'id': entity.id }) }}" method="DELETE">
+            <a class="btn btn-primary btn-block" href="{{ path('test') }}">Vers la liste</a>
+            <a class="btn btn-info btn-block" href="{{ path('test_edit', { 'id': entity.id }) }}">Mettre à jour</a>
+            <button class="btn btn-danger btn-block" type="submit">Supprimer</button>
+            {{ form_widget(delete_form) }}
+        </form> 
+    </div>
+</div>
+{% endblock %}

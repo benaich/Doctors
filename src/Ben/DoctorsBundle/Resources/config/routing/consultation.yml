@@ -1,0 +1,40 @@
+consultation:
+    path:     /
+    defaults: { _controller: "BenDoctorsBundle:Consultation:index" }
+
+consultation_ajax:
+    path:     /ajaxlist
+    defaults: { _controller: "BenDoctorsBundle:Consultation:ajaxList" }
+    requirements: { _method: post }
+
+consultation_show:
+    path:     /{id}/show
+    defaults: { _controller: "BenDoctorsBundle:Consultation:show" }
+
+consultation_new:
+    path:     /{id}/new
+    defaults: { _controller: "BenDoctorsBundle:Consultation:new" }
+
+consultation_create:
+    path:     /create
+    defaults: { _controller: "BenDoctorsBundle:Consultation:create" }
+    requirements: { _method: post }
+
+consultation_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "BenDoctorsBundle:Consultation:edit" }
+
+consultation_update:
+    path:     /{id}/update
+    defaults: { _controller: "BenDoctorsBundle:Consultation:update" }
+    requirements: { _method: post|put }
+
+consultation_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "BenDoctorsBundle:Consultation:delete" }
+    requirements: { _method: post|delete }
+
+consultation_remove:
+    path:     /remove
+    defaults: { _controller: "BenDoctorsBundle:Consultation:delete" }
+    requirements: { _method: post|delete }

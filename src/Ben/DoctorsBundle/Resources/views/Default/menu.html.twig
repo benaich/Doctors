@@ -1,0 +1,24 @@
+{% set route = app.request.attributes.get('_route') %} 
+
+{% set personMenu = ['person','person_elegible','person_show','person_new','person_edit'] %} 
+{% set medsMenu = ['meds','meds_elegible','meds_show','meds_new','meds_edit'] %} 
+{% set consultationMenu = ['consultation','consultation_elegible','consultation_show','consultation_new','consultation_edit'] %} 
+{% set testMenu = ['test','test_elegible','test_show','test_new','test_edit'] %} 
+{% set configMenu = ['config'] %} 
+{% set userMenu = ['ben_users','ben_show_user','ben_new_user','ben_edit_user'] %} 
+
+
+<nav id="adminmenu">
+    <ul class="top-menu">
+        <li class="{% if route!='ben_dashboard' %}not-{% endif %}current"><a href="{{ path('ben_dashboard') }}"><span class="glyphicon glyphicon-dashboard block"></span> <span class="menu-title">Dashborad</span></a></li>
+        <li class="{% if route not in personMenu %}not-{% endif %}current has-submenu"><a href="{{ path('person') }}"><span class="glyphicon glyphicon-user block"></span> <span class="menu-title">Etudiants</span></a>
+        </li>
+        <li class="{% if route not in consultationMenu %}not-{% endif %}current"><a href="{{ path('consultation') }}"><span class="glyphicon glyphicon-file block"></span> <span class="menu-title">Consultations</span></a></li>
+        <li class="{% if route not in testMenu %}not-{% endif %}current"><a href="{{ path('test') }}"><span class="glyphicon glyphicon-file block"></span> <span class="menu-title">Exameins</span></a></li>
+        <li class="{% if route not in medsMenu %}not-{% endif %}current"><a href="{{ path('meds') }}"><span class="glyphicon glyphicon-file block"></span> <span class="menu-title">Medicaments</span></a></li>
+
+        <li class="{% if route not in configMenu %}not-{% endif %}current has-submenu"><a href="{{ path('config') }}"><span class="glyphicon glyphicon-wrench block"></span> <span class="menu-title">Préférences</span></a>
+        </li>
+        <li class="not-current"><a href="#" id="trigger-shelf"><span class="glyphicon glyphicon-chevron-left block"></span>  <span class="menu-title">Collapse menu</span></a></li>
+    </ul>
+</nav>

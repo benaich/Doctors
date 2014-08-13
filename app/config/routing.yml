@@ -1,0 +1,6 @@
+ben_doctors:
+    resource: "@BenDoctorsBundle/Resources/config/routing.yml"
+    prefix:   /
+ben_user:
+    resource: "@BenUserBundle/Resources/config/routing.yml"
+    prefix:   /
