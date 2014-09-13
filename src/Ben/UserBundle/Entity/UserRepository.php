@@ -31,14 +31,23 @@ class UserRepository extends EntityRepository
         return $qb->getQuery()->getResult();
     }
 
-    public function getUsersBy($nombreParPage, $page, $keyword) {       
+    public function search($searchParam) {
+        extract($searchParam);      
        $qb = $this->createQueryBuilder('u')
                 ->leftJoin('u.image', 'img')
-                ->addSelect('img')
-                ->andWhere('u.username like :keyword or u.email like :keyword or u.family_name like :keyword or u.first_name like :keyword or u.roles like :keyword')
+                ->addSelect('img');
+        if(!empty($keyword))
+            $qb->andWhere('concat(u.familyname, u.firstname) like :keyword or u.email like :keyword u.username like :keyword or u.roles like :keyword')
                 ->setParameter('keyword', '%'.$keyword.'%');
-        $qb->setFirstResult(($page - 1) * $nombreParPage)
-        ->setMaxResults($nombreParPage);
+
+        if(!empty($ids))
+            $qb->andWhere('u.id in (:ids)')->setParameter('ids', $ids);
+        if(!empty($sortBy)){
+            $sortBy = in_array($sortBy, array('firstname', 'familyname', 'username')) ? $sortBy : 'id';
+            $sortDir = ($sortDir == 'DESC') ? 'DESC' : 'ASC';
+            $qb->orderBy('p.' . $sortBy, $sortDir);
+        }
+        if(!empty($perPage)) $qb->setFirstResult(($page - 1) * $perPage)->setMaxResults($perPage);
 
        return new Paginator($qb->getQuery());
     }
@@ -48,5 +57,29 @@ class UserRepository extends EntityRepository
         $query = $this->_em->createQuery($sql);
          
       return $query->getOneOrNullResult();
+    }
+
+    // public function statsByMeds(daterange)
+    // {
+    //     $date = explode("-", $daterange);
+    //     return  $this->fetch("select m.name as label, coalesce(sum(cm.count), 0 ) as data from meds m
+    //                 left join consultation_meds cm on cm.meds_id = m.id
+    //                 group by m.id 
+    //                 union
+    //                 select 'total' as label,  sum(count) as data from consultation_meds");
+    // }
+    // public function statsByConsultation($daterange)
+    // {
+    //     $date = explode("-", $daterange);
+    //     return  $this->fetch("select c.name as label, count(*) as data from consultation c 
+    //             where c.created between '".$date[0]."' and '".$date[1]."'
+    //             group by c.name");
+    // }
+
+    private function fetch($query)
+    {
+        $stmt = $this->getEntityManager()->getConnection()->prepare($query);
+        $stmt->execute();
+        return  $stmt->fetchAll();
     }
 }

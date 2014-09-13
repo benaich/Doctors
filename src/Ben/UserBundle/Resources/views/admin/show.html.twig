@@ -4,7 +4,53 @@ Tableau de bord | {{ parent() }}
 {% endblock %}
 
 {% block body %}
+<h3><span class="glyphicon glyphicon-user"></span> {{ entity.fullName }}</h3>
 
+<div class="row">
+	<div class="col-md-12">
+    <div class="box">
+      <header>
+          <h4><span class="glyphicon glyphicon-file"></span> Medecin</h4>
+      </header>
+        <ul class="list-group">
+          <li class="list-group-item"><strong>Nom :</strong> {{ entity.familyname }}</li>
+          <li class="list-group-item"><strong>Preom :</strong>  {{ entity.firstname }} </li>
+          <li class="list-group-item"><strong>Tél :</strong> {{ entity.tel }}</li>
+          <li class="list-group-item"><strong>Ajouté le :</strong> {% if entity.created %}{{ entity.created|date('d/m/Y') }}{% endif %}</li>
+        </ul>
+    </div>
+	</div>
+	<div class="col-md-12">
+		
+      <div class="box">
+        <header>
+            <h4><span class="glyphicon glyphicon-tag"></span> Historique des consultations</h4>
+        </header>
+        <table class="table table-hover table-bordered">
+            <thead>
+                <tr>
+                    <th>Motif</th>
+                    <th>Date</th>
+                    <th>Patient</th>
+                    <th>Diagnostic</th>
+                    <th>Traitement</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for item in entity.consultations %}
+              <tr>
+                <td><a href="{{ path('consultation_show', { 'id': item.id }) }}">{{ item.name }}</a></td>
+                <td>{{ item.created|date('d/m/Y') }}</td>
+                <td>{{ item.person.fullname }}</td>
+                <td>{{ item.diagnosis|nl2br }}</td>
+                <td>{{ item.treatment|nl2br }}</td>
+              </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div> 
+	</div>
+</div>
 
 {% endblock body %}
 

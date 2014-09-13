@@ -1,15 +1,15 @@
 {% for entity in entities %}
     <tr>
         <td class="hidden-print"><input type="checkbox" name="entities[]" value="{{ entity.id }}"></td>
-        <td>{{ entity.person.fullname }}</td>
         <td>{{ entity.name }}</td>
         <td>{% if entity.created %}{{ entity.created|date('d/m/Y') }}{% endif %}</td>
-        <td>{{ entity.user.fullname }}</td>
+        <td>{{ entity.type }}</td>
         <td>{{ entity.diagnosis }}</td>
-        <td>{{ entity.treatment }}</td>
+        <td>{{ entity.person.fullname }}</td>
+        <td>{{ entity.user.fullname }}</td>
         <td class="hidden-print">
             <div class="text-center">
-                <a class="btn btn-info btn-xs" href="{{ path('consultation_show', { 'id': entity.id }) }}"><span class="glyphicon glyphicon-search"></span></a>
+                <a class="btn btn-primary btn-xs" href="{{ path('consultation_show', { 'id': entity.id }) }}"><span class="glyphicon glyphicon-search"></span></a>
                 <a class="btn btn-danger btn-xs" href="{{ path('consultation_edit', { 'id': entity.id }) }}"><span class="glyphicon glyphicon-edit"></span></a>
             </div>
         </td>

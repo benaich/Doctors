@@ -21,12 +21,36 @@ class Consultation
      */
     private $id;
 
+    public static $GENERAL  = 'Consultation generale';
+    public static $SPECIAL  = 'Consultation spécialisé';
+
     /**
      * @var string
      *
      * @ORM\Column(name="name", type="string", length=255)
      */
     private $name;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="motiftype", type="string", length=255)
+     */
+    private $motiftype;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="type", type="string", length=255)
+     */
+    private $type;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="infrastructure", type="string", length=255, nullable=true)
+     */
+    private $infrastructure;
 
     /**
      * @var \DateTime
@@ -76,6 +100,7 @@ class Consultation
     public function __construct()
     {
         $this->created = new \DateTime;
+        $this->type = Consultation::$GENERAL;
         $this->tests = new \Doctrine\Common\Collections\ArrayCollection();
         $this->consultationmeds = new \Doctrine\Common\Collections\ArrayCollection();
     }
@@ -300,5 +325,79 @@ class Consultation
     public function getTreatment()
     {
         return $this->treatment;
+    }
+
+    /**
+     * Set type
+     *
+     * @param string $type
+     * @return Consultation
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
+
+        return $this;
+    }
+
+    /**
+     * Get type
+     *
+     * @return string 
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    /**
+     * Set motiftype
+     *
+     * @param string $motiftype
+     * @return Consultation
+     */
+    public function setMotiftype($motiftype)
+    {
+        $this->motiftype = $motiftype;
+
+        return $this;
+    }
+
+    /**
+     * Get motiftype
+     *
+     * @return string 
+     */
+    public function getMotiftype()
+    {
+        return $this->motiftype;
+    }
+
+    /**
+     * Set infrastructure
+     *
+     * @param string $infrastructure
+     * @return Consultation
+     */
+    public function setInfrastructure($infrastructure)
+    {
+        $this->infrastructure = $infrastructure;
+
+        return $this;
+    }
+
+    /**
+     * Get infrastructure
+     *
+     * @return string 
+     */
+    public function getInfrastructure()
+    {
+        return $this->infrastructure;
+    }
+    
+    public function isSpecial()
+    {
+        return ($this->type === Consultation::$SPECIAL);
     }
 }

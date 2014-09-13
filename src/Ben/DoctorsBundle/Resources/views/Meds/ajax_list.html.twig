@@ -1,0 +1,26 @@
+{% for entity in entities %}
+    <tr {% if not entity.count %}class="danger"{% endif %}>
+        <td class="hidden-print"><input type="checkbox" name="entities[]" value="{{ entity.id }}"></td>
+        <td>{{ entity.name }}</td>
+        <td>{{ entity.count }}</td>
+        <td>{{ entity.type }}</td>
+        <td>{{ entity.about | truncate(50) }}</td>
+
+        <td class="hidden-print">
+            <div class="text-center">
+                <a class="btn btn-primary btn-xs" href="{{ path('meds_show', { 'id': entity.id }) }}"><span class="glyphicon glyphicon-search"></span></a>
+                <a class="btn btn-danger btn-xs" href="{{ path('meds_edit', { 'id': entity.id }) }}"><span class="glyphicon glyphicon-edit"></span></a>
+            </div>
+        </td>
+    </tr>
+{% else %}
+    <tr class="mypagination">            
+        <td colspan="10">
+            <div id="msgbox" class="alert alert-danger fade in" role="alert"> 
+                <button type="button" class="close" data-dismiss="alert">×</button>
+                <strong>info !</strong> aucun résultat ne correspond à vos critères
+            </div>
+        </td>
+    </tr>
+{% endfor %}
+{% include "BenDoctorsBundle:Default:pagination.html.twig" %}

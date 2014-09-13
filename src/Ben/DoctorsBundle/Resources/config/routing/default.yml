@@ -1,3 +1,7 @@
 ben_dashboard:
     pattern:  /
     defaults: { _controller: BenDoctorsBundle:Default:index }
+
+ben_stats:
+    pattern:  /stats
+    defaults: { _controller: BenDoctorsBundle:Default:stats }

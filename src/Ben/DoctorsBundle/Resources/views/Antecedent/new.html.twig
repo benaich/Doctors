@@ -3,7 +3,7 @@
 Tableau de bord | {{ parent() }}
 {% endblock %}
 {% block body %}
-<div class="col-md-12"><h3><span class="glyphicon glyphicon-tag"></span> Ajout d'un Antecedent</h3></div>
+<h3><span class="glyphicon glyphicon-tag"></span> Ajout d'un Antecedent</h3>
 <form action="{{ path('antecedent_create') }}" class="form-horizontal col-md-8" method="post" {{ form_enctype(form) }}>
     <div class="form-group ">
 		<label class="col-md-6 control-label" for="user">Etudiant</label>
@@ -27,6 +27,7 @@ Tableau de bord | {{ parent() }}
 <script> 
     (function($) {
         $('#ben_antecedent_person').closest('.form-group').hide();
+        $('select').removeClass('form-control').select2({minimumResultsForSearch: -1});
     })(jQuery);
 </script>
 {% endblock %}

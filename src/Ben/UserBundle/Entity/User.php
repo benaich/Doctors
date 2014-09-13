@@ -76,7 +76,6 @@ class User extends BaseUser{
         $this->created = new \DateTime;
         $this->lastActivity = new \DateTime;
         $this->image= new \Ben\DoctorsBundle\Entity\image();
-        $this->image->setPath("anonymous.jpg");
         $this->consultations = new \Doctrine\Common\Collections\ArrayCollection();
     }
     
@@ -255,11 +254,44 @@ class User extends BaseUser{
      */
     public function getRole()
     {
-        $roles = ['ROLE_ADMIN', 'ROLE_MANAGER', 'ROLE_USER'];
         if(in_array('ROLE_ADMIN', $this->roles)) $role = 'Administrateur';
         else if(in_array('ROLE_MANAGER', $this->roles)) $role = 'Manager';
         else $role = 'utilisateur';
         return $role;
+    }
+
+
+    /**
+     * Add consultations
+     *
+     * @param \Ben\DoctorsBundle\Entity\Consultation $consultations
+     * @return User
+     */
+    public function addConsultation(\Ben\DoctorsBundle\Entity\Consultation $consultations)
+    {
+        $this->consultations[] = $consultations;
+
+        return $this;
+    }
+
+    /**
+     * Remove consultations
+     *
+     * @param \Ben\DoctorsBundle\Entity\Consultation $consultations
+     */
+    public function removeConsultation(\Ben\DoctorsBundle\Entity\Consultation $consultations)
+    {
+        $this->consultations->removeElement($consultations);
+    }
+
+    /**
+     * Get consultations
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getConsultations()
+    {
+        return $this->consultations;
     }
 }
 

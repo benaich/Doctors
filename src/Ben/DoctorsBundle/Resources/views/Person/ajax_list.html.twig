@@ -5,10 +5,11 @@
         <td>{{ entity.firstname }}</td>
         <td>{{ entity.cin }}</td>
         <td>{{ entity.cne }}</td>
+        <td>{{ entity.city }}</td>
         <td>{% if entity.birthday %}{{ entity.birthday|date('d/m/Y') }}{% endif %}</td>
         <td class="hidden-print">
             <div class="text-center">
-                <a class="btn btn-info btn-xs" href="{{ path('person_show', { 'id': entity.id }) }}"><span class="glyphicon glyphicon-search"></span></a>
+                <a class="btn btn-primary btn-xs" href="{{ path('person_show', { 'id': entity.id }) }}"><span class="glyphicon glyphicon-search"></span></a>
                 <a class="btn btn-danger btn-xs" href="{{ path('person_edit', { 'id': entity.id }) }}"><span class="glyphicon glyphicon-edit"></span></a>
             </div>
         </td>

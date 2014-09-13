@@ -4,3 +4,6 @@ services:
         arguments: ["@security.context", "@doctrine.orm.entity_manager"]
         tags:
             - { name: kernel.event_listener, event: kernel.controller, method: onCoreController }
+    ben.stats_handler:
+        class: Ben\UserBundle\Stats\StatsHandler
+        arguments: ["@doctrine.orm.entity_manager"]

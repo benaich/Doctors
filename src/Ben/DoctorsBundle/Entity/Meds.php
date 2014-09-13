@@ -3,6 +3,7 @@
 namespace Ben\DoctorsBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * Meds
@@ -50,6 +51,14 @@ class Meds
     private $about;
 
     /**
+     * @var \DateTime $created
+     *
+     * @ORM\Column(name="created", type="datetime")
+     * @Gedmo\Timestampable(on="create")
+     */
+    protected $created;
+
+    /**
     * @ORM\OneToMany(targetEntity="Ben\DoctorsBundle\Entity\ConsultationMeds", mappedBy="meds", cascade={"remove", "persist"})
     */
     protected $consultationmeds;
@@ -60,6 +69,7 @@ class Meds
     public function __construct()
     {
         $this->consultationmeds = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->created = new \DateTime;
     }
     
     /************ getters & setters  ************/
@@ -129,6 +139,19 @@ class Meds
     public function getCount()
     {
         return $this->count;
+    }
+
+    /**
+     * minus count
+     *
+     * @param string $count
+     * @return Meds
+     */
+    public function minusCount($count)
+    {
+        $this->count -= $count;
+
+        return $this;
     }
 
     /**
@@ -208,5 +231,26 @@ class Meds
     public function getConsultationmeds()
     {
         return $this->consultationmeds;
+    }
+
+    /**
+     * Set created
+     *
+     * @param \DateTime $created
+     * @return Meds
+     */
+    public function setCreated($created) {
+        $this->created = $created;
+
+        return $this;
+    }
+
+    /**
+     * Get created
+     *
+     * @return \DateTime 
+     */
+    public function getCreated() {
+        return $this->created;
     }
 }

@@ -1,18 +1,18 @@
 {% for entity in entities %}
   <tr>
     <td {% if entity.enabled %}class="active-row"{% endif %}><input type="checkbox" name="users[]" value="{{ entity.id }}"></td>
-    <td>
-        <div class="col-md-6"><img class="img-responsive img-circle" src="{{ asset( entity.avatar )}}" alt="{{ entity.username }}"></div>
-        <em class="pull-right">{{ entity.username }}</em>
-    </td>
+    <td>{{ entity.username }}</td>
     <td>{{ entity.fullName }}</td>
     <td>{{ entity.email }}</td>
     <td>{{ entity.tel }}</td>
     <td>{{ entity.role}}</td>
-    <td class="hide-print">
-        <a class="btn " href="{{ path('ben_edit_user', {id: entity.id }) }}"><span class="glyphicon glyphicon-edit"></span> modifier</a>
+    <td class="hidden-print">
+        <div class="text-center">
+            <a class="btn btn-primary btn-xs" href="{{ path('ben_show_user', { 'id': entity.id }) }}"><span class="glyphicon glyphicon-search"></span></a>
+            <a class="btn btn-danger btn-xs" href="{{ path('ben_edit_user', { 'id': entity.id }) }}"><span class="glyphicon glyphicon-edit"></span></a>
+        </div>
     </td>
   </tr>
 {% endfor %}
                 
-{% include "BenAgentBundle:Default:pagination.html.twig" %}
+{% include "BenDoctorsBundle:Default:pagination.html.twig" %}

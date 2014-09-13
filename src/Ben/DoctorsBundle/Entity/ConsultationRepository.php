@@ -18,13 +18,19 @@ class ConsultationRepository extends EntityRepository
         extract($searchParam);        
         $qb = $this->createQueryBuilder('c')
                 ->leftJoin('c.person', 'p')
-                ->addSelect('p');
+                ->addSelect('p')
+                ->leftJoin('c.user', 'u')
+                ->addSelect('u');
 
         if(!empty($keyword))
-            $qb->andWhere('concat(p.familyname, p.firstname) like :keyword or p.email like :keyword c.name like :keyword')
+            $qb->andWhere('concat(p.familyname, p.firstname) like :keyword or p.email like :keyword or c.name like :keyword')
                 ->setParameter('keyword', '%'.$keyword.'%');
+        if(!empty($ids))
+            $qb->andWhere('c.id in (:ids)')->setParameter('ids', $ids);
         if(!empty($cin))
             $qb->andWhere('p.cin = :cin')->setParameter('cin', $cin);
+        if(!empty($user))
+            $qb->andWhere('u.id = :user')->setParameter('user', $user);
         if(!empty($gender))
             $qb->andWhere('p.gender = :gender')->setParameter('gender', $gender);
         if(!empty($date))

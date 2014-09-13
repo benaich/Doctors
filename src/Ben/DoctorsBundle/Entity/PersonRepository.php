@@ -19,12 +19,14 @@ class PersonRepository extends EntityRepository
         $qb = $this->createQueryBuilder('p');
 
         if(!empty($keyword))
-            $qb->andWhere('concat(p.familyname, p.firstname) like :keyword or p.email like :keyword p.city like :keyword')
+            $qb->andWhere('concat(p.familyname, p.firstname) like :keyword or p.email like :keyword or p.city like :keyword or p.cin like :keyword')
                 ->setParameter('keyword', '%'.$keyword.'%');
         if(!empty($ids))
             $qb->andWhere('p.id in (:ids)')->setParameter('ids', $ids);
         if(!empty($cin))
             $qb->andWhere('p.cin = :cin')->setParameter('cin', $cin);
+        if(!empty($city))
+            $qb->andWhere('p.city = :city')->setParameter('city', $city);
         if(!empty($gender))
             $qb->andWhere('p.gender = :gender')->setParameter('gender', $gender);
         if(!empty($date_from))
@@ -44,5 +46,16 @@ class PersonRepository extends EntityRepository
     public function counter() {
         $qb = $this->createQueryBuilder('p')->select('COUNT(p)');
         return $qb->getQuery()->getSingleScalarResult();
+    }
+
+    public function getCities()
+    {
+        return  $this->fetch("select distinct city as label from person");
+    }
+    private function fetch($query)
+    {
+        $stmt = $this->getEntityManager()->getConnection()->prepare($query);
+        $stmt->execute();
+        return  $stmt->fetchAll();
     }
 }

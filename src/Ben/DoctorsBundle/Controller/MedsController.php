@@ -4,9 +4,11 @@ namespace Ben\DoctorsBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use JMS\SecurityExtraBundle\Annotation\Secure;
 
 use Ben\DoctorsBundle\Entity\Meds;
 use Ben\DoctorsBundle\Form\MedsType;
+use Ben\DoctorsBundle\Pagination\Paginator;
 
 /**
  * Meds controller.
@@ -17,20 +19,38 @@ class MedsController extends Controller
 
     /**
      * Lists all Meds entities.
+     * @Secure(roles="ROLE_MANAGER")
      *
      */
     public function indexAction()
     {
+        // var_dump($this);die;
         $em = $this->getDoctrine()->getManager();
-
-        $entities = $em->getRepository('BenDoctorsBundle:Meds')->findAll();
+        $entitiesLength = $em->getRepository('BenDoctorsBundle:Meds')->counter();
 
         return $this->render('BenDoctorsBundle:Meds:index.html.twig', array(
-            'entities' => $entities,
-        ));
+            'entitiesLength' => $entitiesLength));
     }
+
+    /**
+     * persons list using ajax
+     * @Secure(roles="ROLE_MANAGER")
+     */
+    public function ajaxListAction(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $searchParam = $request->get('searchParam');
+        $entities = $em->getRepository('BenDoctorsBundle:Meds')->search($searchParam);
+        $pagination = (new Paginator())->setItems(count($entities), $searchParam['perPage'])->setPage($searchParam['page'])->toArray();
+        return $this->render('BenDoctorsBundle:Meds:ajax_list.html.twig', array(
+                    'entities' => $entities,
+                    'pagination' => $pagination,
+                    ));
+    }
+
     /**
      * Creates a new Meds entity.
+     * @Secure(roles="ROLE_MANAGER")
      *
      */
     public function createAction(Request $request)
@@ -55,6 +75,7 @@ class MedsController extends Controller
 
     /**
      * Displays a form to create a new Meds entity.
+     * @Secure(roles="ROLE_MANAGER")
      *
      */
     public function newAction()
@@ -70,6 +91,7 @@ class MedsController extends Controller
 
     /**
      * Finds and displays a Meds entity.
+     * @Secure(roles="ROLE_MANAGER")
      *
      */
     public function showAction($id)
@@ -92,6 +114,7 @@ class MedsController extends Controller
 
     /**
      * Displays a form to edit an existing Meds entity.
+     * @Secure(roles="ROLE_MANAGER")
      *
      */
     public function editAction($id)
@@ -115,6 +138,7 @@ class MedsController extends Controller
     }
     /**
      * Edits an existing Meds entity.
+     * @Secure(roles="ROLE_MANAGER")
      *
      */
     public function updateAction(Request $request, $id)
@@ -145,6 +169,7 @@ class MedsController extends Controller
     }
     /**
      * Deletes a Meds entity.
+     * @Secure(roles="ROLE_MANAGER")
      *
      */
     public function deleteAction(Request $request, $id)

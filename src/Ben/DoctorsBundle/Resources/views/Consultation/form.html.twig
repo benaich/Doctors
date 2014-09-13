@@ -1,8 +1,9 @@
-
+{# 
   {{ form_row(form.name, { 'label': 'Motif'}) }}
   {{ form_row(form.diagnosis, { 'label': 'Diagnostic'}) }}
   {{ form_row(form.treatment, { 'label': 'Traitement'}) }}
   {{ form_row(form.person) }}
   {{ form_row(form.consultationmeds, { 'label': 'Medicaments déliverés par le centre'}) }}
   {{ form_rest(form) }} 
-      
+       #}
+{{ form_widget(form) }}

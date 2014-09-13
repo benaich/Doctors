@@ -62,4 +62,8 @@ function confirmation() {
     /* tooltip */
     $('a[data-toggle="tooltip"]').tooltip();
 
+    /* select 2 */
+    $('.select2.search').select2();
+    $('.select2.no-search').select2({minimumResultsForSearch: -1});
+
 })(jQuery);

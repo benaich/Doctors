@@ -22,14 +22,7 @@ class TestType extends AbstractType
     {
         $builder
             ->add('name', 'text', array('label'=>'Motif'))
-            ->add('type', 'choice', array('label'=>'Type', 'choices' => array(
-                    'Examens général' => 'Examens général',
-                    'Examens biologiques' => 'Examens biologiques',
-                    'Examens radioloqiue' => 'Examens radioloqiue',
-                    'Autre' => 'Autre')))
             ->add('consultation')
-            ->add('request', 'textarea', array('label'=>'Demande'))
-            ->add('result', 'textarea', array('label'=>'Resultat'))
             ;
 
         if($this->general)
@@ -39,7 +32,24 @@ class TestType extends AbstractType
                 ->add('ta', 'text', array('label'=>'TA'))
                 ->add('od', 'text', array('label'=>'OD'))
                 ->add('og', 'text', array('label'=>'OG'))
-                ->add('symptomes', 'textarea', array('label'=>'Symptomes'))
+                ->add('hasvisualissue', 'checkbox', array('label'=>'Trouble visuel','required'  => false))
+                ->add('fixedvisualissue', 'choice', array('choices' => ['Corrigé'=>'Corrigé', 'Non corrigé'=>'Non corrigé'], 
+                        'expanded' => true,
+                        'multiple' => false,
+                        'label' => false,
+                        'data' => 'Corrigé'
+                        ))
+                ->add('symptomes', 'textarea', array('label'=>'Examen clinique','required'  => false))
+                ;
+        else 
+            $builder
+                ->add('type', 'choice', array('label'=>'Type', 'choices' => array(
+                    'Examens biologiques' => 'Examens biologiques',
+                    'Examens radioloqiue' => 'Examens radioloqiue',
+                    'Autre' => 'Autre')))
+                ->add('symptomes', 'textarea', array('label'=>'Symptomes','required'  => false))
+                ->add('request', 'textarea', array('label'=>'Demande','required'  => false))
+                ->add('result', 'textarea', array('label'=>'Resultat','required'  => false))
                 ;
     }
     

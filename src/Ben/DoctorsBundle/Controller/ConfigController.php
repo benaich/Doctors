@@ -17,33 +17,24 @@ class ConfigController extends Controller
 {
     /**
      * Lists all config entities.
-     * @Secure(roles="ROLE_MANAGER")
+     * @Secure(roles="ROLE_ADMIN")
      *
      */
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entities = $em->getRepository('BenDoctorsBundle:Config')->findAll();
-        $logements = $em->getRepository('BenDoctorsBundle:Logement')->findAll();
-        $config=[];
-
-        foreach ($entities as $entity) {
-           $config[$entity->getTheKey()] = $entity->getTheValue();
-        }
         $img = new \Ben\DoctorsBundle\Entity\image();
         $imgform   = $this->createForm(new \Ben\DoctorsBundle\Form\imageType(), $img);
 
         return $this->render('BenDoctorsBundle:Config:index.html.twig', array(
-            'config' => $config,
-            'logements' => $logements,
             'imgform' => $imgform->createView()
         ));
     }
 
     /**
      * Finds and displays a config entity.
-     * @Secure(roles="ROLE_MANAGER")
+     * @Secure(roles="ROLE_ADMIN")
      *
      */
     public function showAction(config $entity)
@@ -57,7 +48,7 @@ class ConfigController extends Controller
 
     /**
      * Displays a form to create a new config entity.
-     * @Secure(roles="ROLE_MANAGER")
+     * @Secure(roles="ROLE_ADMIN")
      *
      */
     public function newAction()
@@ -73,7 +64,7 @@ class ConfigController extends Controller
 
     /**
      * Creates a new config entity.
-     * @Secure(roles="ROLE_MANAGER")
+     * @Secure(roles="ROLE_ADMIN")
      *
      */
     public function createAction(Request $request)
@@ -98,7 +89,7 @@ class ConfigController extends Controller
 
     /**
      * Displays a form to edit an existing config entity.
-     * @Secure(roles="ROLE_MANAGER")
+     * @Secure(roles="ROLE_ADMIN")
      *
      */
     public function editAction(config $entity)
@@ -115,7 +106,7 @@ class ConfigController extends Controller
 
     /**
      * Edits an existing config entity.
-     * @Secure(roles="ROLE_MANAGER")
+     * @Secure(roles="ROLE_ADMIN")
      *
      */
     public function updateAction(Request $request)
@@ -141,7 +132,7 @@ class ConfigController extends Controller
 
     /**
      * Deletes a config entity.
-     * @Secure(roles="ROLE_MANAGER")
+     * @Secure(roles="ROLE_ADMIN")
      *
      */
     public function deleteAction(Request $request, config $entity)

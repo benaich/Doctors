@@ -3,57 +3,36 @@
 Tableau de bord | {{ parent() }}
 {% endblock %}
 {% block body %}
-<div class="col-md-12">
-    <h3><span class="glyphicon glyphicon-user"></span> Ajout d'un examen medicale</h3>
+<h3><span class="glyphicon glyphicon-user"></span> Ajout d'un examen medicale</h3>
 
-<form action="{{ path('test_create') }}"  class="form-horizontal col-md-8" method="post">
-    {% include "BenDoctorsBundle:Test:form.html.twig" %}
+<form action="{{ path('test_create', {type: type}) }}"  class="form-horizontal col-md-8" method="post">
+      {{ form_widget(form) }} 
 
     <div class="form-group">
       <div class="col-sm-offset-6 col-sm-6">
-        <button type="button" id="add-another-item" class="btn btn-info"><span class="glyphicon glyphicon-plus"></span></button>
         <button type="submit" name="subvalider" class="btn btn-primary"><span class="glyphicon glyphicon-edit"></span> Ajouter</button>
       </div>
     </div>
 </form>
-</div>
 {% endblock %}
 {% block javascripts %}
 {{ parent() }}
 <script> 
     (function($) {
         $('#ben_test_consultation').closest('.form-group').hide();
+        $('select').removeClass('form-control').select2({minimumResultsForSearch: -1});
 
-        var itemCount = '{{ form.metadata|length }}',
-            datacontainer = $('#ben_test_metadata'),
-            prototype = datacontainer.attr('data-prototype');
+        var hasvisualissue = $('#ben_test_hasvisualissue'),
+            fixedvisualissue = hasvisualissue.closest('.form-group').next().hide();
+            fixedvisualissue.children('label').html('');
 
-        datacontainer.find('label').removeClass('col-md-6').addClass('col-md-4');
-
-        $('#add-another-item').on('click', function() {
-            newWidget = prototype.replace(/__name__/g, itemCount++);
-            item = $(newWidget);
-            item.find('label').removeClass('col-md-6').addClass('col-md-4');
-            item.appendTo(datacontainer);
-            addTagFormDeleteLink(item);
-
-            return false;
-        });
-
-        datacontainer.children('.form-group').each(function() {
-            console.log($(this));
-            addTagFormDeleteLink($(this));
-        });
-
-        function addTagFormDeleteLink(tagFormLi) {
-            console.log(tagFormLi);
-            var removeFormA = $('<a class="js-remove" href="#">x</a>');
-            tagFormLi.append(removeFormA);
+        if(hasvisualissue.is(":checked")){
+            fixedvisualissue.show();
         }
-
-        datacontainer.on('click', '.js-remove', function(e) {
-            e.preventDefault();
-            $(this).parent().remove();
+        hasvisualissue.on('change', function(){
+          if(hasvisualissue.is(":checked"))
+            fixedvisualissue.show();
+          else fixedvisualissue.hide();
         });
 
     })(jQuery);

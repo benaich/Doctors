@@ -9,28 +9,54 @@ Tableau de bord | {{ parent() }}
         <table class="table table-striped table-hover table-bordered">
         <tbody>
             <tr>
-                <th>Id</th>
-                <td>{{ entity.id }}</td>
-            </tr>
-            <tr>
-                <th>Name</th>
-                <td>{{ entity.name }}</td>
-            </tr>
-            <tr>
                 <th>Type</th>
                 <td>{{ entity.type }}</td>
             </tr>
-            {% for item in entity.metadata %}
+            {% if entity.isGeneral %}
             <tr>
-                <th>{{ item.theKey }}</th>
-                <td>{{ item.theValue}}</td>
+                <th>Taille</th>
+                <td>{{ entity.taille }}</td>
             </tr>
-            {% endfor %}
+            <tr>
+                <th>Poids</th>
+                <td>{{ entity.poids }}</td>
+            </tr>
+            <tr>
+                <th>TA</th>
+                <td>{{ entity.ta }}</td>
+            </tr>
+            <tr><th colspan="2">Acuité visuelle</th></tr>
+            <tr>
+                <th>OD</th>
+                <td>{{ entity.od }}</td>
+            </tr>
+            <tr>
+                <th>OG</th>
+                <td>{{ entity.og }}</td>
+            </tr>
+            <tr>
+                <th>Symptomes</th>
+                <td>{{ entity.symptomes|nl2br }}</td>
+            </tr>
+            {% else %}
+            <tr>
+                <th>Symptomes</th>
+                <td>{{ entity.symptomes|nl2br }}</td>
+            </tr>
+            <tr>
+                <th>Demande</th>
+                <td>{{ entity.request|nl2br }}</td>
+            </tr>
+            <tr>
+                <th>Resultats</th>
+                <td>{{ entity.result|nl2br }}</td>
+            </tr>
+            {% endif %}
         </tbody>
     </table>
     </div>
     <div class="col-md-2">
-        <form id="deleteForm" action="{{ path('test_delete', { 'id': entity.id }) }}" method="DELETE">
+        <form id="deleteForm" action="{{ path('test_delete', { 'id': entity.id }) }}" method="POST">
             <a class="btn btn-primary btn-block" href="{{ path('test') }}">Vers la liste</a>
             <a class="btn btn-info btn-block" href="{{ path('test_edit', { 'id': entity.id }) }}">Mettre à jour</a>
             <button class="btn btn-danger btn-block" type="submit">Supprimer</button>

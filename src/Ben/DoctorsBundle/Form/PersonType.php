@@ -26,6 +26,7 @@ class PersonType extends AbstractType
                     'required' => false,))
             ->add('contry')
             ->add('city')
+            ->add('resident')
             ->add('address')
             ->add('etablissement')
             ->add('university')
@@ -54,6 +55,6 @@ class PersonType extends AbstractType
      */
     public function getName()
     {
-        return 'ben_doctorsbundle_person';
+        return 'ben_person';
     }
 }

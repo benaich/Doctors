@@ -3,7 +3,6 @@
 Tableau de bord | {{ parent() }}
 {% endblock %}
 {% block body %}
-<div class="col-md-12">
 <div class="btn-group pull-right" style="margin-top: 15px;">              
   <button class="btn btn-primary "><span class="glyphicon glyphicon-cog"></span> Action</button>
   <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
@@ -12,14 +11,15 @@ Tableau de bord | {{ parent() }}
   <ul class="dropdown-menu" role="menu">
     <li><a href="{{ path('person_edit', { 'id': entity.id }) }}"><span class="glyphicon glyphicon-edit"></span> modifier</a></li>
     <li><a href="{{ path('antecedent_new', { 'id': entity.id }) }}"><span class="glyphicon glyphicon-plus"></span> Antécedent</a></li>
-    <li><a href="{{ path('consultation_new', { 'id': entity.id }) }}"><span class="glyphicon glyphicon-plus"></span> Consultation</a></li>
+    <li><a href="{{ path('consultation_new', { 'id': entity.id }) }}"><span class="glyphicon glyphicon-plus"></span> Consultation générale</a></li>
+    <li><a href="{{ path('consultation_new', { 'id': entity.id, 'type': 1 }) }}"><span class="glyphicon glyphicon-plus"></span> Consultation specialisé</a></li>
     <li><a id="btnPrint"><span class="glyphicon glyphicon-print"></span> imprimer</a></li>
     <li><a href="#" id="js-delete"><span class="glyphicon glyphicon-trash"></span> Supprimer</a></li>
   </ul>
 </div>
 <h3><span class="glyphicon glyphicon-user"></span> {{ entity.fullName }}</h3>
-</div>
 
+<div class="row">
 <div class="col-md-4">
     <div class="box">
       <header>
@@ -86,13 +86,11 @@ Tableau de bord | {{ parent() }}
             <tbody>
             {% for item in entity.antecedents %}
               <tr>
-                <td>{{ item.type }}</td>
+                <td><a href="{{ path('antecedent_edit', { 'id': item.id }) }}">{{ item.type }}</a></td>
                 <td>{{ item.allergies|nl2br }}</td>
                 <td>{{ item.autres|nl2br }}</td>
                 <td>{{ item.traitement|nl2br }}</td>
-                <td>{{ item.chirurgicaux|nl2br }}
-                <a class="btn btn-info btn-xs pull-right" href="{{ path('antecedent_edit', { 'id': item.id }) }}"><span class="glyphicon glyphicon-edit"></span></a>
-                </td>
+                <td>{{ item.chirurgicaux|nl2br }}</td>
               </tr>
             {% endfor %}
             </tbody>
@@ -111,29 +109,27 @@ Tableau de bord | {{ parent() }}
                     <th>Motif</th>
                     <th>Date</th>
                     <th>Medecin</th>
+                    <th>Type</th>
                     <th>Diagnostic</th>
                     <th>Traitement</th>
-                    <th>action</th>
                 </tr>
             </thead>
             <tbody>
             {% for item in entity.consultations %}
               <tr>
-                <td>{{ item.name }}</td>
+                <td><a href="{{ path('consultation_show', { 'id': item.id }) }}">{{ item.name }}</a></td>
                 <td>{{ item.created|date('d/m/Y') }}</td>
-                <td>{{ item.user.fullname }}</td>
-                <td>{{ item.diagnosis|nl2br }}</td>
-                <td>{{ item.treatment|nl2br }}</td>
-                <td>
-                <a class="btn btn-info btn-xs pull-right" href="{{ path('consultation_show', { 'id': item.id }) }}"><span class="glyphicon glyphicon-search"></span></a>
-                </td>
+                <td><a href="{{ path('ben_show_user', { 'id': item.user.id }) }}">{{ item.user.fullname }}</a></td>
+                <td>{{ item.type }}</td>
+                <td>{{ item.diagnosis|truncate(50) }}</td>
+                <td>{{ item.treatment|truncate(50) }}</td>
               </tr>
             {% endfor %}
             </tbody>
         </table>
     </div> 
 </div>
-
+</div>
 <form id="deleteForm" action="{{ path('person_delete', { 'id': entity.id }) }}" method="DELETE">
     {{ form_widget(delete_form) }}
 </form> 

@@ -6,41 +6,38 @@ Login - {{ parent() }}
 {% block container %}
 
 <body class="sign-in-bg">
-    <div class="sign-in">
-        <div class="sign-in-head text-center">
-            <h1>{{ app_config.app_name }}</h1>
-        </div>
-        <div class="sign-in-form">
-            <h5 class="text-center" >Connexion</h5>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6 col-md-4 col-md-offset-4">
+
             {% if error %}
                 <div class="alert alert-danger fade in">
                     <strong><i class="icon-warning-sign"></i> erreur : </strong> {{ error|trans({}, 'FOSUserBundle') }}
                 </div>
-            {% endif %} 
-            <form action="{{ path("fos_user_security_check") }}" method="post">
-                <div class="form-group">
-                    <div class="input-group input-group-lg">
-                      <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
-                      <input type="text" class="form-control" placeholder="Login/E-mail" name="_username" value="{{ last_username }}" required="required" autofocus="true" />
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="input-group input-group-lg">
-                      <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
-                       <input type="password" class="form-control" id="password" name="_password" required="required" placeholder="Password"/>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="remeberme">
-                   <input id="remeberme" type="checkbox" name="_remember_me" value="on">
+            {% endif %}
+            {# <h1 class="text-center login-title">Sign in to continue to Bootsnipp</h1> #}
+            <div class="sign-in-head text-center">
+                <h1>{{ app_config.app_name }}</h1>
+            </div>
+            <div class="account-wall">
+                <img class="profile-img" src="{{ asset("uploads/img/anonymous.png") }}"
+                    alt="">
+                <form action="{{ path("fos_user_security_check") }}" method="post" class="form-signin">
+                <input type="text" class="form-control" placeholder="Username" name="_username" value="{{ last_username }}" required autofocus>
+                <input type="password" class="form-control" placeholder="Password" name="_password" required>
+                <button class="btn btn-lg btn-primary btn-block" type="submit">
+                    Sign in</button>
+                <label class="checkbox pull-left">
+                    <input type="checkbox" name="_remember_me" value="on">
                     Garder ma session active
-                  </label>
-                </div>
-               <p class="text-center btn-area">
-              <button type="submit" class="btn btn-primary btn-wide btn-huge" href="adherents.html">Login</button>
-              </p>
-            </form>
+                </label>
+                <span class="clearfix"></span>
+                </form>
+            </div>
+            <a href="#" class="text-center new-account">Mots de pass oublié ? </a>
         </div>
     </div>
-  </body>
+</div>
+
+</body>
 {% endblock container %}

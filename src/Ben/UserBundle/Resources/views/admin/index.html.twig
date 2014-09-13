@@ -4,14 +4,13 @@ Tableau de bord | {{ parent() }}
 {% endblock %}
 {% block body %}
 
-<div class="col-md-12">
-<h3><span class="glyphicon glyphicon-user"></span> Gestion des utilisateurs</h3>
+<h3><span class="glyphicon glyphicon-user"></span> Gestion des médecins</h3>
         <form  id="jsForm" role="form" method="post" action="">
-          <input id="pagenumber" type="hidden" name="page" value="1"> 
+          <input id="pagenumber" type="hidden" name="searchParam[page]" value="1"> 
             <div class="row hide-print">
               <div class="col-md-5 form-group">
                 <div class="input-group">
-                  <input type="text" name="keyword" class="form-control" placeholder="Search">
+                  <input type="text" name="searchParam[keyword]" class="form-control" placeholder="Search">
                   <div class="input-group-btn">
                   <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
                   </div><!-- /btn-group -->
@@ -20,7 +19,7 @@ Tableau de bord | {{ parent() }}
 
               <div class="col-md-2">
                 <div class="col-md-9">
-                <select id="js-perpage" name="perpage" class="form-control">
+                <select id="js-perpage" name="searchParam[perPage]" class="form-control">
                   <option value="10" {% if app_config.rows_per_page == 10 %}selected{% endif %}>10</option>
                   <option value="20" {% if app_config.rows_per_page == 20 %}selected{% endif %}>20</option>
                   <option value="50" {% if app_config.rows_per_page == 50 %}selected{% endif %}>50</option>
@@ -41,6 +40,7 @@ Tableau de bord | {{ parent() }}
                       <li><a href="#" class="js-enable" data-action="1"><span class="glyphicon glyphicon-ok-circle"></span> Activer</a></li>
                       <li><a href="#" class="js-enable" data-action="0"><span class="glyphicon glyphicon-ban-circle"></span> Désctiver</a></li>
                       <li><a href="#" class="js-promote" data-action="USER"><span class="glyphicon glyphicon-user"></span> Promote to user</a></li>
+                      <li><a href="#" class="js-promote" data-action="MANAGER"><span class="glyphicon glyphicon-user"></span> Promote to manager</a></li>
                       <li><a href="#" class="js-promote" data-action="ADMIN"><span class="glyphicon glyphicon-user"></span> Promote to Admin</a></li>
                       <li class="divider"></li>
                       <li><a href="{{ path('ben_users_export') }}"><span class="glyphicon glyphicon-export"></span> Exporter vers csv</a></li>
@@ -69,7 +69,6 @@ Tableau de bord | {{ parent() }}
               <em><strong>Total:</strong> {{ entitiesLength }} utilisateur</em>
             </div>
         </form>
-</div>
    
 <div class="clearfix"></div> 
 {% endblock body %}

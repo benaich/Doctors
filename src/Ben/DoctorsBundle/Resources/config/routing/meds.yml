@@ -2,6 +2,11 @@ meds:
     path:     /
     defaults: { _controller: "BenDoctorsBundle:Meds:index" }
 
+meds_ajax:
+    path:     /ajaxlist
+    defaults: { _controller: "BenDoctorsBundle:Meds:ajaxList" }
+    requirements: { _method: post }
+
 meds_show:
     path:     /{id}/show
     defaults: { _controller: "BenDoctorsBundle:Meds:show" }
@@ -26,5 +31,10 @@ meds_update:
 
 meds_delete:
     path:     /{id}/delete
+    defaults: { _controller: "BenDoctorsBundle:Meds:delete" }
+    requirements: { _method: post|delete }
+
+meds_remove:
+    path:     /remove
     defaults: { _controller: "BenDoctorsBundle:Meds:delete" }
     requirements: { _method: post|delete }

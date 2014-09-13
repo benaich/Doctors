@@ -12,7 +12,7 @@ Tableau de bord | {{ parent() }}
         <div class="row hidden-print">
           <div class="col-md-5 form-group">
             <div class="input-group">
-              <input type="text" name="keyword" class="form-control" placeholder="Search">
+              <input type="text" name="searchParam[keyword]" class="form-control" placeholder="Search">
               <div class="input-group-btn">
               <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search"></span></button>
               </div><!-- /btn-group -->
@@ -26,6 +26,7 @@ Tableau de bord | {{ parent() }}
               </button>
               <ul class="dropdown-menu" role="menu">
                 <li><a href="{{ path('person_new') }}"><span class="glyphicon glyphicon-plus"></span> Ajouter</a></li>
+                <li><a href="#" id="js-delete"><span class="glyphicon glyphicon-trash"></span> Supprimer</a></li>
               </ul>
             </div>
           </div>
@@ -37,8 +38,9 @@ Tableau de bord | {{ parent() }}
                 <th class="sortable"><a href="#" class="js-sort" data-order="familyname">Nom<span class="glyphicon glyphicon-sort pull-right"></span></a></th>
                 <th class="sortable"><a href="#" class="js-sort" data-order="firstname">Prenom<span class="glyphicon glyphicon-sort pull-right"></span></a></th>
                 <th>Cin</th>
-                <th>Cen</th>
-                <th class="sortable"><a href="#" class="js-sort" data-order="birthday">Birthday<span class="glyphicon glyphicon-sort pull-right"></span></a></th>
+                <th>Cne</th>
+                <th>Province</th>
+                <th class="sortable"><a href="#" class="js-sort" data-order="birthday">Date de naissance<span class="glyphicon glyphicon-sort pull-right"></span></a></th>
                 <th class="hidden-print">Actions</th>
             </tr>
             </thead>
@@ -56,10 +58,16 @@ Tableau de bord | {{ parent() }}
         <h4 class="modal-title" id="searchModalLabel">Recherche avancée</h4>
       </div>
       <div class="modal-body form-horizontal">
-          <div class="form-group" id="js-detach">
+          <div class="form-group">
+            <label for="" class="col-sm-5 control-label">CIN</label>
+            <div class="col-sm-6">
+              <input type="text" name="searchParam[cin]" class="form-control">
+            </div>
+          </div>
+          <div class="form-group">
             <label for="" class="col-sm-5 control-label">Sexe</label>
             <div class="col-sm-6">
-              <select id="genderselect" name="searchParam[gender]" class="form-control">
+              <select id="genderselect" name="searchParam[gender]" class="select2 no-search">
                 <option value="">Tous</option>
                 <option value="garçon">Garçon</option>
                 <option value="fille">Fille</option>
@@ -67,9 +75,20 @@ Tableau de bord | {{ parent() }}
             </div>
           </div>
           <div class="form-group">
+            <label for="" class="col-sm-5 control-label">Ville</label>
+            <div class="col-sm-6">
+              <select id="cityselect" name="searchParam[city]" class="select2 search">
+                <option value="">Tous</option>
+                {% for item in cities %}
+                  <option value="{{ item.label }}">{{ item.label }}</option>
+                {% endfor %}
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
             <label for="" class="col-sm-5 control-label">Lignes par page</label>
             <div class="col-sm-6">
-                <select id="js-perpage" name="searchParam[perPage]" class="form-control">
+                <select id="js-perpage" name="searchParam[perPage]" class="select2 no-search">
                   <option value="10" {% if app_config.rows_per_page == 10 %}selected{% endif %}>10</option>
                   <option value="20" {% if app_config.rows_per_page == 20 %}selected{% endif %}>20</option>
                   <option value="50" {% if app_config.rows_per_page == 50 %}selected{% endif %}>50</option>
@@ -84,7 +103,7 @@ Tableau de bord | {{ parent() }}
     </div>
   </div>
 </div>
-
+</form>
 {% endblock body %}
 {% block javascripts %}
 {{ parent() }}
@@ -172,7 +191,7 @@ Tableau de bord | {{ parent() }}
       /* submit the form after loading the page*/
       init();
       ajaxPost();
-
+      
     })(jQuery);
 </script>
 {% endblock %}

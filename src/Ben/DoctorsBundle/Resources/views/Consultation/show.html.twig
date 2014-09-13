@@ -8,10 +8,21 @@ Tableau de bord | {{ parent() }}
     <div class="col-md-10">    
         <table class="table table-striped table-hover table-bordered">
             <tbody>
+                {% if entity.isSpecial %}
+                <tr>
+                    <th>Infrastructure sanitaire de reference</th>
+                    <td>{{ entity.infrastructure }}</td>
+                </tr>
+                <tr>
+                    <th>Specialité</th>
+                    <td>{{ entity.name }}</td>
+                </tr>
+                {% else %}
                 <tr>
                     <th>Motif</th>
                     <td>{{ entity.name }}</td>
                 </tr>
+                {% endif %}
                 <tr>
                     <th>Patient</th>
                     <td><a href="{{ path('person_show', { 'id': entity.person.id }) }}">{{ entity.person.fullname }}</a></td>
@@ -21,12 +32,22 @@ Tableau de bord | {{ parent() }}
                     <td>{{ entity.user.fullname }}</td>
                 </tr>
                 <tr>
+                    <th>Type de consultation</th>
+                    <td>{{ entity.type }}</td>
+                </tr>
+                <tr>
                     <th>Date de consultation</th>
                     <td>{{ entity.created|date('m/d/Y') }}</td>
                 </tr>
                 <tr>
                     <th>Diagnostic</th>
-                    <td>{{ entity.diagnosis|nl2br }}</td>
+                    <td>
+                    <ul>
+                    {% for item in entity.diagnosis|split(',') %}
+                        <li>{{ item }}</li>
+                    {% endfor %}
+                    </ul>
+                    </td>
                 </tr>
                 <tr>
                     <th>Traitement</th>
@@ -36,7 +57,20 @@ Tableau de bord | {{ parent() }}
         </table>
         <div class="row">
             <div class="col-md-7">
-            <h3>Liste des exameins effectuées <a class="btn btn-info btn-sm pull-right" href="{{ path('test_new', { 'id': entity.id }) }}"> <span class="glyphicon glyphicon-plus"></span></a></h3>
+            <h3>Liste des exameins effectuées 
+                <span class="btn-group pull-right">       
+                  <button class="btn btn-info btn-sm dropdown-toggle" data-toggle="dropdown">
+                    <span class="glyphicon glyphicon-plus"></span>
+                  </button>
+                  <ul class="dropdown-menu" role="menu">
+                    <li><a href="{{ path('test_new', { 'id': entity.id }) }}"> Ajouter un examen </a></li>
+                    <li><a href="{{ path('test_new', { 'id': entity.id, 'type': 1 }) }}"> Ajouter un examen général</a></li>
+                  </ul>
+                </span>
+            </h3>
+            
+            
+
             {% for entity in entity.tests %}
                 <table class="table table-striped table-hover table-bordered">
                 <thead>
@@ -46,15 +80,56 @@ Tableau de bord | {{ parent() }}
                 </thead>
                 <tbody>
                     <tr>
-                        <th>Type</th>
+                        <th style="width: 150px;">Type</th>
                         <td>{{ entity.type }}</td>
                     </tr>
-                    {% for item in entity.metadata %}
+                    {% if entity.isGeneral %}
                     <tr>
-                        <th>{{ item.theKey }}</th>
-                        <td>{{ item.theValue}}</td>
+                        <th>Taille</th>
+                        <td>{{ entity.taille }}</td>
                     </tr>
-                    {% endfor %}
+                    <tr>
+                        <th>Poids</th>
+                        <td>{{ entity.poids }}</td>
+                    </tr>
+                    <tr>
+                        <th>TA</th>
+                        <td>{{ entity.ta }}</td>
+                    </tr>
+                    <tr>
+                        <th>Acuité visuelle - OD</th>
+                        <td>{{ entity.od }}</td>
+                    </tr>
+                    <tr>
+                        <th>Acuité visuelle - OG</th>
+                        <td>{{ entity.og }}</td>
+                    </tr>
+                    <tr>
+                        <th>Trouble visuel</th>
+                        {% if entity.hasvisualissue %}
+                        <td>{{ entity.fixedvisualissue }}</td>
+                        {% else %}
+                        <td>Non</td>
+                        {% endif %}
+                    </tr>
+                    <tr>
+                        <th>Examen clinique</th>
+                        <td>{{ entity.symptomes|nl2br }}</td>
+                    </tr>
+                    {% else %}
+                    <tr>
+                        <th>Symptomes</th>
+                        <td>{{ entity.symptomes|nl2br }}</td>
+                    </tr>
+                    <tr>
+                        <th>Demande</th>
+                        <td>{{ entity.request|nl2br }}</td>
+                    </tr>
+                    <tr>
+                        <th>Resultats</th>
+                        <td>{{ entity.result|nl2br }}</td>
+                    </tr>
+                    {% endif %}
                 </tbody>
                 </table>
             {% endfor %}

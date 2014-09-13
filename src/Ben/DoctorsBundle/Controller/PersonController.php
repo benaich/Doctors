@@ -5,7 +5,7 @@ namespace Ben\DoctorsBundle\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Httpfoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-// use JMS\SecurityExtraBundle\Annotation\Secure;
+use JMS\SecurityExtraBundle\Annotation\Secure;
 
 use Ben\DoctorsBundle\Entity\Person;
 use Ben\DoctorsBundle\Form\PersonType;
@@ -21,19 +21,24 @@ class PersonController extends Controller
 
     /**
      * Lists all Person entities.
+     * @Secure(roles="ROLE_USER")
      *
      */
     public function indexAction()
     {
+        // var_dump($this);die;
         $em = $this->getDoctrine()->getManager();
         $entitiesLength = $em->getRepository('BenDoctorsBundle:Person')->counter();
+        $cities = $em->getRepository('BenDoctorsBundle:Person')->getCities();
 
         return $this->render('BenDoctorsBundle:Person:index.html.twig', array(
+            'cities' => $cities,
             'entitiesLength' => $entitiesLength));
     }
 
     /**
      * persons list using ajax
+     * @Secure(roles="ROLE_USER")
      */
     public function ajaxListAction(Request $request)
     {
@@ -63,30 +68,37 @@ class PersonController extends Controller
 
             return $this->redirect($this->generateUrl('person_show', array('id' => $entity->getId())));
         }
+        $cities = $em->getRepository('BenDoctorsBundle:Person')->getCities();
 
         return $this->render('BenDoctorsBundle:Person:new.html.twig', array(
             'entity' => $entity,
             'form'   => $form->createView(),
+            'cities' => $cities,
         ));
     }
 
     /**
      * Displays a form to create a new Person entity.
+     * @Secure(roles="ROLE_USER")
      *
      */
     public function newAction()
     {
         $entity = new Person();
         $form = $this->createForm(new PersonType(), $entity);
+        $em = $this->getDoctrine()->getManager();
+        $cities = $em->getRepository('BenDoctorsBundle:Person')->getCities();
 
         return $this->render('BenDoctorsBundle:Person:new.html.twig', array(
             'entity' => $entity,
             'form'   => $form->createView(),
+            'cities' => $cities,
         ));
     }
 
     /**
      * Finds and displays a Person entity.
+     * @Secure(roles="ROLE_USER")
      *
      */
     public function showAction($id)
@@ -109,6 +121,7 @@ class PersonController extends Controller
 
     /**
      * Displays a form to edit an existing Person entity.
+     * @Secure(roles="ROLE_USER")
      *
      */
     public function editAction($id)
@@ -122,15 +135,18 @@ class PersonController extends Controller
         }
         $editForm = $this->createForm(new PersonType(), $entity);
         $deleteForm = $this->createDeleteForm($id);
+        $cities = $em->getRepository('BenDoctorsBundle:Person')->getCities();
 
         return $this->render('BenDoctorsBundle:Person:edit.html.twig', array(
             'entity'      => $entity,
             'form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
+            'cities' => $cities,
         ));
     }
     /**
      * Edits an existing Person entity.
+     * @Secure(roles="ROLE_USER")
      *
      */
     public function updateAction(Request $request, $id)
@@ -152,15 +168,18 @@ class PersonController extends Controller
 
             return $this->redirect($this->generateUrl('person_edit', array('id' => $id)));
         }
+        $cities = $em->getRepository('BenDoctorsBundle:Person')->getCities();
 
         return $this->render('BenDoctorsBundle:Person:edit.html.twig', array(
             'entity'      => $entity,
             'form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
+            'cities' => $cities,
         ));
     }
     /**
      * Deletes a Person entity.
+     * @Secure(roles="ROLE_MANAGER")
      *
      */
     public function deleteAction(Request $request, $id)
@@ -196,5 +215,20 @@ class PersonController extends Controller
             ->add('id', 'hidden')
             ->getForm()
         ;
+    }
+
+    /**
+     * Deletes multiple entities
+     * @Secure(roles="ROLE_ADMIN")
+     */
+    public function removeAction(Request $request)
+    {
+        $ids = $request->get('entities');
+        $em = $this->getDoctrine()->getManager();
+        $entities = $em->getRepository('BenDoctorsBundle:Person')->search(array('ids'=>$ids));
+        foreach( $entities as $entity) $em->remove($entity);
+        $em->flush();
+
+        return new Response('1');
     }
 }

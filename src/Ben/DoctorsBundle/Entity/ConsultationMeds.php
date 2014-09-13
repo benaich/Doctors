@@ -9,6 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table(name="consultation_meds")
  * @ORM\Entity()
+ * @ORM\HasLifecycleCallbacks()
  */
 class ConsultationMeds
 {
@@ -126,5 +127,13 @@ class ConsultationMeds
     public function getMeds()
     {
         return $this->meds;
+    }
+
+    /**
+     * @ORM\PreRemove()
+     */
+    public function updateMeds()
+    {
+        $this->meds->minusCount($this->count * (-1));
     }
 }

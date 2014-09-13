@@ -7,11 +7,16 @@ Tableau de bord | {{ parent() }}
 <h3><span class="glyphicon glyphicon-user"></span> Mise à jour d'un Antecedent medicale</h3>
 
 <form action="{{ path('antecedent_update', { 'id': entity.id }) }}"  class="form-horizontal col-md-8" method="post">
+    <div class="form-group ">
+        <label class="col-md-6 control-label" for="user">Etudiant</label>
+        <div class="col-md-6">
+            <input id="user" class="form-control disabled" disabled="disabled" type="text" name="unused" value="{{ entity.person.fullName }}">
+        </div>
+    </div>
     {% include "BenDoctorsBundle:Antecedent:form.html.twig" %}
 
     <div class="form-group">
       <div class="col-sm-offset-6 col-sm-6">
-        <button type="button" id="add-another-item" class="btn btn-info"><span class="glyphicon glyphicon-plus"></span></button>
         <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-edit"></span> Mettre à jour</button>
         <a href="#" id="js-delete" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> Supprimer</a>
       </div>
@@ -31,6 +36,7 @@ Tableau de bord | {{ parent() }}
             $('#deleteForm').submit();
             return false;
         });
+        $('select').removeClass('form-control').select2({minimumResultsForSearch: -1});
     })(jQuery);
 </script>
 {% endblock %}

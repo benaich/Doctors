@@ -9,6 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table(name="consultation_meds")
  * @ORM\Entity()
+ * @ORM\HasLifecycleCallbacks()
  */
 class ConsultationMeds
 {
@@ -39,6 +40,8 @@ class ConsultationMeds
     * @ORM\JoinColumn(name="meds_id", referencedColumnName="id", nullable=false)
     */
     protected $meds;
+    
+    private $oldcount;
     
     /************ constructeur ************/
     
@@ -80,5 +83,59 @@ class ConsultationMeds
     public function getCount()
     {
         return $this->count;
+    }
+
+    /**
+     * Set consultation
+     *
+     * @param \Ben\DoctorsBundle\Entity\Consultation $consultation
+     * @return ConsultationMeds
+     */
+    public function setConsultation(\Ben\DoctorsBundle\Entity\Consultation $consultation)
+    {
+        $this->consultation = $consultation;
+
+        return $this;
+    }
+
+    /**
+     * Get consultation
+     *
+     * @return \Ben\DoctorsBundle\Entity\Consultation 
+     */
+    public function getConsultation()
+    {
+        return $this->consultation;
+    }
+
+    /**
+     * Set meds
+     *
+     * @param \Ben\DoctorsBundle\Entity\Meds $meds
+     * @return ConsultationMeds
+     */
+    public function setMeds(\Ben\DoctorsBundle\Entity\Meds $meds)
+    {
+        $this->meds = $meds;
+
+        return $this;
+    }
+
+    /**
+     * Get meds
+     *
+     * @return \Ben\DoctorsBundle\Entity\Meds 
+     */
+    public function getMeds()
+    {
+        return $this->meds;
+    }
+
+    /**
+     * @ORM\PreRemove()
+     */
+    public function updateMeds()
+    {
+        $this->meds->minusCount($this->count * (-1));
     }
 }

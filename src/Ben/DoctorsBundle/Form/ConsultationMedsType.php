@@ -15,9 +15,18 @@ class ConsultationMedsType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('meds', 'entity', array('label'=>'Medicament', 'class' => 'BenDoctorsBundle:Meds','property' => 'name',))
+            // ->add('meds', 'entity', array('label'=>'Medicament', 'class' => 'BenDoctorsBundle:Meds','property' => 'name',))
+            ->add('meds', 'entity', array(
+                'label'=>'Medicament', 
+                'class' => 'BenDoctorsBundle:Meds',
+                'query_builder' => function(\Doctrine\ORM\EntityRepository $er) {
+                    return $er->createQueryBuilder('m')
+                        ->where('m.count > 0')
+                        ->orderBy('m.name', 'ASC');
+                    },
+                ))
             ->add('count','text', array('label'=>'Nombre d\'unité'))
-        ;
+            ;
     }
     
     /**

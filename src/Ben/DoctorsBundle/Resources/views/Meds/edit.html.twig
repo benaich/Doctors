@@ -4,7 +4,7 @@ Medicament edit | {{ parent() }}
 {% endblock %}
 {% block body %}
 
-<div class="col-md-12"><h3><span class="glyphicon glyphicon-tag"></span> Mise à jour d'un medicament</h3></div>
+<h3><span class="glyphicon glyphicon-tag"></span> Mise à jour d'un medicament</h3>
 
 <form action="{{ path('meds_update', { 'id': entity.id }) }}" class="form-horizontal col-md-8" method="post" {{ form_enctype(form) }}>
     {% include "BenDoctorsBundle:Meds:form.html.twig" %}

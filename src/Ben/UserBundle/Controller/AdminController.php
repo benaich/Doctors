@@ -9,12 +9,12 @@ use Symfony\Component\HttpKernel\Exception\HttpException;
 use Ben\UserBundle\Entity\User;
 use Ben\UserBundle\Form\userType;
 use JMS\SecurityExtraBundle\Annotation\Secure;
-use Ben\AgentBundle\Pagination\Paginator;
+use Ben\DoctorsBundle\Pagination\Paginator;
 
 class AdminController extends Controller
 {
     /**
-     * @Secure(roles="ROLE_MANAGER")
+     * @Secure(roles="ROLE_ADMIN")
      */
     public function indexAction()
     {
@@ -25,26 +25,22 @@ class AdminController extends Controller
     }
 
     /**
-     * @Secure(roles="ROLE_MANAGER")
+     * @Secure(roles="ROLE_ADMIN")
      */
     public function ajaxListAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
-        $perPage = $request->get('perpage');
-        $page = $request->get('page');
-        $keyword = $request->get('keyword');
-        $template='BenUserBundle:admin:ajax_list.html.twig';
-        $entities = $em->getRepository('BenUserBundle:user')->getUsersBy($perPage, $page, $keyword);
-        
-        $pagination = (new Paginator())->setItems(count($entities), $perPage)->setPage($page)->toArray();
-        return $this->render($template, array(
+        $searchParam = $request->get('searchParam');
+        $entities = $em->getRepository('BenUserBundle:User')->search($searchParam);
+        $pagination = (new Paginator())->setItems(count($entities), $searchParam['perPage'])->setPage($searchParam['page'])->toArray();
+        return $this->render('BenUserBundle:admin:ajax_list.html.twig', array(
                     'entities' => $entities,
-                    'pagination' => $pagination
+                    'pagination' => $pagination,
                     ));
     }
 
     /**
-     * @Secure(roles="ROLE_MANAGER")
+     * @Secure(roles="ROLE_ADMIN")
      */
     public function newAction()
     {
@@ -54,7 +50,7 @@ class AdminController extends Controller
     }
 
     /**
-     * @Secure(roles="ROLE_MANAGER")
+     * @Secure(roles="ROLE_ADMIN")
      */
     public function addAction(Request $request)
     {
@@ -76,7 +72,7 @@ class AdminController extends Controller
     }
 
     /**
-     * @Secure(roles="ROLE_MANAGER")
+     * @Secure(roles="ROLE_ADMIN")
      */
     public function showAction($id)
     {
@@ -88,7 +84,7 @@ class AdminController extends Controller
     }
 
     /**
-     * @Secure(roles="ROLE_MANAGER")
+     * @Secure(roles="ROLE_ADMIN")
      */
     public function editAction(User $entity)
     {
@@ -97,7 +93,7 @@ class AdminController extends Controller
     }
 
     /**
-     * @Secure(roles="ROLE_MANAGER")
+     * @Secure(roles="ROLE_ADMIN")
      */
     public function updateAction(Request $request, User $user) {
         $em = $this->get('fos_user.user_manager');
@@ -123,7 +119,7 @@ class AdminController extends Controller
     }
 
     /**
-     * @Secure(roles="ROLE_MANAGER")
+     * @Secure(roles="ROLE_ADMIN")
      */
     public function deleteAction($user)
     {
@@ -132,7 +128,7 @@ class AdminController extends Controller
     }
  
     /**
-     * @Secure(roles="ROLE_MANAGER")
+     * @Secure(roles="ROLE_ADMIN")
      */   
     public function removeUsersAction(Request $request)
     {
@@ -148,7 +144,7 @@ class AdminController extends Controller
     } 
 
     /**
-     * @Secure(roles="ROLE_MANAGER")
+     * @Secure(roles="ROLE_ADMIN")
      */
     public function enableUsersAction(Request $request, $etat)
     {
@@ -164,13 +160,11 @@ class AdminController extends Controller
     }
 
     /**
-     * @Secure(roles="ROLE_MANAGER")
+     * @Secure(roles="ROLE_ADMIN")
      */    
     public function setRoleAction(Request $request, $role)
     {
-        if($role=='ADMIN') $role='ROLE_ADMIN';
-        else $role='ROLE_USER';
-
+        $role = (in_array($role, ['ADMIN', 'MANAGER'])) ? 'ROLE_'.$role : 'ROLE_USER';
         $users = $request->get('users');
         $userManager = $this->get('fos_user.user_manager');
         foreach( $users as $id){
@@ -183,7 +177,7 @@ class AdminController extends Controller
     }
 
     /**
-     * @Secure(roles="ROLE_MANAGER")
+     * @Secure(roles="ROLE_ADMIN")
      */    
     public function exportAction()
     {
@@ -206,7 +200,7 @@ class AdminController extends Controller
      */
     public function editMeAction() {
         $entity = $this->container->get('security.context')->getToken()->getUser();
-        $isAdmin = $this->get('security.context')->isGranted('ROLE_MANAGER');
+        $isAdmin = $this->get('security.context')->isGranted('ROLE_ADMIN');
         $form = $this->createForm(new UserType(false, $isAdmin), $entity);
         return $this->render('BenUserBundle:myProfile:edit.html.twig', array(
                     'entity' => $entity,
@@ -221,7 +215,7 @@ class AdminController extends Controller
      */
     public function updateMeAction(Request $request, \Ben\UserBundle\Entity\User $entity) {
         $em = $this->getDoctrine()->getManager();
-        $isAdmin = $this->get('security.context')->isGranted('ROLE_MANAGER');
+        $isAdmin = $this->get('security.context')->isGranted('ROLE_ADMIN');
         $form = $this->createForm(new UserType(false, $isAdmin), $entity);
         $form->bind($request);
 

@@ -18,15 +18,27 @@ Tableau de bord | {{ parent() }}
     {{ form_widget(delete_form) }}
 </form> 
 {% endblock %}
+
 {% block javascripts %}
 {{ parent() }}
 <script> 
     (function($) {
-
+        
         $('#js-delete').on('click', function(){
             $('#deleteForm').submit();
             return false;
         });
+
+        cityData = [{% for item in cities %}'{{item.label}}'{% if not loop.last %},{% endif %}{% endfor %}];
+
+        cityData = $.map(cityData, function(val,index){return {id:val, text:val};});
+        $('#ben_person_city').removeClass('form-control').select2({
+          createSearchChoice:function(term, data) { if ($(data).filter(function() { return this.text.localeCompare(term)===0; }).length===0) {return {id:term, text:term};} },
+          multiple: false,
+          data: cityData
+        });
+        $('select').removeClass('form-control').select2({minimumResultsForSearch: -1});
+
     })(jQuery);
 </script>
 {% endblock %}

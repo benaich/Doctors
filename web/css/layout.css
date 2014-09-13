@@ -10,23 +10,33 @@ body.shelf{
 a:hover, a:focus {
 	text-decoration: none;
 }
+a {
+	color: #03A678;
+}
 .container {
 	width: 100%;
 }
+.theme1 #adminmenu, .theme1 #adminbar{
+	background-color: #2C3E50;
+}
+.theme1 #adminmenu .top-menu li.current{
+	background: #03A678;
+}
+.theme1 #adminmenu .top-menu > li:hover, .menu-profile:hover, .user-profile>a:hover {
+	background: #19232E;
+}
+.theme1 .box header {
+/*border: 1px solid #03A678;*/
+background: #03A678;
+}
+
 #adminmenu{
-	background: #222;
 	position: fixed;
 	left: 0;
 	bottom: 0;
 	top: 0;
 	z-index: 1030;
 	margin-top: 50px;
-}
-#adminmenu header{
-	color: white;
-	padding: 10px 20px;
-	line-height: 30px;
-	background: rgba(128, 128, 128, 0.48);
 }
 #adminmenu ul{
 	list-style: none;
@@ -42,9 +52,6 @@ a:hover, a:focus {
 	-ms-transition: all 0.4s ease 0s;
 	-o-transition: all 0.4s ease 0s;
 	transition: all 0.4s ease 0s;
-}
-#adminmenu .top-menu > li:hover, .menu-profile:hover{
-	background: #111;
 }
 #adminmenu .top-menu li.current{
 	background: #0074a2;
@@ -69,9 +76,6 @@ a:hover, a:focus {
 }
 #adminmenu .submenu-head{
 	display: none;
-}
-#adminmenu li a:hover, #adminmenu li a.active {
-	color: #2ea2cc!important;
 }
 /* collapse menu */
 .shelf #adminbar #logo{
@@ -164,7 +168,7 @@ a:hover, a:focus {
 }
 .wrap {
 	width: 100%;
-	padding: 50px 0px 0 0;
+	padding: 50px 0 0 10px;
 }
 /* adminbar */
 #adminbar{
@@ -175,7 +179,6 @@ a:hover, a:focus {
 	width: 100%;
 	min-width: 600px;
 	z-index: 1020;
-	background: #222;
 }
 #adminbar #logo{
 	float: left;
@@ -199,10 +202,8 @@ a:hover, a:focus {
 	color: #9c9c9c;
 }
 .user-profile>a img {
-	border-radius: 4px;
-}
-.user-profile>a:hover {
-background: #2d2d2d;
+	border-radius: 50%;
+	margin-right: 5px;
 }
 .img-small{
 	width: 34px;
@@ -259,6 +260,6 @@ margin-right: 15px !important;
 }
 .navbar-footer-content { padding:15px 15px 15px 15px; }
 .dropdown-menu {
-padding: 0px;
-overflow: hidden;
+	padding: 0px;
+	overflow: hidden;
 }

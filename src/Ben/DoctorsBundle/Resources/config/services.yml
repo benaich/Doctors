@@ -2,6 +2,10 @@ parameters:
 #    ben_doctors.example.class: Ben\DoctorsBundle\Example
 
 services:
+    twig.extension.text:
+        class: Twig_Extensions_Extension_Text
+        tags:
+        - { name: twig.extension }
     ben.twig.extension.config:
         class: Ben\DoctorsBundle\Twig\ConfigExtension
         arguments: ["@doctrine.orm.entity_manager"]

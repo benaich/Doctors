@@ -51,7 +51,7 @@ class image
     public function __construct()
     {
         $this->alt = 'image';
-        $this->path= 'anonymous.jpg';
+        $this->path= 'anonymous.png';
     }
     
     /************ Les setters et getters ************/
@@ -145,7 +145,7 @@ class image
      */
     public function removeUpload()
     {
-        $default1=$this->getUploadRootDir().'/anonymous.jpg';
+        $default1=$this->getUploadRootDir().'/anonymous.png';
         $default2=$this->getUploadRootDir().'/unknown.png';
         $default3=$this->getUploadRootDir().'/jpeg.png';
         if ($this->filenameForRemove and $this->filenameForRemove != $default1 and $this->filenameForRemove != $default2) {
@@ -155,7 +155,7 @@ class image
     public function manualRemove($filenameForRemove)
     {
        if (null === $this->file) return;
-        $default1=$this->getUploadRootDir().'/anonymous.jpg';
+        $default1=$this->getUploadRootDir().'/anonymous.png';
         $default2=$this->getUploadRootDir().'/unknown.png';
         $default3=$this->getUploadRootDir().'/jpeg.png';
         

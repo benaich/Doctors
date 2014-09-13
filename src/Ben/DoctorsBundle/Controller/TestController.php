@@ -3,7 +3,9 @@
 namespace Ben\DoctorsBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Httpfoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use JMS\SecurityExtraBundle\Annotation\Secure;
 
 use Ben\DoctorsBundle\Entity\Test;
 use Ben\DoctorsBundle\Form\TestType;
@@ -20,19 +22,23 @@ class TestController extends Controller
 
     /**
      * Lists all Test entities.
+     * @Secure(roles="ROLE_USER")
      *
      */
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
+        $doctors = $em->getRepository('BenUserBundle:User')->findAll();
         $entitiesLength = $em->getRepository('BenDoctorsBundle:Test')->counter();
 
         return $this->render('BenDoctorsBundle:Test:index.html.twig', array(
+            'doctors' => $doctors,
             'entitiesLength' => $entitiesLength));
     }
 
     /**
      * Tests list using ajax
+     * @Secure(roles="ROLE_USER")
      */
     public function ajaxListAction(Request $request)
     {
@@ -47,13 +53,15 @@ class TestController extends Controller
     }
     /**
      * Creates a new Test entity.
+     * @Secure(roles="ROLE_USER")
      *
      */
-    public function createAction(Request $request)
+    public function createAction(Request $request, $type)
     {
         $entity = new Test();
-        $form = $this->createForm(new TestType(), $entity);
+        $form = $this->createForm(new TestType($type), $entity);
         $form->handleRequest($request);
+        if($type) $entity->setType(Test::$GENERAL);
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
@@ -63,33 +71,37 @@ class TestController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('test_show', array('id' => $entity->getId())));
+            return $this->redirect($this->generateUrl('consultation_show', array('id' => $entity->getConsultation()->getId())));
         }
 
         return $this->render('BenDoctorsBundle:Test:new.html.twig', array(
             'entity' => $entity,
+            'type' => $type,
             'form'   => $form->createView(),
         ));
     }
 
     /**
      * Displays a form to create a new Test entity.
+     * @Secure(roles="ROLE_USER")
      *
      */
-    public function newAction(Consultation $consultation)
+    public function newAction(Consultation $consultation, $type)
     {
         $entity = new Test();
         $entity->setConsultation($consultation);
-        $form   = $this->createForm(new TestType(), $entity);
+        $form   = $this->createForm(new TestType($type), $entity);
 
         return $this->render('BenDoctorsBundle:Test:new.html.twig', array(
             'entity' => $entity,
+            'type' => $type,
             'form'   => $form->createView(),
         ));
     }
 
     /**
      * Finds and displays a Test entity.
+     * @Secure(roles="ROLE_USER")
      *
      */
     public function showAction($id)
@@ -103,7 +115,6 @@ class TestController extends Controller
         }
 
         $deleteForm = $this->createDeleteForm($id);
-
         return $this->render('BenDoctorsBundle:Test:show.html.twig', array(
             'entity'      => $entity,
             'delete_form' => $deleteForm->createView(),
@@ -112,6 +123,7 @@ class TestController extends Controller
 
     /**
      * Displays a form to edit an existing Test entity.
+     * @Secure(roles="ROLE_USER")
      *
      */
     public function editAction($id)
@@ -123,8 +135,8 @@ class TestController extends Controller
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Test entity.');
         }
-
-        $editForm = $this->createForm(new TestType(), $entity);
+        $type = ($entity->getType()===Test::$GENERAL);
+        $editForm = $this->createForm(new TestType($type), $entity);
         $deleteForm = $this->createDeleteForm($id);
 
         return $this->render('BenDoctorsBundle:Test:edit.html.twig', array(
@@ -135,6 +147,7 @@ class TestController extends Controller
     }
     /**
      * Edits an existing Test entity.
+     * @Secure(roles="ROLE_USER")
      *
      */
     public function updateAction(Request $request, $id)
@@ -148,7 +161,8 @@ class TestController extends Controller
         }
 
         $deleteForm = $this->createDeleteForm($id);
-        $editForm = $this->createForm(new TestType(), $entity);
+        $type = ($entity->getType()===Test::$GENERAL);
+        $editForm = $this->createForm(new TestType($type), $entity);
         $editForm->handleRequest($request);
 
         if ($editForm->isValid()) {
@@ -165,16 +179,18 @@ class TestController extends Controller
     }
     /**
      * Deletes a Test entity.
+     * @Secure(roles="ROLE_ADMIN")
      *
      */
     public function deleteAction(Request $request, $id)
     {
         $form = $this->createDeleteForm($id);
         $form->handleRequest($request);
-
+        $consultation_id = 0;
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $entity = $em->getRepository('BenDoctorsBundle:Test')->find($id);
+            $consultation_id = $entity->getConsultation()->getId();
 
             if (!$entity) {
                 throw $this->createNotFoundException('Unable to find Test entity.');
@@ -184,7 +200,7 @@ class TestController extends Controller
             $em->flush();
         }
 
-        return $this->redirect($this->generateUrl('test'));
+        return $this->redirect($this->generateUrl('consultation_show', array('id' => $consultation_id)));
     }
 
     /**
@@ -200,5 +216,20 @@ class TestController extends Controller
             ->add('id', 'hidden')
             ->getForm()
         ;
+    }
+    
+    /**
+     * Deletes multiple entities
+     * @Secure(roles="ROLE_ADMIN")
+     */
+    public function removeAction(Request $request)
+    {
+        $ids = $request->get('entities');
+        $em = $this->getDoctrine()->getManager();
+        $entities = $em->getRepository('BenDoctorsBundle:Test')->search(array('ids'=>$ids));
+        foreach( $entities as $entity) $em->remove($entity);
+        $em->flush();
+
+        return new Response('1');
     }
 }

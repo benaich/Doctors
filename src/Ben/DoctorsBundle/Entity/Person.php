@@ -162,6 +162,13 @@ class Person
     private $parentFixe;
 
     /**
+     * @var boolean
+     *
+     * @ORM\Column(name="resident", type="boolean")
+     */
+    private $resident;
+
+    /**
     * @ORM\OneToMany(targetEntity="Ben\DoctorsBundle\Entity\Antecedent", mappedBy="person", cascade={"remove", "persist"})
     */
     protected $antecedents;
@@ -669,6 +676,28 @@ class Person
     public function getParentFixe()
     {
         return $this->parentFixe;
+    }
+    /**
+     * Set resident
+     *
+     * @param boolean $resident
+     * @return Person
+     */
+    public function setResident($resident)
+    {
+        $this->resident = $resident;
+
+        return $this;
+    }
+
+    /**
+     * Get resident
+     *
+     * @return boolean 
+     */
+    public function getResident()
+    {
+        return $this->resident;
     }
 
     /**

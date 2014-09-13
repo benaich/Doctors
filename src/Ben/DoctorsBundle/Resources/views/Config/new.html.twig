@@ -1,0 +1,23 @@
+{% extends "BenLogementBundle::layout.html.twig" %}
+{% block title %}
+Tableau de bord | {{ parent() }}
+{% endblock %}
+{% block body %}
+<h1><span class="fui-gear"></span> Préférences - creation</h1>
+
+<form class="form-horizontal" action="{{ path('config_create') }}" method="post" {{ form_enctype(form) }}>
+    {{ form_widget(form) }}
+    <p>
+        <button type="submit">Create</button>
+    </p>
+</form>
+
+<ul class="record_actions">
+    <li>
+        <a href="{{ path('config') }}">
+            Back to the list
+        </a>
+    </li>
+</ul>
+   
+{% endblock body %}

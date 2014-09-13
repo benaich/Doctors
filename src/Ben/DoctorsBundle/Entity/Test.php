@@ -21,6 +21,8 @@ class Test
      */
     private $id;
 
+    public static $GENERAL  = 'Examen Générale';
+
     /**
      * @var string
      *
@@ -69,6 +71,20 @@ class Test
      * @ORM\Column(name="og", type="string", length=255, nullable=true)
      */
     private $og;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="hasvisualissue", type="boolean", nullable=true)
+     */
+    private $hasvisualissue;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="fixedvisualissue", type="boolean", nullable=true)
+     */
+    private $fixedvisualissue;
 
     /**
      * @var string
@@ -160,6 +176,10 @@ class Test
     {
         return $this->type;
     }
+    public function isGeneral()
+    {
+        return ($this->type === Test::$GENERAL);
+    }
 
     /**
      * Set consultation
@@ -216,5 +236,235 @@ class Test
     public function getMetadata()
     {
         return $this->metadata;
+    }
+
+    /**
+     * Set taille
+     *
+     * @param string $taille
+     * @return Test
+     */
+    public function setTaille($taille)
+    {
+        $this->taille = $taille;
+
+        return $this;
+    }
+
+    /**
+     * Get taille
+     *
+     * @return string 
+     */
+    public function getTaille()
+    {
+        return $this->taille;
+    }
+
+    /**
+     * Set poids
+     *
+     * @param string $poids
+     * @return Test
+     */
+    public function setPoids($poids)
+    {
+        $this->poids = $poids;
+
+        return $this;
+    }
+
+    /**
+     * Get poids
+     *
+     * @return string 
+     */
+    public function getPoids()
+    {
+        return $this->poids;
+    }
+
+    /**
+     * Set ta
+     *
+     * @param string $ta
+     * @return Test
+     */
+    public function setTa($ta)
+    {
+        $this->ta = $ta;
+
+        return $this;
+    }
+
+    /**
+     * Get ta
+     *
+     * @return string 
+     */
+    public function getTa()
+    {
+        return $this->ta;
+    }
+
+    /**
+     * Set od
+     *
+     * @param string $od
+     * @return Test
+     */
+    public function setOd($od)
+    {
+        $this->od = $od;
+
+        return $this;
+    }
+
+    /**
+     * Get od
+     *
+     * @return string 
+     */
+    public function getOd()
+    {
+        return $this->od;
+    }
+
+    /**
+     * Set og
+     *
+     * @param string $og
+     * @return Test
+     */
+    public function setOg($og)
+    {
+        $this->og = $og;
+
+        return $this;
+    }
+
+    /**
+     * Get og
+     *
+     * @return string 
+     */
+    public function getOg()
+    {
+        return $this->og;
+    }
+
+    /**
+     * Set symptomes
+     *
+     * @param string $symptomes
+     * @return Test
+     */
+    public function setSymptomes($symptomes)
+    {
+        $this->symptomes = $symptomes;
+
+        return $this;
+    }
+
+    /**
+     * Get symptomes
+     *
+     * @return string 
+     */
+    public function getSymptomes()
+    {
+        return $this->symptomes;
+    }
+
+    /**
+     * Set request
+     *
+     * @param string $request
+     * @return Test
+     */
+    public function setRequest($request)
+    {
+        $this->request = $request;
+
+        return $this;
+    }
+
+    /**
+     * Get request
+     *
+     * @return string 
+     */
+    public function getRequest()
+    {
+        return $this->request;
+    }
+
+    /**
+     * Set result
+     *
+     * @param string $result
+     * @return Test
+     */
+    public function setResult($result)
+    {
+        $this->result = $result;
+
+        return $this;
+    }
+
+    /**
+     * Get result
+     *
+     * @return string 
+     */
+    public function getResult()
+    {
+        return $this->result;
+    }
+
+    /**
+     * Set hasvisualissue
+     *
+     * @param boolean $hasvisualissue
+     * @return Test
+     */
+    public function setHasvisualissue($hasvisualissue)
+    {
+        $this->hasvisualissue = $hasvisualissue;
+
+        return $this;
+    }
+
+    /**
+     * Get hasvisualissue
+     *
+     * @return boolean 
+     */
+    public function getHasvisualissue()
+    {
+        return $this->hasvisualissue;
+    }
+
+    /**
+     * Set fixedvisualissue
+     *
+     * @param boolean $fixedvisualissue
+     * @return Test
+     */
+    public function setFixedvisualissue($fixedvisualissue)
+    {
+        $this->fixedvisualissue = $fixedvisualissue;
+
+        return $this;
+    }
+
+    /**
+     * Get fixedvisualissue
+     *
+     * @return boolean 
+     */
+    public function getFixedvisualissue()
+    {
+        return $this->fixedvisualissue;
     }
 }

@@ -37,7 +37,8 @@ Tableau de bord | {{ parent() }}
 
         var itemCount = '{{ form.consultationmeds|length }}',
             datacontainer = $('#ben_consultation_consultationmeds'),
-            prototype = datacontainer.attr('data-prototype');
+            prototype = datacontainer.attr('data-prototype')
+            diagnosticInput = $('#ben_consultation_diagnosis');
 
         datacontainer.find('label').removeClass('col-md-6').addClass('col-md-4');
 
@@ -47,17 +48,16 @@ Tableau de bord | {{ parent() }}
             item.find('label').removeClass('col-md-6').addClass('col-md-4');
             item.appendTo(datacontainer);
             addTagFormDeleteLink(item);
+            $('select').removeClass('form-control').select2();
 
             return false;
         });
 
         datacontainer.children('.form-group').each(function() {
-            console.log($(this));
             addTagFormDeleteLink($(this));
         });
 
         function addTagFormDeleteLink(tagFormLi) {
-            console.log(tagFormLi);
             var removeFormA = $('<a class="js-remove" href="#">x</a>');
             tagFormLi.append(removeFormA);
         }
@@ -67,6 +67,27 @@ Tableau de bord | {{ parent() }}
             $(this).parent().remove();
         });
 
+
+        $('select').removeClass('form-control').select2();
+        diagnosticData = "Alcoholic hepatitis_Allergy_Alopecia_Alzheimer's disease_Amblyopia_Breast cancer_Bronchitis_Brucellosis_Chalazion_Chancroid_Chavia_Congenital insensitivity to pain with anhidrosis_Cherubism_Diphtheria_Dehydration_Encephalitis_Emphysema_Epilepsy_Foodborne illness_Genital herpes_GERD_Hepatitis D_Hepatitis E_Histiocytosis (Childhood Cancer)_Irritable bowel syndrome_Ignious Syndrome_Jaundice_Kwashiorkor_Laryngitis_Lead poisoning_Legionellosis_Melioidosis_Metastatic cancer_Ménière's disease".split('_');
+        diagnosticInput.removeClass('form-control').select2({ tags: diagnosticData });
+        // diagnosticData = $.map(diagnosticData, function(val,index){return {id:val, text:val};});
+        // diagnosticInput.removeClass('form-control').select2({
+        //   createSearchChoice:function(term, data) { if ($(data).filter(function() { return this.text.localeCompare(term)===0; }).length===0) {return {id:term, text:term};} },
+        //   multiple: false,
+        //   data: diagnosticData
+        // });
+        var typeInput = $('#ben_consultation_motiftype'),
+            motifInput = typeInput.closest('.form-group').next().hide()
+        typeInput.on('change', function(){
+            html = ($(this)[0].selectedIndex === 1) 
+                ? '<select name="ben_consultation[name]" class="form-control"><option value="Certificat d\'aptitude physique">Certificat d\'aptitude physique</option><option value="Certificat de bonne santé">Certificat de bonne santé</option></select>'
+                : '<input class="form-control" id="ben_consultation_name" type="text" name="ben_consultation[name]" required="required">';
+                
+            motifInput.show().find('div').html(html);
+        });
+
     })(jQuery);
 </script>
 {% endblock %}
+

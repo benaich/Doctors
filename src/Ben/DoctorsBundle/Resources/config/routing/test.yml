@@ -12,12 +12,12 @@ test_show:
     defaults: { _controller: "BenDoctorsBundle:Test:show" }
 
 test_new:
-    path:     /{id}/new
-    defaults: { _controller: "BenDoctorsBundle:Test:new" }
+    path:     /{id}/{type}/new
+    defaults: { _controller: "BenDoctorsBundle:Test:new" , type: 0}
 
 test_create:
-    path:     /create
-    defaults: { _controller: "BenDoctorsBundle:Test:create" }
+    path:     /{type}/create
+    defaults: { _controller: "BenDoctorsBundle:Test:create" , type: 0}
     requirements: { _method: post }
 
 test_edit:

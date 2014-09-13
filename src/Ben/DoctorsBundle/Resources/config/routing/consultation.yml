@@ -12,12 +12,12 @@ consultation_show:
     defaults: { _controller: "BenDoctorsBundle:Consultation:show" }
 
 consultation_new:
-    path:     /{id}/new
-    defaults: { _controller: "BenDoctorsBundle:Consultation:new" }
+    path:     /{id}/{type}/new
+    defaults: { _controller: "BenDoctorsBundle:Consultation:new", type:0}
 
 consultation_create:
-    path:     /create
-    defaults: { _controller: "BenDoctorsBundle:Consultation:create" }
+    path:     /{type}/create
+    defaults: { _controller: "BenDoctorsBundle:Consultation:create", type:0}
     requirements: { _method: post }
 
 consultation_edit:
@@ -36,5 +36,5 @@ consultation_delete:
 
 consultation_remove:
     path:     /remove
-    defaults: { _controller: "BenDoctorsBundle:Consultation:delete" }
+    defaults: { _controller: "BenDoctorsBundle:Consultation:remove" }
     requirements: { _method: post|delete }

@@ -1,1 +1,101 @@
-Hello {{ name }}!
+{% extends "BenDoctorsBundle::layout.html.twig" %}
+{% block title %}
+Tableau de bord | {{ parent() }}
+{% endblock %}
+    {% block stylesheet %}
+   {{ parent() }}   
+        <link href="{{ asset('css/daterangepicker-bs3.css') }}" rel="stylesheet"><!-- Loading my css -->
+    {% endblock %}
+{% block body -%}
+
+<div class="row">
+	<div class="col-md-6">
+		<h3><span class="glyphicon glyphicon-stats"></span> Statistiques</h3>
+	</div>
+	<div class="col-md-6">
+		<div id="reportrange" class="pull-right" style="margin-top: 20px;">
+            <i class="glyphicon glyphicon-calendar"></i>
+            <span>August 26, 2014 - August 26, 2014</span> <b class="caret"></b>
+        </div>
+	</div>
+</div>
+<div class="row" id="datacontainer" style="min-height: 400px;">
+
+</div>
+{% endblock %}
+
+{% block javascripts %}
+{{ parent() }}
+    <script src="{{ asset('js/moment-with-langs.min.js') }}"></script>
+    <script src="{{ asset('js/daterangepicker.js') }}"></script>
+<script> 
+(function($) {
+
+    function ajaxPost(date) {
+        datacontainer.addClass('working');
+        $.ajax({ 
+          url: '{{ path('ben_stats') }}?daterange='+date, 
+          success: function(data){ 
+            datacontainer.removeClass('working');
+            datacontainer.empty().hide().html(data).fadeIn();
+          },
+          error:function(){
+              datacontainer.removeClass('working');
+          }
+        });
+        return false;
+    }
+    
+    var datacontainer = $('#datacontainer');
+    moment.lang('fr');
+	$('#reportrange').daterangepicker(
+		{
+		   	startDate: moment().subtract('days', 29),
+		   	endDate: moment(),
+		   	minDate: '01/01/2013',
+		   	maxDate: moment().format('DD/MM/YYYY'),
+		   	dateLimit: { days: 60 },
+		   	showDropdowns: true,
+		   	showWeekNumbers: 0,
+		   	timePicker: false,
+		   	timePickerIncrement: 1,
+		   	timePicker12Hour: true,
+		   	ranges: {
+		   	   'Aujourd\'hui': [moment(), moment()],
+		   	   'Hier': [moment().subtract('days', 1), moment().subtract('days', 1)],
+		   	   '7 jours précédents': [moment().subtract('days', 6), moment()],
+		   	   '30 jours précédents': [moment().subtract('days', 29), moment()],
+		   	   'Ce mois': [moment().startOf('month'), moment().endOf('month')],
+		   	   'Mois précedent': [moment().subtract('month', 1).startOf('month'), moment().subtract('month', 1).endOf('month')]
+		   	},
+		   	opens: 'left',
+		   	buttonClasses: ['btn btn-default'],
+		   	applyClass: 'btn-small btn-primary',
+		   	cancelClass: 'btn-small',
+		   	format: 'DD/MM/YYYY',
+		   	separator: ' à ',
+		   	locale: {
+		   		applyLabel: 'OK',
+		   		fromLabel: 'Entre',
+		   		toLabel: 'et',
+		   		customRangeLabel: 'Période personnalisée',
+		   		daysOfWeek: "dim_lun_mar_mer_jeu_ven_sam".split("_"),
+		   		monthNames: "janvier_février_mars_avril_mai_juin_juillet_août_septembre_octobre_novembre_décembre".split("_"),
+		   		firstDay: 0
+		   	}
+	    },
+	    function(start, end) {
+		    console.log("Callback has been called!");
+		    $('#reportrange span').html(start.format('D MMMM YYYY') + ' - ' + end.format('D MMMM YYYY'));
+		    ajaxPost(start.format('YYYY/MM/DD') + ' - ' + end.format('YYYY/MM/DD'));
+	    }
+	);
+
+  	//Set the initial state of the picker label
+  	$('#reportrange span').html(moment().subtract('days', 29).format('D MMMM YYYY') + ' - ' + moment().format('D MMMM YYYY'));
+  	ajaxPost(moment().subtract('days', 29).format('YYYY/MM/DD') + ' - ' + moment().format('YYYY/MM/DD'))
+
+})(jQuery);
+</script>
+{% endblock %}
+

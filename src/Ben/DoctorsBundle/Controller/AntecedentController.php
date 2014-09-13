@@ -4,6 +4,7 @@ namespace Ben\DoctorsBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use JMS\SecurityExtraBundle\Annotation\Secure;
 
 use Ben\DoctorsBundle\Entity\Antecedent;
 use Ben\DoctorsBundle\Form\AntecedentType;
@@ -18,6 +19,7 @@ class AntecedentController extends Controller
 
     /**
      * Lists all Antecedent entities.
+     * @Secure(roles="ROLE_USER")
      *
      */
     public function indexAction()
@@ -32,6 +34,7 @@ class AntecedentController extends Controller
     }
     /**
      * Creates a new Antecedent entity.
+     * @Secure(roles="ROLE_USER")
      *
      */
     public function createAction(Request $request)
@@ -56,6 +59,7 @@ class AntecedentController extends Controller
 
     /**
      * Displays a form to create a new Antecedent entity.
+     * @Secure(roles="ROLE_USER")
      *
      */
     public function newAction(Person $person)
@@ -72,6 +76,7 @@ class AntecedentController extends Controller
 
     /**
      * Finds and displays a Antecedent entity.
+     * @Secure(roles="ROLE_USER")
      *
      */
     public function showAction($id)
@@ -94,6 +99,7 @@ class AntecedentController extends Controller
 
     /**
      * Displays a form to edit an existing Antecedent entity.
+     * @Secure(roles="ROLE_USER")
      *
      */
     public function editAction($id)
@@ -117,6 +123,7 @@ class AntecedentController extends Controller
     }
     /**
      * Edits an existing Antecedent entity.
+     * @Secure(roles="ROLE_USER")
      *
      */
     public function updateAction(Request $request, $id)
@@ -147,6 +154,7 @@ class AntecedentController extends Controller
     }
     /**
      * Deletes a Antecedent entity.
+     * @Secure(roles="ROLE_ADMIN")
      *
      */
     public function deleteAction(Request $request, $id)
