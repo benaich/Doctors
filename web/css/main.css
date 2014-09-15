@@ -194,6 +194,12 @@ div.box h4 {
 .box .list-group-item:first-child{
 	border-radius: 0;
 }
+.box header .badge{
+	box-shadow: rgba(0, 0, 0, 0.75) 0px 1px 4px inset;
+	padding: 4px 7px;
+	color: #DADADA;
+	background-color: transparent;
+}
 ul.social{
 	list-style: none;
 	font-size: 30px;

@@ -24,5 +24,10 @@
   {{ form_row(form.parentName, { 'label': 'nom et prenom'}) }}
   {{ form_row(form.parentGsm, { 'label': 'gsm'}) }}
   {{ form_row(form.parentFixe, { 'label': 'fixe'}) }}
+
+  <legend>PARTIE HANDICAP</legend>
+  {{ form_row(form.ishandicap, { 'label': 'Handicap ?'}) }}
+  {{ form_row(form.handicap, { 'label': 'Nature de l’handicap'}) }}
+  {{ form_row(form.needs, { 'label': 'Besoins spécifiques'}) }}
   {{ form_rest(form) }} 
       

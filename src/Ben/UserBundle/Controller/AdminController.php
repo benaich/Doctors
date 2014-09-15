@@ -63,16 +63,16 @@ class AdminController extends Controller
             $entity->getImage()->upload();
 
             $this->getDoctrine()->getManager()->flush();
-            $this->get('session')->getFlashBag()->add('success', "L'utilisateur a été ajouté avec succès.");
+            $this->get('session')->getFlashBag()->add('info', "L'utilisateur a été ajouté avec succès.");
             return $this->redirect($this->generateUrl('ben_show_user', array('id' => $entity->getId())));
         }
-        $this->get('session')->getFlashBag()->add('error', "Il y a des erreurs dans le formulaire soumis !");
+        $this->get('session')->getFlashBag()->add('danger', "Il y a des erreurs dans le formulaire soumis !");
 
         return $this->render('BenUserBundle:admin:new.html.twig', array('entity' => $entity, 'form' => $form->createView()));
     }
 
     /**
-     * @Secure(roles="ROLE_ADMIN")
+     * @Secure(roles="ROLE_USER")
      */
     public function showAction($id)
     {
@@ -110,10 +110,10 @@ class AdminController extends Controller
             $user->getImage()->upload();
 
             $this->getDoctrine()->getManager()->flush();
-            $this->get('session')->getFlashBag()->add('success', "Vos modifications ont été enregistrées.");
+            $this->get('session')->getFlashBag()->add('info', "Vos modifications ont été enregistrées.");
             return $this->redirect($this->generateUrl('ben_edit_user', array('id' => $user->getId())));
         }
-        $this->get('session')->getFlashBag()->add('error', "Il y a des erreurs dans le formulaire soumis !");
+        $this->get('session')->getFlashBag()->add('danger', "Il y a des erreurs dans le formulaire soumis !");
         
         return $this->render('BenUserBundle:admin:edit.html.twig', array('entity' => $user, 'form' => $form->createView()));
     }
@@ -225,10 +225,10 @@ class AdminController extends Controller
             $entity->getImage()->upload();
                
             $em->flush();
-            $this->get('session')->getFlashBag()->add('success', "Vos modifications ont été enregistrées.");
+            $this->get('session')->getFlashBag()->add('info', "Vos modifications ont été enregistrées.");
             return $this->redirect($this->generateUrl('ben_profile_edit', array('name' => $entity->getId())));
         }
-        $this->get('session')->getFlashBag()->add('error', "Il y a des erreurs dans le formulaire soumis !");
+        $this->get('session')->getFlashBag()->add('danger', "Il y a des erreurs dans le formulaire soumis !");
 
         return $this->render('BenUserBundle:myProfile:edit.html.twig', array(
                     'entity' => $entity,

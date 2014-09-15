@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Person
  *
- * @ORM\Table()
+ * @ORM\Table(name="person")
  * @ORM\Entity(repositoryClass="Ben\DoctorsBundle\Entity\PersonRepository")
  */
 class Person
@@ -52,7 +52,7 @@ class Person
     /**
      * @var string
      *
-     * @ORM\Column(name="email", type="string", length=255)
+     * @ORM\Column(name="email", type="string", length=255, nullable=true)
      */
     private $email;
 
@@ -66,7 +66,7 @@ class Person
     /**
      * @var string
      *
-     * @ORM\Column(name="birthcity", type="string", length=255)
+     * @ORM\Column(name="birthcity", type="string", length=255, nullable=true)
      */
     private $birthcity;
 
@@ -80,42 +80,42 @@ class Person
     /**
      * @var string
      *
-     * @ORM\Column(name="contry", type="string", length=255)
+     * @ORM\Column(name="contry", type="string", length=255, nullable=true)
      */
     private $contry;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="city", type="string", length=255)
+     * @ORM\Column(name="city", type="string", length=255, nullable=true)
      */
     private $city;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="address", type="string", length=255)
+     * @ORM\Column(name="address", type="string", length=255, nullable=true)
      */
     private $address;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="etablissement", type="string", length=255)
+     * @ORM\Column(name="etablissement", type="string", length=255, nullable=true)
      */
     private $etablissement;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="university", type="string", length=255)
+     * @ORM\Column(name="university", type="string", length=255, nullable=true)
      */
     private $university;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="gsm", type="string", length=255)
+     * @ORM\Column(name="gsm", type="string", length=255, nullable=true)
      */
     private $gsm;
 
@@ -136,30 +136,56 @@ class Person
     /**
      * @var string
      *
-     * @ORM\Column(name="parent_name", type="string", length=255)
+     * @ORM\Column(name="parent_name", type="string", length=255, nullable=true)
      */
     private $parentName;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="parent_address", type="string", length=255)
+     * @ORM\Column(name="parent_address", type="string", length=255, nullable=true)
      */
     private $parentAddress;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="parent_gsm", type="string", length=255)
+     * @ORM\Column(name="parent_gsm", type="string", length=255, nullable=true)
      */
     private $parentGsm;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="parent_fixe", type="string", length=255)
+     * @ORM\Column(name="parent_fixe", type="string", length=255, nullable=true)
      */
     private $parentFixe;
+
+    /**
+     * @var string
+     */
+    private $ishandicap;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="handicap", type="string", length=255, nullable=true)
+     */
+    private $handicap;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="needs", type="string", length=255, nullable=true)
+     */
+    private $needs;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="resident", type="boolean")
+     */
+    private $resident;
 
     /**
     * @ORM\OneToMany(targetEntity="Ben\DoctorsBundle\Entity\Antecedent", mappedBy="person", cascade={"remove", "persist"})
@@ -190,6 +216,16 @@ class Person
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * Get FullName
+     *
+     * @return string 
+     */
+    public function __toString()
+    {
+        return $this->getFullName();
     }
 
     /**
@@ -659,5 +695,139 @@ class Person
     public function getParentFixe()
     {
         return $this->parentFixe;
+    }
+    /**
+     * Set resident
+     *
+     * @param boolean $resident
+     * @return Person
+     */
+    public function setResident($resident)
+    {
+        $this->resident = $resident;
+
+        return $this;
+    }
+
+    /**
+     * Get resident
+     *
+     * @return boolean 
+     */
+    public function getResident()
+    {
+        return $this->resident;
+    }
+
+    /**
+     * Add antecedents
+     *
+     * @param \Ben\DoctorsBundle\Entity\Antecedent $antecedents
+     * @return Person
+     */
+    public function addAntecedent(\Ben\DoctorsBundle\Entity\Antecedent $antecedents)
+    {
+        $this->antecedents[] = $antecedents;
+
+        return $this;
+    }
+
+    /**
+     * Remove antecedents
+     *
+     * @param \Ben\DoctorsBundle\Entity\Antecedent $antecedents
+     */
+    public function removeAntecedent(\Ben\DoctorsBundle\Entity\Antecedent $antecedents)
+    {
+        $this->antecedents->removeElement($antecedents);
+    }
+
+    /**
+     * Get antecedents
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getAntecedents()
+    {
+        return $this->antecedents;
+    }
+
+    /**
+     * Add consultations
+     *
+     * @param \Ben\DoctorsBundle\Entity\Consultation $consultations
+     * @return Person
+     */
+    public function addConsultation(\Ben\DoctorsBundle\Entity\Consultation $consultations)
+    {
+        $this->consultations[] = $consultations;
+
+        return $this;
+    }
+
+    /**
+     * Remove consultations
+     *
+     * @param \Ben\DoctorsBundle\Entity\Consultation $consultations
+     */
+    public function removeConsultation(\Ben\DoctorsBundle\Entity\Consultation $consultations)
+    {
+        $this->consultations->removeElement($consultations);
+    }
+
+    /**
+     * Get consultations
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getConsultations()
+    {
+        return $this->consultations;
+    }
+
+    /**
+     * Set handicap
+     *
+     * @param string $handicap
+     * @return Person
+     */
+    public function setHandicap($handicap)
+    {
+        $this->handicap = $handicap;
+
+        return $this;
+    }
+
+    /**
+     * Get handicap
+     *
+     * @return string 
+     */
+    public function getHandicap()
+    {
+        return $this->handicap;
+    }
+
+    /**
+     * Set needs
+     *
+     * @param string $needs
+     * @return Person
+     */
+    public function setNeeds($needs)
+    {
+        $this->needs = $needs;
+
+        return $this;
+    }
+
+    /**
+     * Get needs
+     *
+     * @return string 
+     */
+    public function getNeeds()
+    {
+        return $this->needs;
     }
 }

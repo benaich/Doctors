@@ -60,16 +60,18 @@ class PersonController extends Controller
         $entity = new Person();
         $form = $this->createForm(new PersonType(), $entity);
         $form->handleRequest($request);
+        $em = $this->getDoctrine()->getManager();
 
         if ($form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
             $em->persist($entity);
             $em->flush();
 
+            $this->get('session')->getFlashBag()->add('info', "L'étudiant a été ajouté avec succès.");
             return $this->redirect($this->generateUrl('person_show', array('id' => $entity->getId())));
         }
         $cities = $em->getRepository('BenDoctorsBundle:Person')->getCities();
 
+        $this->get('session')->getFlashBag()->add('danger', "Il y a des erreurs dans le formulaire soumis !");
         return $this->render('BenDoctorsBundle:Person:new.html.twig', array(
             'entity' => $entity,
             'form'   => $form->createView(),
@@ -166,10 +168,12 @@ class PersonController extends Controller
         if ($editForm->isValid()) {
             $em->flush();
 
+            $this->get('session')->getFlashBag()->add('info', "L'étudiant a été mis à jour avec succès.");
             return $this->redirect($this->generateUrl('person_edit', array('id' => $id)));
         }
         $cities = $em->getRepository('BenDoctorsBundle:Person')->getCities();
 
+        $this->get('session')->getFlashBag()->add('danger', "Il y a des erreurs dans le formulaire soumis !");
         return $this->render('BenDoctorsBundle:Person:edit.html.twig', array(
             'entity'      => $entity,
             'form'   => $editForm->createView(),
@@ -197,6 +201,7 @@ class PersonController extends Controller
 
             $em->remove($entity);
             $em->flush();
+            $this->get('session')->getFlashBag()->add('info', "Action effectué avec succès !");
         }
 
         return $this->redirect($this->generateUrl('person'));

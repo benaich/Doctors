@@ -1,10 +1,11 @@
 {% for entity in entities %}
-    <tr {% if not entity.count %}class="danger"{% endif %}>
+    <tr {% if not entity.count or entity.isExpired %}class="danger"{% endif %}>
         <td class="hidden-print"><input type="checkbox" name="entities[]" value="{{ entity.id }}"></td>
         <td>{{ entity.name }}</td>
         <td>{{ entity.count }}</td>
         <td>{{ entity.type }}</td>
         <td>{{ entity.about | truncate(50) }}</td>
+        <td>{{ entity.expdate ? entity.expdate|date('d/m/Y') : '-' }}</td>
 
         <td class="hidden-print">
             <div class="text-center">

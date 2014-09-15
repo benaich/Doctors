@@ -3,7 +3,7 @@
 Tableau de bord | {{ parent() }}
 {% endblock %}
 {% block body %}
-<h3><span class="glyphicon glyphicon-tag"></span> Ajout d'une consultation</h3>
+<h3><span class="glyphicon glyphicon-tag"></span> {{ entity.isSpecial ? 'Orientation vers une consultation spécialisée' : 'Consultation médicale générale '}}</h3>
 <form action="{{ path('consultation_create', { 'type': entity.type }) }}" class="form-horizontal col-md-8" method="post" {{ form_enctype(form) }}>
     <div class="form-group ">
 		<label class="col-md-6 control-label" for="user">Etudiant</label>
@@ -76,6 +76,15 @@ Tableau de bord | {{ parent() }}
             motifInput.show().find('div').html(html);
         });
 
+        infrastructureData = ["CMSU", "Centre de diagnostic", "Hopital public", "CHU", "structure privée"];
+        infrastructureData = $.map(infrastructureData, function(val,index){return {id:val, text:val};});
+        $('#ben_consultation_infrastructure').removeClass('form-control').select2({
+          createSearchChoice:function(term, data) { if ($(data).filter(function() { return this.text.localeCompare(term)===0; }).length===0) {return {id:term, text:term};} },
+          multiple: false,
+          data: infrastructureData
+        });
+
     })(jQuery);
 </script>
 {% endblock %}
+

@@ -11,10 +11,12 @@
 <nav id="adminmenu">
     <ul class="top-menu">
         <li class="{% if route!='ben_dashboard' %}not-{% endif %}current"><a href="{{ path('ben_dashboard') }}"><span class="glyphicon glyphicon-dashboard block"></span> <span class="menu-title">Dashborad</span></a></li>
+        {% if not is_granted("ROLE_MANAGER") or is_granted("ROLE_ADMIN") %}
         <li class="{% if route not in personMenu %}not-{% endif %}current has-submenu"><a href="{{ path('person') }}"><span class="glyphicon glyphicon-user block"></span> <span class="menu-title">Etudiants</span></a>
         </li>
         <li class="{% if route not in consultationMenu %}not-{% endif %}current"><a href="{{ path('consultation') }}"><span class="glyphicon glyphicon-list-alt block"></span> <span class="menu-title">Consultations</span></a></li>
         <li class="{% if route not in testMenu %}not-{% endif %}current"><a href="{{ path('test') }}"><span class="glyphicon glyphicon-file block"></span> <span class="menu-title">Examens</span></a></li>
+        {% endif %}
         {% if is_granted("ROLE_MANAGER") %}
         <li class="{% if route not in medsMenu %}not-{% endif %}current"><a href="{{ path('meds') }}"><span class="glyphicon glyphicon-leaf block"></span> <span class="menu-title">Medicaments</span></a></li>
         {% endif %}

@@ -66,7 +66,7 @@ Tableau de bord | {{ parent() }}
           <div class="form-group">
             <label for="" class="col-sm-5 control-label">Sexe</label>
             <div class="col-sm-6">
-              <select id="genderselect" name="searchParam[gender]" class="select2 no-search">
+              <select name="searchParam[gender]" class="select2 no-search">
                 <option value="">Tous</option>
                 <option value="garçon">Garçon</option>
                 <option value="fille">Fille</option>
@@ -76,11 +76,21 @@ Tableau de bord | {{ parent() }}
           <div class="form-group">
             <label for="" class="col-sm-5 control-label">Medecin</label>
             <div class="col-sm-6">
-              <select id="genderselect" name="searchParam[user]" class="select2 search">
+              <select name="searchParam[user]" class="select2 search">
                 <option value="">Tous</option>
                 {% for item in doctors %}
                   <option value="{{ item.id }}">{{ item.fullname }}</option>
                 {% endfor %}
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="" class="col-sm-5 control-label">Type</label>
+            <div class="col-sm-6">
+              <select name="searchParam[type]" class="select2 no-search">
+                <option value="">Tous</option>
+                <option value="Consultation generale">Consultation generale</option>
+                <option value="Consultation spécialisé">Consultation spécialisé</option>
               </select>
             </div>
           </div>

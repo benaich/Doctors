@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"pero",
+				"person_id"
+			],
+			[
 				"form",
 				"form-group"
 			],
@@ -510,22 +514,30 @@
 			[
 				"b",
 				"buttons"
-			],
-			[
-				"er",
-				"error_email"
 			]
 		]
 	},
 	"buffers":
 	[
+		{
+			"file": "src/Ben/DoctorsBundle/Resources/views/Default/ajaxStats.html.twig",
+			"settings":
+			{
+				"buffer_size": 6195,
+				"line_ending": "Windows"
+			}
+		}
 	],
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 265.0,
+		"height": 392.0,
 		"selected_items":
 		[
+			[
+				"sfcom",
+				"SfCommand: Generate:Entities"
+			],
 			[
 				"sfcomenti",
 				"SfCommand: Generate:Entities"
@@ -799,79 +811,123 @@
 	],
 	"file_history":
 	[
-		"/C/wamp/www/doctors/src/Ben/DoctorsBundle/Form/ConsultationType.php",
+		"/C/wamp/www/doctors/src/Ben/DoctorsBundle/Resources/views/Default/menu.html.twig",
+		"/C/wamp/www/doctors/src/Ben/DoctorsBundle/Entity/Meds.php",
+		"/C/wamp/www/doctors/web/css/main.css",
+		"/C/wamp/www/doctors/src/Ben/UserBundle/Stats/StatsQuery.php",
+		"/C/wamp/www/doctors/vendor/doctrine/common/lib/Doctrine/Common/Reflection/StaticReflectionClass.php",
+		"/C/wamp/www/doctors/vendor/twig/twig/lib/Twig/Node/SetTemp.php",
+		"/C/wamp/www/doctors/app/Resources/test/source.sql",
+		"/C/wamp/www/doctors/src/Ben/DoctorsBundle/Resources/views/Consultation/show.html.twig",
+		"/C/wamp/www/doctors/src/Ben/DoctorsBundle/Controller/TestController.php",
 		"/C/wamp/www/doctors/src/Ben/DoctorsBundle/Resources/views/Consultation/edit.html.twig",
+		"/C/wamp/www/doctors/src/Ben/DoctorsBundle/Controller/ConsultationController.php",
+		"/C/wamp/www/doctors/src/Ben/DoctorsBundle/Entity/Consultation.php",
+		"/C/wamp/www/doctors/src/Ben/DoctorsBundle/Entity/Person.php",
+		"/C/wamp/www/doctors/src/Ben/DoctorsBundle/Entity/Test.php",
 		"/C/wamp/www/doctors/src/Ben/DoctorsBundle/Form/TestType.php",
+		"/C/wamp/www/doctors/vendor/symfony/symfony/src/Symfony/Component/Validator/Tests/Mapping/Loader/constraint-mapping-non-strings.xml",
+		"/C/wamp/www/doctors/vendor/doctrine/doctrine-bundle/Doctrine/Bundle/DoctrineBundle/Tests/DependencyInjection/TestStringFunction.php",
+		"/C/wamp/www/doctors/src/Ben/DoctorsBundle/Controller/PersonController.php",
+		"/C/wamp/www/doctors/src/Ben/DoctorsBundle/Resources/config/validation.yml",
+		"/C/wamp/www/doctors/src/Ben/DoctorsBundle/Controller/MedsController.php",
+		"/C/wamp/www/doctors/src/Ben/UserBundle/Controller/ProfileController.php",
+		"/C/wamp/www/doctors/src/Ben/UserBundle/Controller/GroupController.php",
+		"/C/wamp/www/doctors/src/Ben/UserBundle/Controller/UserController.php",
+		"/C/wamp/www/doctors/vendor/jms/di-extra-bundle/JMS/DiExtraBundle/HttpKernel/ControllerResolver.php",
+		"/C/wamp/www/doctors/src/Ben/DoctorsBundle/Tests/Controller/DocControllerTest.php",
+		"/C/wamp/www/doctors/src/Ben/UserBundle/Controller/AdminController.php",
+		"/C/wamp/www/doctors/vendor/jms/di-extra-bundle/JMS/DiExtraBundle/HttpKernel/ControllerInjectorsWarmer.php",
+		"/C/wamp/www/doctors/vendor/sensio/framework-extra-bundle/Sensio/Bundle/FrameworkExtraBundle/EventListener/ControllerListener.php",
+		"/C/wamp/www/doctors/vendor/sensio/generator-bundle/Sensio/Bundle/GeneratorBundle/Generator/ControllerGenerator.php",
+		"/C/wamp/www/doctors/vendor/symfony/assetic-bundle/Symfony/Bundle/AsseticBundle/Resources/config/controller.xml",
+		"/C/wamp/www/doctors/vendor/symfony/symfony/CONTRIBUTING.md",
+		"/C/wamp/www/doctors/src/Ben/DoctorsBundle/Form/ConsultationType.php",
+		"/C/wamp/www/doctors/web/js/application.js",
+		"/C/wamp/www/doctors/web/bootstrap/css/bootstrap.css",
+		"/C/wamp/www/doctors/app/bootstrap.php.cache",
+		"/C/wamp/www/doctors/vendor/doctrine/orm/lib/Doctrine/ORM/Query/AST/Functions/BitOrFunction.php",
+		"/C/wamp/www/doctors/src/Ben/DoctorsBundle/Resources/views/Person/show.html.twig",
+		"/C/wamp/www/doctors/src/Ben/UserBundle/Resources/views/admin/index.html.twig",
+		"/C/wamp/www/doctors/src/Ben/UserBundle/Resources/config/routing/manager.yml",
+		"/C/wamp/www/doctors/src/Ben/DoctorsBundle/Resources/views/Consultation/index.html.twig",
+		"/C/wamp/www/doctors/src/Ben/DoctorsBundle/Entity/ConsultationRepository.php",
+		"/C/wamp/www/doctors/src/Ben/DoctorsBundle/Resources/views/Consultation/ajax_list.html.twig",
+		"/C/wamp/www/doctors/vendor/symfony/symfony/src/Symfony/Component/Validator/Tests/Fixtures/ConstraintA.php",
+		"/C/wamp/www/doctors/vendor/symfony/symfony/src/Symfony/Component/PropertyAccess/Exception/NoSuchIndexException.php",
+		"/C/wamp/www/doctors/vendor/symfony/symfony/src/Symfony/Component/Console/Output/ConsoleOutputInterface.php",
+		"/C/wamp/www/doctors/src/Ben/DoctorsBundle/Resources/views/Default/ajaxStats.html.twig",
+		"/C/wamp/www/doctors/src/Ben/DoctorsBundle/Controller/DefaultController.php",
+		"/C/wamp/www/doctors/web/css/layout.css",
+		"/C/wamp/www/doctors/src/Ben/DoctorsBundle/Resources/views/layout.html.twig",
+		"/C/wamp/www/doctors/src/Ben/UserBundle/Entity/User.php",
+		"/C/wamp/www/doctors/src/Ben/DoctorsBundle/Resources/config/routing/consultation.yml",
+		"/C/wamp/www/doctors/src/Ben/DoctorsBundle/Entity/PersonRepository.php",
+		"/C/wamp/www/doctors/src/Ben/DoctorsBundle/Form/PersonType.php",
+		"/C/wamp/www/doctors/src/Ben/DoctorsBundle/Form/MedsType.php",
+		"/C/wamp/www/doctors/src/Ben/DoctorsBundle/Resources/views/Meds/index.html.twig",
+		"/C/wamp/www/doctors/src/Ben/DoctorsBundle/Entity/Antecedent.php",
+		"/C/wamp/www/doctors/src/Ben/DoctorsBundle/Form/AntecedentType.php",
+		"/C/wamp/www/doctors/vendor/composer/autoload_namespaces.php",
+		"/C/wamp/www/doctors/src/Ben/DoctorsBundle/Resources/views/Meds/ajax_list.html.twig",
+		"/C/wamp/www/doctors/src/Ben/DoctorsBundle/Resources/views/Meds/show.html.twig",
+		"/C/wamp/www/doctors/src/Ben/DoctorsBundle/Form/ConsultationMedsType.php",
+		"/C/wamp/www/doctors/src/Ben/DoctorsBundle/Resources/views/Person/edit.html.twig",
+		"/C/wamp/www/doctors/src/Ben/UserBundle/Entity/UserRepository.php",
+		"/C/wamp/www/doctors/src/Ben/UserBundle/Stats/StatsHandler.php",
+		"/C/wamp/www/doctors/src/Ben/DoctorsBundle/Entity/ConsultationMeds.php",
+		"/C/wamp/www/doctors/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Authentication/Token/RememberMeToken.php",
+		"/C/wamp/www/doctors/src/Ben/DoctorsBundle/Resources/views/Default/flashes.html.twig",
+		"/C/wamp/www/doctors/vendor/twig/twig/lib/Twig/Node/ForLoop.php",
+		"/C/wamp/www/doctors/src/Ben/DoctorsBundle/Resources/views/Antecedent/form.html.twig",
+		"/C/wamp/www/doctors/vendor/jms/cg/src/CG/Proxy/MethodInvocation.php",
+		"/C/wamp/www/doctors/src/Ben/DoctorsBundle/Resources/views/Meds/edit.html.twig",
+		"/C/wamp/www/doctors/src/Ben/DoctorsBundle/Resources/views/Person/form.html.twig",
 		"/C/wamp/www/doctors/src/Ben/DoctorsBundle/Resources/views/Consultation/new.html.twig",
 		"/C/wamp/www/doctors/src/Ben/DoctorsBundle/Resources/views/Test/new.html.twig",
-		"/C/wamp/www/doctors/src/Ben/DoctorsBundle/Resources/views/Consultation/show.html.twig",
-		"/C/wamp/www/doctors/src/Ben/DoctorsBundle/Entity/Test.php",
-		"/C/wamp/www/doctors/src/Ben/DoctorsBundle/Entity/Consultation.php",
-		"/C/wamp/www/doctors/vendor/doctrine/doctrine-bundle/Doctrine/Bundle/DoctrineBundle/Tests/DependencyInjection/TestNumericFunction.php",
-		"/C/wamp/www/doctors/web/css/main.css",
-		"/C/wamp/www/doctors/src/Ben/DoctorsBundle/Entity/TestRepository.php",
-		"/C/wamp/www/doctors/src/Ben/DoctorsBundle/Entity/Test.php~",
-		"/C/wamp/www/doctors/src/Ben/DoctorsBundle/Controller/TestController.php",
-		"/C/wamp/www/doctors/vendor/doctrine/orm/lib/Doctrine/ORM/Tools/ToolEvents.php",
 		"/C/wamp/www/doctors/src/Ben/DoctorsBundle/Resources/views/Person/new.html.twig",
-		"/C/wamp/www/doctors/src/Ben/DoctorsBundle/Entity/Person.php",
-		"/C/wamp/www/doctors/src/Ben/DoctorsBundle/Controller/PersonController.php",
-		"/C/wamp/www/doctors/vendor/symfony/symfony/src/Symfony/Component/PropertyAccess/Exception/NoSuchIndexException.php",
-		"/C/wamp/www/doctors/src/Ben/DoctorsBundle/Form/PersonType.php",
-		"/C/wamp/www/doctors/vendor/symfony/symfony/CONTRIBUTING.md",
+		"/C/wamp/www/doctors/vendor/doctrine/doctrine-bundle/Doctrine/Bundle/DoctrineBundle/Tests/DependencyInjection/TestNumericFunction.php",
+		"/C/wamp/www/doctors/vendor/doctrine/common/lib/Doctrine/Common/Persistence/PersistentObject.php",
+		"/C/wamp/www/doctors/vendor/symfony/symfony/src/Symfony/Component/Console/ConsoleEvents.php",
+		"/C/wamp/www/doctors/vendor/symfony/symfony/src/Symfony/Component/Validator/Tests/Fixtures/ConstraintWithValueAsDefault.php",
+		"/C/wamp/www/doctors/vendor/symfony/symfony/src/Symfony/Component/Validator/Tests/Fixtures/ConstraintWithValue.php",
+		"/C/wamp/www/doctors/vendor/symfony/symfony/src/Symfony/Component/ExpressionLanguage/Node/ConstantNode.php",
+		"/C/wamp/www/doctors/src/Ben/DoctorsBundle/Entity/Test.php~",
+		"/C/wamp/www/doctors/src/Ben/DoctorsBundle/Entity/TestRepository.php",
+		"/C/wamp/www/doctors/src/Ben/DoctorsBundle/Resources/views/Config/show.html.twig",
+		"/C/wamp/www/doctors/vendor/symfony/symfony/src/Symfony/Bridge/Monolog/Handler/ConsoleHandler.php",
+		"/C/wamp/www/doctors/vendor/doctrine/orm/lib/Doctrine/ORM/Tools/ToolEvents.php",
 		"/C/wamp/www/doctors/.gitignore",
 		"/C/wamp/www/doctors/.travis.yml",
 		"/C/wamp/www/doctors/composer.json",
 		"/C/wamp/www/doctors/src/Ben/DoctorsBundle/Resources/views/Antecedent/edit.html.twig",
-		"/C/wamp/www/doctors/vendor/symfony/symfony/src/Symfony/Component/Console/ConsoleEvents.php",
 		"/C/wamp/www/doctors/vendor/doctrine/dbal/lib/Doctrine/DBAL/Connection.php",
 		"/C/wamp/www/doctors/src/Ben/DoctorsBundle/Resources/views/Consultation/form.html.twig",
 		"/C/wamp/www/doctors/src/Ben/DoctorsBundle/Resources/views/Person/index.html.twig",
-		"/C/wamp/www/doctors/src/Ben/DoctorsBundle/Resources/views/layout.html.twig",
 		"/C/wamp/www/doctors/src/Ben/DoctorsBundle/Entity/Consultation.php~",
-		"/C/wamp/www/doctors/src/Ben/DoctorsBundle/Controller/ConsultationController.php",
-		"/C/wamp/www/doctors/src/Ben/UserBundle/Entity/User.php",
-		"/C/wamp/www/doctors/src/Ben/DoctorsBundle/Resources/views/Person/form.html.twig",
 		"/C/wamp/www/doctors/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Model/User.php",
 		"/C/wamp/www/doctors/vendor/symfony/symfony/src/Symfony/Bridge/Propel1/Form/Type/ModelType.php",
 		"/C/wamp/www/doctors/vendor/monolog/monolog/src/Monolog/Handler/MongoDBHandler.php",
 		"/C/wamp/www/doctors/web/js/moment-with-langs.min.js",
 		"/C/wamp/www/doctors/src/Ben/UserBundle/Resources/translations/FOSUserBundle.fr.yml",
-		"/C/wamp/www/doctors/src/Ben/DoctorsBundle/Resources/views/Antecedent/form.html.twig",
 		"/C/wamp/www/doctors/vendor/symfony/symfony/src/Symfony/Component/Security/Acl/Exception/AclNotFoundException.php",
-		"/C/wamp/www/doctors/src/Ben/DoctorsBundle/Entity/Antecedent.php",
-		"/C/wamp/www/doctors/vendor/composer/autoload_namespaces.php",
-		"/C/wamp/www/doctors/web/js/application.js",
-		"/C/wamp/www/doctors/src/Ben/UserBundle/Stats/StatsHandler.php",
-		"/C/wamp/www/doctors/app/Resources/test/source.sql",
 		"/C/wamp/www/doctors/app/Resources/test/source.php",
-		"/C/wamp/www/doctors/src/Ben/UserBundle/Stats/StatsQuery.php",
-		"/C/wamp/www/doctors/vendor/twig/twig/lib/Twig/Node/SetTemp.php",
 		"/C/wamp/www/doctors/vendor/doctrine/orm/lib/Doctrine/ORM/Query.php",
 		"/C/wamp/www/doctors/vendor/doctrine/dbal/lib/Doctrine/DBAL/Query/QueryException.php",
-		"/C/wamp/www/doctors/src/Ben/DoctorsBundle/Resources/views/Default/menu.html.twig",
-		"/C/wamp/www/doctors/src/Ben/DoctorsBundle/Controller/MedsController.php",
 		"/C/wamp/www/doctors/vendor/monolog/monolog/src/Monolog/Handler/GroupHandler.php",
 		"/C/wamp/www/doctors/vendor/doctrine/common/lib/Doctrine/Common/Proxy/ProxyDefinition.php",
 		"/C/wamp/www/doctors/vendor/doctrine/dbal/lib/Doctrine/DBAL/Driver/PDOConnection.php",
-		"/C/wamp/www/doctors/src/Ben/DoctorsBundle/Entity/Meds.php",
 		"/C/wamp/www/doctors/src/Ben/DoctorsBundle/Entity/image.php",
-		"/C/wamp/www/doctors/src/Ben/UserBundle/Resources/views/admin/index.html.twig",
-		"/C/wamp/www/doctors/src/Ben/UserBundle/Controller/AdminController.php",
 		"/C/wamp/www/doctors/app/config/security.yml",
 		"/C/wamp/www/doctors/src/Ben/UserBundle/Controller/SecurityController.php",
 		"/C/wamp/www/doctors/vendor/symfony/swiftmailer-bundle/Symfony/Bundle/SwiftmailerBundle/Command/SendEmailCommand.php",
 		"/C/wamp/www/doctors/vendor/sensiolabs/security-checker/security-checker",
 		"/C/wamp/www/doctors/vendor/jms/security-extra-bundle/JMS/SecurityExtraBundle/Resources/config/security_expressions.xml",
-		"/C/wamp/www/doctors/src/Ben/DoctorsBundle/Controller/DefaultController.php",
-		"/C/wamp/www/doctors/src/Ben/DoctorsBundle/Resources/views/Default/ajaxStats.html.twig",
 		"/C/wamp/www/doctors/vendor/symfony/symfony/src/Symfony/Component/Console/Output/StreamOutput.php",
 		"/C/wamp/www/doctors/vendor/doctrine/common/tests/Doctrine/Tests/Common/Persistence/Mapping/StaticPHPDriverTest.php",
 		"/C/wamp/www/doctors/vendor/symfony/assetic-bundle/Symfony/Bundle/AsseticBundle/Templating/StaticAsseticHelper.php",
 		"/C/wamp/www/doctors/web/js/jquery.dataTables.min.js",
-		"/C/wamp/www/doctors/src/Ben/DoctorsBundle/Resources/views/Consultation/ajax_list.html.twig",
 		"/C/wamp/www/doctors/vendor/symfony/symfony/src/Symfony/Component/DependencyInjection/ContainerAware.php",
-		"/C/wamp/www/doctors/src/Ben/DoctorsBundle/Resources/views/Person/show.html.twig",
 		"/C/wamp/www/doctors/vendor/jms/metadata/src/Metadata/Driver/DriverInterface.php",
 		"/C/Users/home/AppData/Roaming/Sublime Text 3/Packages/User/build/php.sublime-build",
 		"/C/Users/home/AppData/Roaming/Sublime Text 3/Packages/User/build/sql.sublime-build",
@@ -880,53 +936,9 @@
 		"/C/wamp/www/doctors/vendor/swiftmailer/swiftmailer/doc/overview.rst",
 		"/C/wamp/www/doctors/vendor/doctrine/dbal/lib/Doctrine/DBAL/Driver/OCI8/OCI8Statement.php",
 		"/C/wamp/www/doctors/src/Ben/DoctorsBundle/Resources/views/Default/index.html.twig",
-		"/C/wamp/www/doctors/src/Ben/DoctorsBundle/Resources/views/Consultation/index.html.twig",
 		"/C/wamp/www/doctors/vendor/symfony/symfony/src/Symfony/Component/Security/Acl/Exception/NotAllAclsFoundException.php",
-		"/C/wamp/www/doctors/src/Ben/DoctorsBundle/Entity/ConsultationMeds.php",
 		"/C/wamp/www/doctors/src/Ben/DoctorsBundle/Resources/views/Config/index.html.twig",
-		"/C/wamp/www/doctors/vendor/symfony/symfony/src/Symfony/Component/DependencyInjection/Compiler/CheckExceptionOnInvalidReferenceBehaviorPass.php",
-		"/C/wamp/www/doctors/vendor/symfony/symfony/src/Symfony/Component/ExpressionLanguage/Node/ConstantNode.php",
-		"/C/wamp/www/doctors/vendor/twig/twig/doc/functions/constant.rst",
-		"/C/wamp/www/doctors/vendor/symfony/symfony/src/Symfony/Component/DependencyInjection/Exception/ParameterNotFoundException.php",
-		"/C/wamp/www/doctors/vendor/gedmo/doctrine-extensions/tests/Gedmo/Translatable/PersonalTranslationDocumentTest.php",
-		"/C/wamp/www/doctors/vendor/doctrine/common/lib/Doctrine/Common/Persistence/PersistentObject.php",
-		"/C/wamp/www/doctors/vendor/twig/twig/doc/tests/defined.rst",
-		"/C/wamp/www/doctors/src/Ben/DoctorsBundle/Resources/views/Meds/ajax_list.html.twig",
-		"/C/wamp/www/doctors/src/Ben/UserBundle/Resources/views/Security/login.html.twig",
-		"/C/wamp/www/doctors/src/Ben/DoctorsBundle/Resources/views/Meds/edit.html.twig",
-		"/C/wamp/www/doctors/vendor/jms/cg/src/CG/Proxy/MethodInvocation.php",
-		"/C/wamp/www/doctors/src/Ben/DoctorsBundle/Resources/views/Meds/index.html.twig",
-		"/C/wamp/www/doctors/src/Ben/DoctorsBundle/Resources/config/services.yml",
-		"/C/wamp/www/doctors/src/Ben/DoctorsBundle/Entity/MedsRepository.php",
-		"/C/wamp/www/doctors/app/config/config.yml",
-		"/C/wamp/www/doctors/web/config.php",
-		"/C/wamp/www/doctors/web/css/layout.css",
-		"/C/wamp/www/doctors/vendor/jms/security-extra-bundle/JMS/SecurityExtraBundle/Tests/Metadata/Driver/Fixtures/Controller/AllActionsSecuredController.php",
-		"/C/wamp/www/doctors/vendor/swiftmailer/swiftmailer/lib/classes/Swift/CharacterStream/ArrayCharacterStream.php",
-		"/C/wamp/www/doctors/vendor/doctrine/collections/tests/Doctrine/Tests/LazyArrayCollection.php",
-		"/C/wamp/www/doctors/vendor/doctrine/orm/docs/en/reference/inheritance-mapping.rst",
-		"/C/wamp/www/doctors/vendor/gedmo/doctrine-extensions/doc/loggable.md",
-		"/C/wamp/www/doctors/vendor/phpoption/phpoption/src/PhpOption/LazyOption.php",
-		"/C/wamp/www/doctors/src/Ben/UserBundle/Resources/views/admin/ajax_list.html.twig",
-		"/C/wamp/www/doctors/src/Ben/DoctorsBundle/Resources/views/Test/ajax_list.html.twig",
-		"/C/wamp/www/doctors/src/Ben/DoctorsBundle/Resources/views/Person/ajax_list.html.twig",
-		"/C/wamp/www/doctors/vendor/jms/aop-bundle/JMS/AopBundle/composer.json",
-		"/C/wamp/www/doctors/src/Ben/UserBundle/Listener/ActivityListener.php",
-		"/C/wamp/www/doctors/src/Ben/DoctorsBundle/Resources/views/Antecedent/new.html.twig",
-		"/C/wamp/www/doctors/src/Ben/DoctorsBundle/Resources/config/validation.yml",
-		"/C/wamp/bin/mysql/mysql5.6.17/data/auto.cnf",
-		"/C/wamp/bin/mysql/mysql5.6.17/data/mysql/innodb_index_stats.ibd",
-		"/C/wamp/bin/mysql/mysql5.6.17/my.ini",
-		"/C/wamp/bin/mysql/mysql5.6.17/my-default.ini",
-		"/C/wamp/www/doctors/vendor/symfony/symfony/src/Symfony/Bundle/FrameworkBundle/Tests/DependencyInjection/Fixtures/php/validation_annotations.php",
-		"/C/wamp/www/doctors/vendor/swiftmailer/swiftmailer/VERSION",
-		"/C/wamp/www/doctors/vendor/symfony/monolog-bundle/DependencyInjection/Compiler/AddProcessorsPass.php",
-		"/C/wamp/www/doctors/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/AccountExpiredException.php",
-		"/C/wamp/www/doctors/src/Ben/DoctorsBundle/Entity/AntecedentRepository.php",
-		"/C/wamp/www/doctors/vendor/doctrine/annotations/tests/Doctrine/Tests/TestInit.php",
-		"/C/wamp/www/doctors/vendor/twig/extensions/test/Twig/Tests/Grammar/BooleanTest.php",
-		"/C/wamp/www/doctors/src/Ben/DoctorsBundle/Resources/views/Antecedent/show.html.twig",
-		"/C/wamp/www/doctors/src/Ben/DoctorsBundle/Resources/views/Meds/show.html.twig"
+		"/C/wamp/www/doctors/vendor/symfony/symfony/src/Symfony/Component/DependencyInjection/Compiler/CheckExceptionOnInvalidReferenceBehaviorPass.php"
 	],
 	"find":
 	{
@@ -946,6 +958,113 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"la consultation",
+			"js-delete",
+			"deleteForm",
+			"Unauthorized",
+			",\n",
+			"boolean",
+			"fixedvisualissue",
+			"getFlashBag",
+			"success",
+			"getFlashBag",
+			"success",
+			"error",
+			"formu",
+			"user",
+			"ROLE_USER",
+			"genderselect",
+			"ids",
+			"type",
+			"badge",
+			"consultations_systematique_resident_gender",
+			"consultations_demande_resident_gender",
+			"consultations_visual_issue",
+			"consultations_systematique_resident_gender",
+			"consultations_systematique_resident",
+			"resident",
+			"test",
+			"consultations_demande_resident_gender",
+			"onsultations_special_gender",
+			"consultations_demande_resident",
+			"consultations_demande_gender",
+			"consultations_demande",
+			"getC",
+			"cnss",
+			"consultations_demande",
+			"User",
+			"created",
+			"cnss",
+			"$query = ",
+			"\n        return $query;",
+			"\n        $query .= $this->rangeDate;",
+			"        $query .= $this->rangeDate;",
+			" where 1=1",
+			"fromTo",
+			"bindquery",
+			"\n        $query .= (empty($this->dateFrom)) ? '' : \" and c.created >= '\".$this->dateFrom.\"'\" ;\n        $query .= (empty($this->dateTo)) ? '' : \" and c.created <= '\".$this->dateTo.\"'\" ;",
+			"created",
+			"SPECIAL",
+			"as",
+			"data",
+			"from",
+			"test",
+			"hasvisualissue",
+			"where",
+			"CONSULTATION MEDICALE A LA DEMANDE",
+			"EXAMEN MEDICAL SYSTEMATIQUE",
+			"cnss",
+			"fille",
+			"garçon",
+			"fille",
+			"garçon",
+			"CURRENT_DATE",
+			"fetch",
+			"birthday",
+			"Created",
+			"created",
+			"Created",
+			"created",
+			"Created",
+			"created",
+			"expdate",
+			"expDate",
+			"created",
+			"rdio",
+			"show",
+			"needs",
+			"Needs",
+			"needs",
+			"string",
+			"Handicap",
+			"handicap",
+			"Handicap",
+			"handicap",
+			"ishandicap",
+			"handicap",
+			"Handicap",
+			"handicap",
+			"Handicap",
+			"handicap",
+			"ishandicap",
+			"handicap",
+			"parent_fixe",
+			"cityData",
+			"chro",
+			"Test",
+			"Symptomes",
+			"symptomes",
+			"Symptomes",
+			"symptomes",
+			"Symptomes",
+			"symptomes",
+			"Symptomes",
+			"symptomes",
+			"decision",
+			"Fixedvisualissue",
+			"fixedvisualissue",
+			"Fixedvisualissue",
+			"fixedvisualissue",
 			"hasvisualissue",
 			"CONSULTATION MEDICALE A LA DEMANDE",
 			"this",
@@ -966,114 +1085,7 @@
 			"Address",
 			"address",
 			"Address",
-			"address",
-			"Address",
-			"address",
-			"?:",
-			"11",
-			"Consultation generale",
-			"$this->conn->quote",
-			"ROLE_MANAGER",
-			"ROLE_USER",
-			"m.",
-			"c.",
-			"created",
-			"diagnostis",
-			"diagnosis",
-			"console",
-			"cycle",
-			"Médicament",
-			"anonymous",
-			"414a58",
-			"input[type=\"checkbox\"], input[type=\"radio\"]",
-			".sign-in-head",
-			"box heaeder",
-			".user-profile>a:hover",
-			"max_allowed_packet",
-			"recovery",
-			"innodb_force_recovery",
-			"D,",
-			"heart",
-			"comment",
-			"4",
-			"form-control",
-			"removeClass('form-control')",
-			"form-control",
-			".removeClass('form-control')",
-			"ben_person_city",
-			"city",
-			"cin",
-			"console",
-			"cycleData",
-			"cityselect",
-			"cityData",
-			"entitiesLength",
-			"counter",
-			".",
-			"moment",
-			"moment()",
-			"De",
-			"MMMM D, YYYY",
-			"dataContainer",
-			"datacontainer",
-			"dataContainer",
-			"datacontainer",
-			"action",
-			"datacontainer",
-			"date",
-			"stats",
-			"daterange",
-			"datacontainer",
-			"MMMM D, YYYY",
-			"search",
-			"<= ",
-			" < ",
-			" > ",
-			">",
-			"+=",
-			"-",
-			"$daterange",
-			"isset",
-			"\n        $date = explode(\"-\", $daterange);",
-			"dateRange",
-			"daterange",
-			"as",
-			"th",
-			"Association",
-			"p",
-			"cin",
-			"user",
-			"entitiesLength",
-			">\n",
-			"gender",
-			"detach",
-			"name=\"",
-			"'),\n",
-			"’",
-			"‘",
-			"dateInString",
-			"‘",
-			"’",
-			"BenDoctorsBundle",
-			"p.",
-			"form",
-			"Person",
-			"ConsultationType",
-			"Consultaion",
-			"Consultation",
-			"name",
-			"general",
-			"infrastructure",
-			"$type",
-			"expertise",
-			"name",
-			"container",
-			"birthday",
-			"Person",
-			"consultations",
-			"col-sm",
-			"{{",
-			"tab3"
+			"address"
 		],
 		"highlight": false,
 		"in_selection": false,
@@ -1092,8 +1104,146 @@
 	"groups":
 	[
 		{
+			"selected": 0,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "src/Ben/DoctorsBundle/Resources/views/Default/ajaxStats.html.twig",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 6195,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								5089,
+								5089
+							],
+							[
+								5637,
+								5637
+							]
+						],
+						"settings":
+						{
+							"codeintel": true,
+							"codeintel_config":
+							{
+								"JavaScript":
+								{
+									"codeintel_max_recursive_dir_depth": 2,
+									"codeintel_scan_files_in_project": false,
+									"javascriptExtraPaths":
+									[
+									]
+								},
+								"PHP":
+								{
+									"codeintel_max_recursive_dir_depth": 5,
+									"codeintel_scan_files_in_project": false,
+									"phpExtraPaths":
+									[
+									]
+								},
+								"Python":
+								{
+									"env":
+									{
+									}
+								}
+							},
+							"codeintel_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_live": true,
+							"codeintel_live_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_max_recursive_dir_depth": 10,
+							"codeintel_scan_exclude_dir":
+							{
+								"JavaScript":
+								[
+									"/build/",
+									"/min/"
+								]
+							},
+							"codeintel_scan_files_in_project": true,
+							"codeintel_selected_catalogs":
+							[
+								"PyWin32",
+								"jQuery",
+								"Rails"
+							],
+							"codeintel_snippets": true,
+							"codeintel_syntax_map":
+							{
+								"Python Django": "Python"
+							},
+							"codeintel_tooltips": "popup",
+							"sublime_auto_complete": true,
+							"syntax": "Packages/PHP-Twig/Syntaxes/HTML (Twig).tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
 			]
 		}
 	],
@@ -1130,7 +1280,7 @@
 	"menu_visible": true,
 	"output.exec":
 	{
-		"height": 354.0
+		"height": 303.0
 	},
 	"output.find_results":
 	{
@@ -1152,52 +1302,272 @@
 		"selected_items":
 		[
 			[
-				"test",
+				"menu",
+				"views\\Default\\menu.html.twig"
+			],
+			[
+				"stattw",
+				"views\\Default\\ajaxStats.html.twig"
+			],
+			[
+				"consuedit",
+				"views\\Consultation\\edit.html.twig"
+			],
+			[
+				"conscon",
+				"DoctorsBundle\\Controller\\ConsultationController.php"
+			],
+			[
+				"testt",
 				"DoctorsBundle\\Form\\TestType.php"
+			],
+			[
+				"test",
+				"DoctorsBundle\\Entity\\Test.php"
+			],
+			[
+				"testco",
+				"DoctorsBundle\\Controller\\TestController.php"
+			],
+			[
+				"consshow",
+				"views\\Consultation\\show.html.twig"
+			],
+			[
+				"val",
+				"DoctorsBundle\\Resources\\config\\validation.yml"
+			],
+			[
+				"personc",
+				"DoctorsBundle\\Controller\\PersonController.php"
+			],
+			[
+				"percontroller",
+				"DoctorsBundle\\Controller\\PersonController.php"
+			],
+			[
+				"controller",
+				"DoctorsBundle\\Controller\\TestController.php"
+			],
+			[
+				"consu",
+				"DoctorsBundle\\Entity\\Consultation.php"
+			],
+			[
+				"admic",
+				"UserBundle\\Controller\\AdminController.php"
+			],
+			[
+				"bootcs",
+				"doctors\\web\\bootstrap\\css\\bootstrap.css"
+			],
+			[
+				"personshow",
+				"DoctorsBundle\\Resources\\views\\Person\\show.html.twig"
 			],
 			[
 				"consushow",
 				"views\\Consultation\\show.html.twig"
 			],
 			[
-				"testnew",
-				"views\\Test\\new.html.twig"
+				"adminc",
+				"UserBundle\\Controller\\AdminController.php"
+			],
+			[
+				"consaja",
+				"views\\Consultation\\ajax_list.html.twig"
+			],
+			[
+				"consindex",
+				"views\\Consultation\\index.html.twig"
+			],
+			[
+				"consurep",
+				"DoctorsBundle\\Entity\\ConsultationRepository.php"
 			],
 			[
 				"main",
 				"doctors\\web\\css\\main.css"
 			],
 			[
-				"testty",
-				"DoctorsBundle\\Form\\TestType.php"
+				"laycs",
+				"doctors\\web\\css\\layout.css"
 			],
 			[
-				"tes",
-				"DoctorsBundle\\Entity\\Test.php"
+				"lay",
+				"views\\layout.html.twig"
 			],
 			[
-				"personnew",
-				"views\\Person\\new.html.twig"
-			],
-			[
-				"consunew",
-				"DoctorsBundle\\Resources\\views\\Consultation\\new.html.twig"
-			],
-			[
-				"personty",
-				"DoctorsBundle\\Form\\PersonType.php"
+				"user",
+				"UserBundle\\Entity\\User.php"
 			],
 			[
 				"person",
 				"DoctorsBundle\\Entity\\Person.php"
 			],
 			[
-				"conty",
+				"sta",
+				"UserBundle\\Stats\\StatsQuery.php"
+			],
+			[
+				"sourc",
+				"doctors\\app\\Resources\\test\\source.sql"
+			],
+			[
+				"def",
+				"DoctorsBundle\\Controller\\DefaultController.php"
+			],
+			[
+				"stat",
+				"UserBundle\\Stats\\StatsQuery.php"
+			],
+			[
+				"consty",
 				"DoctorsBundle\\Form\\ConsultationType.php"
 			],
 			[
-				"consu",
+				"cons",
 				"DoctorsBundle\\Entity\\Consultation.php"
+			],
+			[
+				"sou",
+				"doctors\\app\\Resources\\test\\source.sql"
+			],
+			[
+				"source",
+				"doctors\\app\\Resources\\test\\source.sql"
+			],
+			[
+				"personty",
+				"DoctorsBundle\\Form\\PersonType.php"
+			],
+			[
+				"antec",
+				"DoctorsBundle\\Entity\\Antecedent.php"
+			],
+			[
+				"meds",
+				"DoctorsBundle\\Entity\\Meds.php"
+			],
+			[
+				"persty",
+				"DoctorsBundle\\Form\\PersonType.php"
+			],
+			[
+				"persor",
+				"DoctorsBundle\\Entity\\PersonRepository.php"
+			],
+			[
+				"personre",
+				"DoctorsBundle\\Entity\\PersonRepository.php"
+			],
+			[
+				"userrep",
+				"UserBundle\\Entity\\UserRepository.php"
+			],
+			[
+				"consmedsty",
+				"DoctorsBundle\\Form\\ConsultationMedsType.php"
+			],
+			[
+				"const",
+				"DoctorsBundle\\Form\\ConsultationType.php"
+			],
+			[
+				"medshow",
+				"views\\Meds\\show.html.twig"
+			],
+			[
+				"flash",
+				"views\\Default\\flashes.html.twig"
+			],
+			[
+				"medindex",
+				"views\\Meds\\index.html.twig"
+			],
+			[
+				"medajax",
+				"views\\Meds\\ajax_list.html.twig"
+			],
+			[
+				"personsho",
+				"DoctorsBundle\\Resources\\views\\Person\\show.html.twig"
+			],
+			[
+				"medty",
+				"DoctorsBundle\\Form\\MedsType.php"
+			],
+			[
+				"consulnew",
+				"views\\Consultation\\new.html.twig"
+			],
+			[
+				"testty",
+				"DoctorsBundle\\Form\\TestType.php"
+			],
+			[
+				"consultyp",
+				"DoctorsBundle\\Form\\ConsultationType.php"
+			],
+			[
+				"personfor",
+				"views\\Person\\form.html.twig"
+			],
+			[
+				"personform",
+				"views\\Person\\form.html.twig"
+			],
+			[
+				"personedit",
+				"views\\Person\\edit.html.twig"
+			],
+			[
+				"testnew",
+				"views\\Test\\new.html.twig"
+			],
+			[
+				"personnew",
+				"views\\Person\\new.html.twig"
+			],
+			[
+				"persontyp",
+				"DoctorsBundle\\Form\\PersonType.php"
+			],
+			[
+				"personne",
+				"views\\Person\\new.html.twig"
+			],
+			[
+				"consedi",
+				"views\\Consultation\\edit.html.twig"
+			],
+			[
+				"consnw",
+				"views\\Consultation\\new.html.twig"
+			],
+			[
+				"consuty",
+				"DoctorsBundle\\Form\\ConsultationType.php"
+			],
+			[
+				"conshow",
+				"views\\Config\\show.html.twig"
+			],
+			[
+				"consnew",
+				"views\\Consultation\\new.html.twig"
+			],
+			[
+				"tes",
+				"DoctorsBundle\\Entity\\Test.php"
+			],
+			[
+				"consunew",
+				"DoctorsBundle\\Resources\\views\\Consultation\\new.html.twig"
+			],
+			[
+				"conty",
+				"DoctorsBundle\\Form\\ConsultationType.php"
 			],
 			[
 				"",
@@ -1208,20 +1578,8 @@
 				"views\\Consultation\\edit.html.twig"
 			],
 			[
-				"cons",
-				"DoctorsBundle\\Entity\\Consultation.php"
-			],
-			[
-				"consty",
-				"DoctorsBundle\\Form\\ConsultationType.php"
-			],
-			[
 				"consunw",
 				"views\\Consultation\\new.html.twig"
-			],
-			[
-				"lay",
-				"views\\layout.html.twig"
 			],
 			[
 				"comp",
@@ -1234,14 +1592,6 @@
 			[
 				"antefor",
 				"views\\Antecedent\\form.html.twig"
-			],
-			[
-				"personform",
-				"views\\Person\\form.html.twig"
-			],
-			[
-				"sou",
-				"doctors\\app\\Resources\\test\\source.sql"
 			],
 			[
 				"sourph",
@@ -1264,20 +1614,8 @@
 				"doctors\\vendor\\monolog\\monolog\\src\\Monolog\\Handler\\GroupHandler.php"
 			],
 			[
-				"source",
-				"doctors\\app\\Resources\\test\\source.sql"
-			],
-			[
 				"medcon",
 				"DoctorsBundle\\Controller\\MedsController.php"
-			],
-			[
-				"user",
-				"UserBundle\\Entity\\User.php"
-			],
-			[
-				"menu",
-				"views\\Default\\menu.html.twig"
 			],
 			[
 				"sec",
@@ -1296,28 +1634,12 @@
 				"UserBundle\\Resources\\views\\admin\\index.html.twig"
 			],
 			[
-				"meds",
-				"DoctorsBundle\\Entity\\Meds.php"
-			],
-			[
-				"stattw",
-				"views\\Default\\ajaxStats.html.twig"
-			],
-			[
-				"def",
-				"DoctorsBundle\\Controller\\DefaultController.php"
-			],
-			[
 				"stats/",
 				"UserBundle\\Stats\\StatsQuery.php"
 			],
 			[
 				"conaja",
 				"views\\Consultation\\ajax_list.html.twig"
-			],
-			[
-				"personshow",
-				"DoctorsBundle\\Resources\\views\\Person\\show.html.twig"
 			],
 			[
 				"sourcephp",
@@ -1344,14 +1666,6 @@
 				"views\\Consultation\\ajax_list.html.twig"
 			],
 			[
-				"consnew",
-				"views\\Consultation\\new.html.twig"
-			],
-			[
-				"personne",
-				"views\\Person\\new.html.twig"
-			],
-			[
 				"constyp",
 				"DoctorsBundle\\Form\\ConsultationType.php"
 			],
@@ -1370,10 +1684,6 @@
 			[
 				"log",
 				"UserBundle\\Resources\\views\\Security\\login.html.twig"
-			],
-			[
-				"medajax",
-				"views\\Meds\\ajax_list.html.twig"
 			],
 			[
 				"service",
@@ -1410,10 +1720,6 @@
 			[
 				"imag",
 				"DoctorsBundle\\Entity\\image.php"
-			],
-			[
-				"laycs",
-				"doctors\\web\\css\\layout.css"
 			],
 			[
 				"la",
@@ -1454,10 +1760,6 @@
 			[
 				"vali",
 				"DoctorsBundle\\Resources\\config\\validation.yml"
-			],
-			[
-				"personc",
-				"DoctorsBundle\\Controller\\PersonController.php"
 			],
 			[
 				"a",
@@ -1508,160 +1810,8 @@
 				"UserBundle\\Resources\\views\\admin\\index.html.twig"
 			],
 			[
-				"medshow",
-				"views\\Meds\\show.html.twig"
-			],
-			[
 				"medsin",
 				"views\\Meds\\index.html.twig"
-			],
-			[
-				"testinde",
-				"views\\Test\\index.html.twig"
-			],
-			[
-				"consind",
-				"views\\Consultation\\index.html.twig"
-			],
-			[
-				"coinde",
-				"views\\Config\\index.html.twig"
-			],
-			[
-				"persajax",
-				"views\\Person\\ajax_list.html.twig"
-			],
-			[
-				"personindex",
-				"views\\Person\\index.html.twig"
-			],
-			[
-				"userbundle/changpas",
-				"UserBundle\\Resources\\views\\ChangePassword\\changePassword.html.twig"
-			],
-			[
-				"confiindex",
-				"views\\Config\\index.html.twig"
-			],
-			[
-				"testedit",
-				"views\\Test\\edit.html.twig"
-			],
-			[
-				"persoinde",
-				"views\\Person\\index.html.twig"
-			],
-			[
-				"app",
-				"doctors\\web\\js\\application.js"
-			],
-			[
-				"consinde",
-				"views\\Consultation\\index.html.twig"
-			],
-			[
-				"coninde",
-				"views\\Config\\index.html.twig"
-			],
-			[
-				"testindex",
-				"views\\Test\\index.html.twig"
-			],
-			[
-				"consindex",
-				"views\\Consultation\\index.html.twig"
-			],
-			[
-				"personedi",
-				"views\\Person\\edit.html.twig"
-			],
-			[
-				"persindex",
-				"views\\Person\\index.html.twig"
-			],
-			[
-				"persty",
-				"DoctorsBundle\\Form\\PersonType.php"
-			],
-			[
-				"persc",
-				"DoctorsBundle\\Controller\\PersonController.php"
-			],
-			[
-				"personre",
-				"DoctorsBundle\\Entity\\PersonRepository.php"
-			],
-			[
-				"consuinde",
-				"views\\Consultation\\index.html.twig"
-			],
-			[
-				"persoindex",
-				"views\\Person\\index.html.twig"
-			],
-			[
-				"userrep",
-				"UserBundle\\Entity\\UserRepository.php"
-			],
-			[
-				"personrep",
-				"DoctorsBundle\\Entity\\PersonRepository.php"
-			],
-			[
-				"personcontroler",
-				"DoctorsBundle\\Controller\\PersonController.php"
-			],
-			[
-				"momenw",
-				"doctors\\web\\js\\moment-with-langs.min.js"
-			],
-			[
-				"defc",
-				"DoctorsBundle\\Controller\\DefaultController.php"
-			],
-			[
-				"defy",
-				"DoctorsBundle\\Resources\\config\\routing\\default.yml"
-			],
-			[
-				"defym",
-				"DoctorsBundle\\Resources\\config\\routing\\default.yml"
-			],
-			[
-				"personin",
-				"views\\Person\\index.html.twig"
-			],
-			[
-				"defindex",
-				"views\\Default\\index.html.twig"
-			],
-			[
-				"statsquery",
-				"UserBundle\\Stats\\StatsQuery.php"
-			],
-			[
-				"stahan",
-				"UserBundle\\Stats\\StatsHandler.php"
-			],
-			[
-				"stat",
-				"UserBundle\\Stats\\StatsHandler.php"
-			],
-			[
-				"stathan",
-				"UserBundle\\Stats\\StatsHandler.php"
-			],
-			[
-				"ststh",
-				"doctors\\vendor\\monolog\\monolog\\src\\Monolog\\Handler\\TestHandler.php"
-			],
-			[
-				"userre",
-				"UserBundle\\Entity\\UserRepository.php"
-			],
-			[
-				"medsshow",
-				"views\\Meds\\show.html.twig"
 			]
 		],
 		"width": 0.0

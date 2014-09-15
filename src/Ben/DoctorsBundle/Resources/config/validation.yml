@@ -1,11 +1,9 @@
 Ben\DoctorsBundle\Entity\Person:
     constraints:
         - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity: cin
-    properties:
-        cin:
-            - NotBlank: ~
-    constraints:
         - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity: cne
     properties:
         cin:
+            - NotBlank: ~
+        cne:
             - NotBlank: ~

@@ -39,6 +39,26 @@ Tableau de bord | {{ parent() }}
         });
         $('select').removeClass('form-control').select2({minimumResultsForSearch: -1});
 
+        /* handicap */
+        var ishandicap = $('#ben_person_ishandicap'),
+            handicap = ishandicap.closest('.form-group').next().hide();
+            needs = handicap.closest('.form-group').next().hide();
+
+        if(ishandicap.is(":checked")){
+            handicap.show();
+            needs.show();
+        }
+        ishandicap.on('change', function(){
+          if(ishandicap.is(":checked")){
+            handicap.show();
+            needs.show();
+          }
+          else {
+            handicap.hide();
+            needs.hide();
+          }
+        });
+
     })(jQuery);
 </script>
 {% endblock %}

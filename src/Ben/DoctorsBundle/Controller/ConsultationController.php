@@ -72,6 +72,7 @@ class ConsultationController extends Controller
             $em->persist($entity);
             $em->flush();
 
+            $this->get('session')->getFlashBag()->add('info', "La consultation a été enregistré avec succès.");
             return $this->redirect($this->generateUrl('consultation_show', array('id' => $entity->getId())));
         }
 
@@ -181,9 +182,11 @@ class ConsultationController extends Controller
             $em->persist($entity);
             $em->flush();
 
+            $this->get('session')->getFlashBag()->add('info', "La consultation a été enregistré avec succès.");
             return $this->redirect($this->generateUrl('consultation_edit', array('id' => $id)));
         }
 
+        $this->get('session')->getFlashBag()->add('danger', "Il y a des erreurs dans le formulaire soumis !");
         return $this->render('BenDoctorsBundle:Consultation:edit.html.twig', array(
             'entity'      => $entity,
             'form'   => $editForm->createView(),
@@ -192,7 +195,7 @@ class ConsultationController extends Controller
     }
     /**
      * Deletes a Consultation entity.
-     * @Secure(roles="ROLE_ADMIN")
+     * @Secure(roles="ROLE_USER")
      *
      */
     public function deleteAction(Request $request, $id)
@@ -203,15 +206,18 @@ class ConsultationController extends Controller
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $entity = $em->getRepository('BenDoctorsBundle:Consultation')->find($id);
-
-            if (!$entity) {
+            if (!$entity) 
                 throw $this->createNotFoundException('Unable to find Consultation entity.');
+
+            $currentUser = $this->get('security.context')->getToken()->getUser();
+            if ($currentUser != $entity->getUser() && !$this->get('security.context')->isGranted('ROLE_ADMIN'))
+                $this->get('session')->getFlashBag()->add('danger', "Unauthorized access.");
+            else{
+                $em->remove($entity);
+                $em->flush();
+                $this->get('session')->getFlashBag()->add('info', "Action effectué avec succès !");
             }
-
-            $em->remove($entity);
-            $em->flush();
         }
-
         return $this->redirect($this->generateUrl('consultation'));
     }
 

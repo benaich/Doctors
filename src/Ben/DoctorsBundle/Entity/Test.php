@@ -82,7 +82,7 @@ class Test
     /**
      * @var boolean
      *
-     * @ORM\Column(name="fixedvisualissue", type="boolean", nullable=true)
+     * @ORM\Column(name="fixedvisualissue", length=255, nullable=true)
      */
     private $fixedvisualissue;
 
@@ -448,7 +448,7 @@ class Test
     /**
      * Set fixedvisualissue
      *
-     * @param boolean $fixedvisualissue
+     * @param string $fixedvisualissue
      * @return Test
      */
     public function setFixedvisualissue($fixedvisualissue)
@@ -461,7 +461,7 @@ class Test
     /**
      * Get fixedvisualissue
      *
-     * @return boolean 
+     * @return string 
      */
     public function getFixedvisualissue()
     {

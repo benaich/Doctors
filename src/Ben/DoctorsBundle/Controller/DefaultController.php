@@ -27,9 +27,24 @@ class DefaultController extends Controller
         $stats['meds'] = $statsHandler->setDataColumn('meds')->processData();
         $stats['consultations'] = $statsHandler->setDataColumn('consultations')->processData();
         $stats['stock'] = $statsHandler->setDataColumn('stock')->processData()[0]['label'];
-        $stats['general_consultations_count'] = $statsHandler->setDataColumn('general_consultations')->processData()[0]['label'];
-        $stats['special_consultations_count'] = $statsHandler->setDataColumn('special_consultations')->processData()[0]['label'];
-        $stats['oriented_persons'] = $statsHandler->setDataColumn('oriented')->processData()[0]['label'];
+        
+        $stats['cnss'] = $statsHandler->setDataColumn('cnss')->processData();
+        $stats['consultations_demande'] = $statsHandler->setDataColumn('consultations_demande')->processData()[0]['data'];
+        $stats['consultations_demande_gender'] = $statsHandler->setDataColumn('consultations_demande_gender')->processData();
+        $stats['consultations_demande_resident'] = $statsHandler->setDataColumn('consultations_demande_resident')->processData()[0]['data'];
+        $stats['consultations_demande_resident_gender'] = $statsHandler->setDataColumn('consultations_demande_resident_gender')->processData();
+
+        $stats['consultations_systematique_resident'] = $statsHandler->setDataColumn('consultations_systematique_resident')->processData()[0]['data'];
+        $stats['consultations_systematique_resident_gender'] = $statsHandler->setDataColumn('consultations_systematique_resident_gender')->processData();
+        $stats['consultations_visual_issue'] = $statsHandler->setDataColumn('consultations_visual_issue')->processData()[0]['data'];
+        $stats['consultations_special'] = $statsHandler->setDataColumn('consultations_special')->processData();
+        $stats['consultations_special_gender'] = $statsHandler->setDataColumn('consultations_special_gender')->processData();
+        
+        $stats['consultations_chronic'] = $statsHandler->setDataColumn('consultations_chronic')->processData()[0]['data'];
+        $stats['consultations_not_chronic'] = $statsHandler->setDataColumn('consultations_not_chronic')->processData()[0]['data'];
+        $stats['consultations_structures'] = $statsHandler->setDataColumn('consultations_structures')->processData();
+
+        // var_dump($stats);die;
        
         return $this->render('BenDoctorsBundle:Default:ajaxStats.html.twig', array(
             'stats' => $stats));

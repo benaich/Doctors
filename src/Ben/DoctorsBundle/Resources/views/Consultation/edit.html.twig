@@ -21,7 +21,7 @@ Tableau de bord | {{ parent() }}
       </div>
     </div>
 </form>
-<form id="deleteForm" action="{{ path('consultation_delete', { 'id': entity.id }) }}" method="DELETE" class="">
+<form id="deleteForm" action="{{ path('consultation_delete', { 'id': entity.id }) }}" method="POST" class="">
     {{ form_widget(delete_form) }}
 </form> 
 {% endblock %}
@@ -85,6 +85,14 @@ Tableau de bord | {{ parent() }}
                 : '<input class="form-control" id="ben_consultation_name" type="text" name="ben_consultation[name]" required="required">';
                 
             motifInput.show().find('div').html(html);
+        });
+
+        infrastructureData = ["CMSU", "Centre de diagnostic", "Hopital public", "CHU", "structure privée"];
+        infrastructureData = $.map(infrastructureData, function(val,index){return {id:val, text:val};});
+        $('#ben_consultation_infrastructure').removeClass('form-control').select2({
+          createSearchChoice:function(term, data) { if ($(data).filter(function() { return this.text.localeCompare(term)===0; }).length===0) {return {id:term, text:term};} },
+          multiple: false,
+          data: infrastructureData
         });
 
     })(jQuery);

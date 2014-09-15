@@ -72,6 +72,20 @@ class Consultation
      * @ORM\Column(name="treatment", type="text", nullable=true)
      */
     private $treatment;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="decision", type="text", nullable=true)
+     */
+    private $decision;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="chronic", type="boolean", nullable=true)
+     */
+    private $chronic;
     
     /**
     * @ORM\ManyToOne(targetEntity="Ben\DoctorsBundle\Entity\Person", inversedBy="consultations")
@@ -399,5 +413,51 @@ class Consultation
     public function isSpecial()
     {
         return ($this->type === Consultation::$SPECIAL);
+    }
+
+    /**
+     * Set chronic
+     *
+     * @param boolean $chronic
+     * @return Consultation
+     */
+    public function setChronic($chronic)
+    {
+        $this->chronic = $chronic;
+
+        return $this;
+    }
+
+    /**
+     * Get chronic
+     *
+     * @return boolean 
+     */
+    public function getChronic()
+    {
+        return $this->chronic;
+    }
+    
+    /**
+     * Set decision
+     *
+     * @param string $decision
+     * @return Consultation
+     */
+    public function setDecision($decision)
+    {
+        $this->decision = $decision;
+
+        return $this;
+    }
+
+    /**
+     * Get decision
+     *
+     * @return string 
+     */
+    public function getDecision()
+    {
+        return $this->decision;
     }
 }

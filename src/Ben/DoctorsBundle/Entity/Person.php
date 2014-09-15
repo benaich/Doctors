@@ -163,10 +163,38 @@ class Person
 
     /**
      * @var boolean
+     * @ORM\Column(name="ishandicap", type="boolean", nullable=true)
+     * 
+     */
+    private $ishandicap;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="handicap", type="string", length=255, nullable=true)
+     */
+    private $handicap;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="needs", type="text", nullable=true)
+     */
+    private $needs;
+
+    /**
+     * @var boolean
      *
      * @ORM\Column(name="resident", type="boolean")
      */
     private $resident;
+
+    /**
+     * @var \DateTime $created
+     *
+     * @ORM\Column(name="created", type="datetime")
+     */
+    protected $created;
 
     /**
     * @ORM\OneToMany(targetEntity="Ben\DoctorsBundle\Entity\Antecedent", mappedBy="person", cascade={"remove", "persist"})
@@ -183,6 +211,7 @@ class Person
     public function __construct()
     {
         $this->birthday =  new \DateTime;
+        $this->created = new \DateTime;
         $this->antecedents = new \Doctrine\Common\Collections\ArrayCollection();
         $this->consultations = new \Doctrine\Common\Collections\ArrayCollection();
     }
@@ -764,5 +793,95 @@ class Person
     public function getConsultations()
     {
         return $this->consultations;
+    }
+
+    /**
+     * Set ishandicap
+     *
+     * @param boolean $ishandicap
+     * @return Person
+     */
+    public function setIshandicap($ishandicap)
+    {
+        $this->ishandicap = $ishandicap;
+
+        return $this;
+    }
+
+    /**
+     * Get ishandicap
+     *
+     * @return boolean 
+     */
+    public function getIshandicap()
+    {
+        return $this->ishandicap;
+    }
+
+    /**
+     * Set handicap
+     *
+     * @param string $handicap
+     * @return Person
+     */
+    public function setHandicap($handicap)
+    {
+        $this->handicap = $handicap;
+
+        return $this;
+    }
+
+    /**
+     * Get handicap
+     *
+     * @return string 
+     */
+    public function getHandicap()
+    {
+        return $this->handicap;
+    }
+
+    /**
+     * Set needs
+     *
+     * @param string $needs
+     * @return Person
+     */
+    public function setNeeds($needs)
+    {
+        $this->needs = $needs;
+
+        return $this;
+    }
+
+    /**
+     * Get needs
+     *
+     * @return string 
+     */
+    public function getNeeds()
+    {
+        return $this->needs;
+    }
+
+    /**
+     * Set created
+     *
+     * @param \DateTime $created
+     * @return Person
+     */
+    public function setCreated($created) {
+        $this->created = $created;
+
+        return $this;
+    }
+
+    /**
+     * Get created
+     *
+     * @return \DateTime 
+     */
+    public function getCreated() {
+        return $this->created;
     }
 }

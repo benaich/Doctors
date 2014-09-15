@@ -27,6 +27,8 @@ class ConsultationRepository extends EntityRepository
                 ->setParameter('keyword', '%'.$keyword.'%');
         if(!empty($ids))
             $qb->andWhere('c.id in (:ids)')->setParameter('ids', $ids);
+        if(!empty($type))
+            $qb->andWhere('c.type like :type')->setParameter('type', $type);
         if(!empty($cin))
             $qb->andWhere('p.cin = :cin')->setParameter('cin', $cin);
         if(!empty($user))

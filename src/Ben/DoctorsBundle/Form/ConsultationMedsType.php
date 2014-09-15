@@ -22,6 +22,7 @@ class ConsultationMedsType extends AbstractType
                 'query_builder' => function(\Doctrine\ORM\EntityRepository $er) {
                     return $er->createQueryBuilder('m')
                         ->where('m.count > 0')
+                        ->andWhere('m.expdate > CURRENT_DATE()')
                         ->orderBy('m.name', 'ASC');
                     },
                 ))

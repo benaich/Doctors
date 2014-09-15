@@ -70,10 +70,11 @@ class TestController extends Controller
             }
             $em->persist($entity);
             $em->flush();
-
+            $this->get('session')->getFlashBag()->add('info', "L'examen a été ajouté avec succès.");
             return $this->redirect($this->generateUrl('consultation_show', array('id' => $entity->getConsultation()->getId())));
         }
 
+        $this->get('session')->getFlashBag()->add('danger', "Il y a des erreurs dans le formulaire soumis !");
         return $this->render('BenDoctorsBundle:Test:new.html.twig', array(
             'entity' => $entity,
             'type' => $type,
@@ -166,11 +167,14 @@ class TestController extends Controller
         $editForm->handleRequest($request);
 
         if ($editForm->isValid()) {
+            $em->persist($entity);
             $em->flush();
 
+            $this->get('session')->getFlashBag()->add('info', "L'examen a été mis à jour avec succès.");
             return $this->redirect($this->generateUrl('test_edit', array('id' => $id)));
         }
 
+        $this->get('session')->getFlashBag()->add('danger', "Il y a des erreurs dans le formulaire soumis !");
         return $this->render('BenDoctorsBundle:Test:edit.html.twig', array(
             'entity'      => $entity,
             'form'   => $editForm->createView(),
@@ -179,7 +183,7 @@ class TestController extends Controller
     }
     /**
      * Deletes a Test entity.
-     * @Secure(roles="ROLE_ADMIN")
+     * @Secure(roles="ROLE_USER")
      *
      */
     public function deleteAction(Request $request, $id)
@@ -190,17 +194,21 @@ class TestController extends Controller
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $entity = $em->getRepository('BenDoctorsBundle:Test')->find($id);
-            $consultation_id = $entity->getConsultation()->getId();
+            if (!$entity) 
+                throw $this->createNotFoundException('Unable to find Consultation entity.');
 
-            if (!$entity) {
-                throw $this->createNotFoundException('Unable to find Test entity.');
+            $consultation = $entity->getConsultation();
+            $currentUser = $this->get('security.context')->getToken()->getUser();
+            if ($currentUser != $consultation->getUser() && !$this->get('security.context')->isGranted('ROLE_ADMIN'))
+                $this->get('session')->getFlashBag()->add('danger', "Unauthorized access.");
+            else{
+                $em->remove($entity);
+                $em->flush();
+                $this->get('session')->getFlashBag()->add('info', "Action effectué avec succès !");
             }
-
-            $em->remove($entity);
-            $em->flush();
         }
 
-        return $this->redirect($this->generateUrl('consultation_show', array('id' => $consultation_id)));
+        return $this->redirect($this->generateUrl('consultation_show', array('id' => $consultation->getId())));
     }
 
     /**

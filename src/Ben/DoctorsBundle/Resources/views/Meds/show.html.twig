@@ -3,6 +3,12 @@
 Tableau de bord | {{ parent() }}
 {% endblock %}
 {% block body -%}
+{% if entity.isExpired %}
+            <div class="alert alert-danger fade in">
+                <button type="button" class="close" data-dismiss="alert">×</button>
+                <strong>info !</strong>  médicament expiré depuis le {% if entity.expdate %}{{ entity.expdate|date('d/m/Y') }}{% endif %}
+            </div>
+{% endif %}
 <h3><span class="glyphicon glyphicon-leaf"></span> Médicament</h3>
 <div class="row">
     <div class="col-md-10">   
@@ -27,6 +33,14 @@ Tableau de bord | {{ parent() }}
             <tr>
                 <th>Description</th>
                 <td>{{ entity.about|nl2br }}</td>
+            </tr>
+            <tr>
+                <th>Ajouté le</th>
+                <td>{% if entity.created %}{{ entity.created|date('d/m/Y') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Date d'expiration</th>
+                <td>{% if entity.expdate %}{{ entity.expdate|date('d/m/Y') }}{% endif %}</td>
             </tr>
         </tbody>
     </table>

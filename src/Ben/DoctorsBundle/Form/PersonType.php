@@ -22,11 +22,11 @@ class PersonType extends AbstractType
             ->add('email')
             ->add('birthday', 'date', array('widget' => 'single_text'))
             ->add('birthcity')
-            ->add('gender', 'choice', array('choices' => array('garçon' => 'garçon','fille' => 'fille'),
+            ->add('gender', 'choice', array('choices' => array('Féminin' => 'Féminin','Masculin' => 'Masculin'),
                     'required' => false,))
             ->add('contry')
             ->add('city')
-            ->add('resident')
+            ->add('resident', 'checkbox', array('required' => false,))
             ->add('address')
             ->add('etablissement')
             ->add('university')
@@ -37,6 +37,9 @@ class PersonType extends AbstractType
             ->add('parentAddress')
             ->add('parentGsm')
             ->add('parentFixe')
+            ->add('ishandicap', 'checkbox', array('required' => false,))
+            ->add('handicap')
+            ->add('needs')
         ;
     }
     

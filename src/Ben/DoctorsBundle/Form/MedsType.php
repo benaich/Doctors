@@ -8,7 +8,7 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 class MedsType extends AbstractType
 {
-        /**
+    /**
      * @param FormBuilderInterface $builder
      * @param array $options
      */
@@ -19,6 +19,7 @@ class MedsType extends AbstractType
             ->add('count','text', array('label'=>'Nombre d\'unité'))
             ->add('type','text', array('label'=>'Type'))
             ->add('about','textarea', array('label'=>'Description'))
+            ->add('expdate','date', array('widget' => 'single_text', 'label'=>'Date d\'expiration'))
         ;
     }
     
@@ -37,6 +38,6 @@ class MedsType extends AbstractType
      */
     public function getName()
     {
-        return 'ben_doctorsbundle_meds';
+        return 'ben_meds';
     }
 }

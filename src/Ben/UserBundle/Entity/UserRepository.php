@@ -58,28 +58,4 @@ class UserRepository extends EntityRepository
          
       return $query->getOneOrNullResult();
     }
-
-    // public function statsByMeds(daterange)
-    // {
-    //     $date = explode("-", $daterange);
-    //     return  $this->fetch("select m.name as label, coalesce(sum(cm.count), 0 ) as data from meds m
-    //                 left join consultation_meds cm on cm.meds_id = m.id
-    //                 group by m.id 
-    //                 union
-    //                 select 'total' as label,  sum(count) as data from consultation_meds");
-    // }
-    // public function statsByConsultation($daterange)
-    // {
-    //     $date = explode("-", $daterange);
-    //     return  $this->fetch("select c.name as label, count(*) as data from consultation c 
-    //             where c.created between '".$date[0]."' and '".$date[1]."'
-    //             group by c.name");
-    // }
-
-    private function fetch($query)
-    {
-        $stmt = $this->getEntityManager()->getConnection()->prepare($query);
-        $stmt->execute();
-        return  $stmt->fetchAll();
-    }
 }

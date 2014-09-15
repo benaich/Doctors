@@ -37,7 +37,6 @@ class TestType extends AbstractType
                         'expanded' => true,
                         'multiple' => false,
                         'label' => false,
-                        'data' => 'Corrigé'
                         ))
                 ->add('symptomes', 'textarea', array('label'=>'Examen clinique','required'  => false))
                 ;

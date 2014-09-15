@@ -1,63 +1,198 @@
-    <div class="col-md-8">  
-    <div class="box">
-	    <header>
-	        <h4><span class="glyphicon glyphicon-file"></span> Situation epidemiologique</h4>
-	    </header>
-	    <table class="table table-striped table-bordered">
-	    <thead>
-		    <tr>
-		    	<th>Cas</th>
-		    	<th>nbre</th>
-		    </tr>
-	    </thead>
-	        {% for item in stats.consultations %}
-	        <tr>
-	            <td>{{ item.label }}</td>
-	            <td>{{ item.data }}</td>
-	        </tr>
-	        {% endfor %}
-	    </table>
+    <div class="col-md-6">  
+	    <div class="box hide">
+		    <header>
+		        <h4><span class="glyphicon glyphicon-file"></span> Situation epidemiologique</h4>
+		    </header>
+		    <table class="table table-striped table-bordered">
+		    <thead>
+			    <tr>
+			    	<th>Cas</th>
+			    	<th>nbre</th>
+			    </tr>
+		    </thead>
+		        {% for item in stats.consultations %}
+		        <tr>
+		            <td>{{ item.label }}</td>
+		            <td>{{ item.data }}</td>
+		        </tr>
+		        {% endfor %}
+		    </table>
+	    </div>
+	    <div class="box">
+		    <header>
+		        <h4><span class="glyphicon glyphicon-file"></span> Couverture sociale</h4>
+		    </header>
+		    <table class="table table-striped table-bordered">
+		    <thead>
+			    <tr>
+			    	<th>Type de couverture</th>
+			    	<th>nbre</th>
+			    </tr>
+		    </thead>
+		        {% for item in stats.cnss %}
+		        <tr>
+		            <td>{{ item.label }}</td>
+		            <td>{{ item.data }}</td>
+		        </tr>
+		        {% endfor %}
+		    </table>
+	    </div>
+	    <div class="box">
+		    <header>
+		        <h4><span class="glyphicon glyphicon-file"></span> Médicament délivré par le centre</h4>
+		    </header>
+		    <table class="table table-striped table-bordered">
+		    <thead>
+			    <tr>
+			    	<th>Medicament</th>
+			    	<th>nbre</th>
+			    </tr>
+		    </thead>
+		        {% for item in stats.meds %}
+		        <tr>
+		            <td>{{ item.label }}</td>
+		            <td>{{ item.data }}</td>
+		        </tr>
+		        {% endfor %}
+		    </table>
+	    </div>
+	    <div class="box">
+		    <header>
+		        <h4><span class="glyphicon glyphicon-file"></span> Structures sanitaires de référence par structure</h4>
+		    </header>
+		    <table class="table table-striped table-bordered">
+		    <thead>
+			    <tr>
+			    	<th>spécialité</th>
+			    	<th>nbre</th>
+			    </tr>
+		    </thead>
+		        {% for item in stats.consultations_structures %}
+		        <tr>
+		            <td>{{ item.label }}</td>
+		            <td>{{ item.data }}</td>
+		        </tr>
+		        {% endfor %}
+		    </table>
+	    </div>
+	    <div class="box">
+		    <header>
+		        <h4><span class="glyphicon glyphicon-file"></span> Nombre de médicament dans le stock <span class="badge pull-right">{{ stats.stock }}</span></h4>
+		    </header>
+		</div>
+	    <div class="box">
+		    <header>
+		        <h4><span class="glyphicon glyphicon-file"></span> Nombre de cas avec des troubles visuels  <span class="badge pull-right">{{ stats.consultations_visual_issue }}</span></h4>
+		    </header>
+		</div>
+	    <div class="box">
+		    <header>
+		        <h4><span class="glyphicon glyphicon-file"></span> Nombre  de cas des maladies dépistées <span class="badge pull-right">{{ stats.consultations_not_chronic }}</span></h4>
+		    </header>
+		</div>
+	    <div class="box">
+		    <header>
+		        <h4><span class="glyphicon glyphicon-file"></span> Nombre  de cas des maladies chroniques <span class="badge pull-right">{{ stats.consultations_chronic }}</span></h4>
+		    </header>
+		</div>
     </div>
-    </div>
-    <div class="col-md-4">
-    <div class="box">
-	    <header>
-	        <h4><span class="glyphicon glyphicon-file"></span> Médicament délivré par le centre</h4>
-	    </header>
-	    <table class="table table-striped table-bordered">
-	    <thead>
-		    <tr>
-		    	<th>Medicament</th>
-		    	<th>nbre</th>
-		    </tr>
-	    </thead>
-	        {% for item in stats.meds %}
-	        <tr>
-	            <td>{{ item.label }}</td>
-	            <td>{{ item.data }}</td>
-	        </tr>
-	        {% endfor %}
-	    </table>
-    </div>
-    <div class="box">
-	    <header>
-	        <h4><span class="glyphicon glyphicon-file"></span> Nombre de médicament dans le stock {{ stats.stock }}</h4>
-	    </header>
+    <div class="col-md-6">
+	    <div class="box">
+		    <header>
+		        <h4><span class="glyphicon glyphicon-file"></span> Consultations médicales à la demande <span class="badge pull-right">{{ stats.consultations_demande }}</span></h4>
+		    </header>
+		    <table class="table table-striped table-bordered">
+		    <thead>
+			    <tr>
+			    	<th>Sexe</th>
+			    	<th>nbre</th>
+			    </tr>
+		    </thead>
+		        {% for item in stats.consultations_demande_gender %}
+		        <tr>
+		            <td>{{ item.label }}</td>
+		            <td>{{ item.data }}</td>
+		        </tr>
+		        {% endfor %}
+		    </table>
+	    </div>
+	    <div class="box">
+		    <header>
+		        <h4><span class="glyphicon glyphicon-file"></span> Consultations médicales à la demande pour les residents <span class="badge pull-right">{{ stats.consultations_demande_resident }}</span></h4>
+		    </header>
+		    <table class="table table-striped table-bordered">
+		    <thead>
+			    <tr>
+			    	<th>Sexe</th>
+			    	<th>nbre</th>
+			    </tr>
+		    </thead>
+		        {% for item in stats.consultations_demande_resident_gender %}
+		        <tr>
+		            <td>{{ item.label }}</td>
+		            <td>{{ item.data }}</td>
+		        </tr>
+		        {% endfor %}
+		    </table>
+	    </div>
+	    <div class="box">
+		    <header>
+		        <h4><span class="glyphicon glyphicon-file"></span> Examens médical systématique <span class="badge pull-right">{{ stats.consultations_systematique_resident }}</span></h4>
+		    </header>
+		    <table class="table table-striped table-bordered">
+		    <thead>
+			    <tr>
+			    	<th>Sexe</th>
+			    	<th>nbre</th>
+			    </tr>
+		    </thead>
+		        {% for item in stats.consultations_systematique_resident_gender %}
+		        <tr>
+		            <td>{{ item.label }}</td>
+		            <td>{{ item.data }}</td>
+		        </tr>
+		        {% endfor %}
+		    </table>
+	    </div>
+	    <div class="box">
+		    <header>
+		        <h4><span class="glyphicon glyphicon-file"></span> Consultations médicale spécialisée par spécialité </h4>
+		    </header>
+		    <table class="table table-striped table-bordered">
+		    <thead>
+			    <tr>
+			    	<th>spécialité</th>
+			    	<th>nbre</th>
+			    </tr>
+		    </thead>
+		        {% for item in stats.consultations_special %}
+		        <tr>
+		            <td>{{ item.label }}</td>
+		            <td>{{ item.data }}</td>
+		        </tr>
+		        {% endfor %}
+		    </table>
+	    </div>
+	    <div class="box">
+		    <header>
+		        <h4><span class="glyphicon glyphicon-file"></span> Consultations médicale spécialisée par spécialité et par sexe </h4>
+		    </header>
+		    <table class="table table-striped table-bordered">
+		    <thead>
+			    <tr>
+			    	<th>spécialité</th>
+			    	<th>sexe</th>
+			    	<th>nbre</th>
+			    </tr>
+		    </thead>
+		        {% for item in stats.consultations_special_gender %}
+		        <tr>
+		            <td>{{ item.label }}</td>
+		            <td>{{ item.gender }}</td>
+		            <td>{{ item.data }}</td>
+		        </tr>
+		        {% endfor %}
+		    </table>
+	    </div>
 	</div>
-    <div class="box">
-	    <header>
-	        <h4><span class="glyphicon glyphicon-file"></span> Nombre de consultation {{ stats.general_consultations_count }}</h4>
-	    </header>
-	</div>
-    <div class="box">
-	    <header>
-	        <h4><span class="glyphicon glyphicon-file"></span> Nombre d'etudiants orientés {{ stats.oriented_persons }}</h4>
-	    </header>
-	</div>
-    <div class="box">
-	    <header>
-	        <h4><span class="glyphicon glyphicon-file"></span> Nombre de consultations specialisée {{ stats.special_consultations_count }}</h4>
-	    </header>
-	</div>
-    </div>
     <div class="clearfix"></div>

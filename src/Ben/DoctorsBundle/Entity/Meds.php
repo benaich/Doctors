@@ -59,6 +59,14 @@ class Meds
     protected $created;
 
     /**
+     * @var \DateTime $expdate
+     *
+     * @ORM\Column(name="expdate", type="date")
+     * @Gedmo\Timestampable(on="create")
+     */
+    protected $expdate;
+
+    /**
     * @ORM\OneToMany(targetEntity="Ben\DoctorsBundle\Entity\ConsultationMeds", mappedBy="meds", cascade={"remove", "persist"})
     */
     protected $consultationmeds;
@@ -70,6 +78,7 @@ class Meds
     {
         $this->consultationmeds = new \Doctrine\Common\Collections\ArrayCollection();
         $this->created = new \DateTime;
+        $this->expdate = new \DateTime;
     }
     
     /************ getters & setters  ************/
@@ -252,5 +261,36 @@ class Meds
      */
     public function getCreated() {
         return $this->created;
+    }
+
+    /**
+     * Set expdate
+     *
+     * @param \DateTime $expdate
+     * @return Meds
+     */
+    public function setExpdate($expdate) {
+        $this->expdate = $expdate;
+
+        return $this;
+    }
+
+    /**
+     * Get expdate
+     *
+     * @return \DateTime 
+     */
+    public function getExpdate() {
+        return $this->expdate;
+    }
+
+    /**
+     * check expiration date
+     *
+     * @return boolean
+     */
+    public function isExpired()
+    {
+        return ($this->expdate <= new \DateTime());
     }
 }

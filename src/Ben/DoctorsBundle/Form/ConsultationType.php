@@ -22,7 +22,7 @@ class ConsultationType extends AbstractType
     {
         if($this->general)
             $builder
-                ->add('motiftype', 'choice', array('label'=>'Type', 'choices' => array('EXAMEN MEDICAL SYSTEMATIQUE ' => 'EXAMEN MEDICAL SYSTEMATIQUE ','CONSULTATION MEDICALE A LA DEMANDE' => 'CONSULTATION MEDICALE A LA DEMANDE'),
+                ->add('motiftype', 'choice', array('label'=>'Type', 'choices' => array('EXAMEN MEDICAL SYSTEMATIQUE' => 'EXAMEN MEDICAL SYSTEMATIQUE','CONSULTATION MEDICALE A LA DEMANDE' => 'CONSULTATION MEDICALE A LA DEMANDE'),
                     'required' => false,))
                 ->add('name', 'text', array('label'=>'Motif'));
         else
@@ -34,8 +34,15 @@ class ConsultationType extends AbstractType
             ->add('diagnosis')
             ->add('treatment', 'textarea', array('label'=>'Traitement préscrit', 'required'  => false))
             ->add('person')
-            ->add('type', 'hidden')
-            ->add('consultationmeds', 'collection', array('label'=>'Medicaments déliverés par le centre', 'type' => new ConsultationMedsType(), 'allow_add' => true, 'by_reference' => false, 'allow_delete' => true,'prototype' => true,))
+            ->add('type', 'hidden');
+
+
+        if($this->general)
+            $builder
+                ->add('decision', 'textarea', array('label'=>'Décision prise', 'required'  => false))
+                ->add('chronic', 'checkbox', array('label'=>'Maladie chronique ?', 'required'  => false));
+
+        $builder->add('consultationmeds', 'collection', array('label'=>'Medicaments déliverés par le centre', 'type' => new ConsultationMedsType(), 'allow_add' => true, 'by_reference' => false, 'allow_delete' => true,'prototype' => true,))
         ;
 
     }
