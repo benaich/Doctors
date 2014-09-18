@@ -30,6 +30,19 @@ Tableau de bord | {{ parent() }}
         });
         
         $('select').removeClass('form-control').select2({minimumResultsForSearch: -1});
+
+        var hasvisualissue = $('#ben_test_hasvisualissue'),
+            fixedvisualissue = hasvisualissue.closest('.form-group').next().hide();
+            fixedvisualissue.children('label').html('');
+        
+        if(hasvisualissue.is(":checked")){
+            fixedvisualissue.show();
+        }
+        hasvisualissue.on('change', function(){
+          if(hasvisualissue.is(":checked"))
+            fixedvisualissue.show();
+          else fixedvisualissue.hide();
+        });
     })(jQuery);
 </script>
 {% endblock %}

@@ -25,7 +25,7 @@ Tableau de bord | {{ parent() }}
         var hasvisualissue = $('#ben_test_hasvisualissue'),
             fixedvisualissue = hasvisualissue.closest('.form-group').next().hide();
             fixedvisualissue.children('label').html('');
-
+        
         if(hasvisualissue.is(":checked")){
             fixedvisualissue.show();
         }

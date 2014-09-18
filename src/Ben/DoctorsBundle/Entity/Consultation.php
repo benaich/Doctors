@@ -34,7 +34,7 @@ class Consultation
     /**
      * @var string
      *
-     * @ORM\Column(name="motiftype", type="string", length=255)
+     * @ORM\Column(name="motiftype", type="string", length=255, nullable=true)
      */
     private $motiftype;
 

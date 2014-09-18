@@ -428,6 +428,7 @@ input[type="file"]:focus, input[type="radio"]:focus, input[type="checkbox"]:focu
 	#adminbar{position: static;height: inherit;}
 	.list-print li{margin-bottom: 15px;}
 	a[href]:after {content: none !important;}
+	hr{display: none;}
 }
 
 /* contact ui */
@@ -675,3 +676,4 @@ border-color: #48c9b0;
     display: block;
     margin-top: 10px;
 }
+hr{border-top: 1px solid #D3D3D3;}

@@ -3,6 +3,7 @@
 namespace Ben\DoctorsBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Httpfoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use JMS\SecurityExtraBundle\Annotation\Secure;
 
@@ -190,6 +191,21 @@ class MedsController extends Controller
         }
 
         return $this->redirect($this->generateUrl('meds'));
+    }
+
+    /**
+     * Deletes multiple entities
+     * @Secure(roles="ROLE_MANAGER")
+     */
+    public function removeAction(Request $request)
+    {
+        $ids = $request->get('entities');
+        $em = $this->getDoctrine()->getManager();
+        $entities = $em->getRepository('BenDoctorsBundle:Meds')->search(array('ids'=>$ids));
+        foreach( $entities as $entity) $em->remove($entity);
+        $em->flush();
+
+        return new Response('1');
     }
 
     /**

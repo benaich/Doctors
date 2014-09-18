@@ -17,7 +17,7 @@ Medicament edit | {{ parent() }}
     </div>
 </form>
 
-<form id="deleteForm" action="{{ path('meds_delete', { 'id': entity.id }) }}" method="DELETE">
+<form id="deleteForm" action="{{ path('meds_delete', { 'id': entity.id }) }}" method="POST">
     {{ form_widget(delete_form) }}
 </form> 
 {% endblock body %}

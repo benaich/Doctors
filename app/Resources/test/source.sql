@@ -38,3 +38,5 @@ use doctors;
 -- select infrastructure as label, count(*) as data from consultation where type = 'Consultation specialise' group by label;
 
 -- update person set resident = 1;
+
+-- select * from meds;

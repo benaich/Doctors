@@ -36,5 +36,5 @@ meds_delete:
 
 meds_remove:
     path:     /remove
-    defaults: { _controller: "BenDoctorsBundle:Meds:delete" }
+    defaults: { _controller: "BenDoctorsBundle:Meds:remove" }
     requirements: { _method: post|delete }

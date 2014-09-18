@@ -58,7 +58,7 @@ Tableau de bord | {{ parent() }}
 <div class="col-md-4">
     <div class="box">
       <header>
-          <h4><span class="glyphicon glyphicon-pushpin"></span> Tuteur</h4>
+          <h4><span class="glyphicon glyphicon-user"></span> Tuteur</h4>
       </header>
       <ul class="list-group">
           <li class="list-group-item"><strong>Nom :</strong> {{ entity.parentName }}</li>
@@ -70,7 +70,7 @@ Tableau de bord | {{ parent() }}
     {% if entity.ishandicap %}
     <div class="box">
       <header>
-          <h4><span class="glyphicon glyphicon-pushpin"></span> Handicap ?</h4>
+          <h4><span class="glyphicon glyphicon-tag"></span> Handicap</h4>
       </header>
       <ul class="list-group">
           <li class="list-group-item"><strong>Nature de l’handicap :</strong> {{ entity.handicap }}</li>
@@ -141,7 +141,7 @@ Tableau de bord | {{ parent() }}
     </div> 
 </div>
 </div>
-<form id="deleteForm" action="{{ path('person_delete', { 'id': entity.id }) }}" method="DELETE">
+<form id="deleteForm" action="{{ path('person_delete', { 'id': entity.id }) }}" method="POST">
     {{ form_widget(delete_form) }}
 </form> 
 {% endblock %}

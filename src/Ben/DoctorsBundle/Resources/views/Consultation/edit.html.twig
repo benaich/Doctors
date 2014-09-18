@@ -69,7 +69,7 @@ Tableau de bord | {{ parent() }}
 
 
         $('select').removeClass('form-control').select2();
-        diagnosticData = "Alcoholic hepatitis_Allergy_Alopecia_Alzheimer's disease_Amblyopia_Breast cancer_Bronchitis_Brucellosis_Chalazion_Chancroid_Chavia_Congenital insensitivity to pain with anhidrosis_Cherubism_Diphtheria_Dehydration_Encephalitis_Emphysema_Epilepsy_Foodborne illness_Genital herpes_GERD_Hepatitis D_Hepatitis E_Histiocytosis (Childhood Cancer)_Irritable bowel syndrome_Ignious Syndrome_Jaundice_Kwashiorkor_Laryngitis_Lead poisoning_Legionellosis_Melioidosis_Metastatic cancer_Ménière's disease".split('_');
+        diagnosticData = "Grippe_Angines_Bronchite_Caries dentaires_Colopathie_Pharyngites_Déficiences visuelles_Conjonctivites_Dysménorrhée_Acnés_Intoxications Alimentaires_Asthme_Leucorrhées_Phtiriasis_Urétrites_Depression nerveuse_Rhinites_Gastrite_Gâle_Diabète_Hypertension artérielle_Cardiopathies_Hystérie_Otites_Céphalées_Allergies_Traumatismes_Lombalgies_Psoriasis_Stress_Rhinopharyngite_Toxicomanie_Arthralgies_RAA_Dysurie_Tuberculose_Hépatite virale_Migraine_Parasitose_Syphilis_Eczéma_Leshmaniose_Brûlures_Paludisme_Méningites_Typhoide_Appendicite_Herpès buccal_Obésité_Arthroses_Hypotension artérielle_Varicelle_Epilépsie_Anxiété_Blennoragies_Stomatites_Dermatoses_Anémie_Pneumopathie_scoliose_dhysthyroîdie_diarhées infectieuse_dysenterie_courbatures musculaires".split('_');
         diagnosticInput.removeClass('form-control').select2({ tags: diagnosticData });
         // diagnosticData = $.map(diagnosticData, function(val,index){return {id:val, text:val};});
         // diagnosticInput.removeClass('form-control').select2({

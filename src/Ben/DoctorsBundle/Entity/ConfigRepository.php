@@ -12,4 +12,15 @@ use Doctrine\ORM\EntityRepository;
  */
 class ConfigRepository extends EntityRepository
 {
+	public function updateBy($key, $value)
+    {
+        $qB = $this->getEntityManager()->createQueryBuilder()
+        	->update('BenDoctorsBundle:config', 'c')
+            ->set('c.theValue', '?1')
+            ->where('c.theKey = ?2')
+            ->setParameter(1, $value)
+            ->setParameter(2, $key);
+         
+        return $qB->getQuery()->execute();
+    }
 }

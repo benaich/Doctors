@@ -47,9 +47,11 @@ Tableau de bord | {{ parent() }}
 
     </div>
     <div class="col-md-2">
-        <form id="deleteForm" action="{{ path('meds_delete', { 'id': entity.id }) }}" method="DELETE">
+        <form id="deleteForm" action="{{ path('meds_delete', { 'id': entity.id }) }}" method="POST">
             <a class="btn btn-primary btn-block" href="{{ path('meds') }}">Vers la liste</a>
             <a class="btn btn-info btn-block" href="{{ path('meds_edit', { 'id': entity.id }) }}">Mettre à jour</a>
+            <a class="btn btn-info btn-block" id="btnPrint"><span class="glyphicon glyphicon-print"></span> Imprimer</a>
+            <hr>
             <button class="btn btn-danger btn-block" type="submit">Supprimer</button>
             {{ form_widget(delete_form) }}
         </form> 
