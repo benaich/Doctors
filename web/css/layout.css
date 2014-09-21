@@ -263,3 +263,10 @@ margin-right: 15px !important;
 	padding: 0px;
 	overflow: hidden;
 }
+
+.my-col-md-6{
+	padding-right: 15px;
+	padding-left: 15px;
+	display: inline-block;
+	width: 50%;
+}

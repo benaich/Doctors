@@ -38,19 +38,19 @@ Class StatsQuery{
     }
     public function getStock()
     {
-        return "select count(*) as label from meds c where 1=1 {$this->rangeDate}";
+        return "select count(*) as data from meds c where 1=1 {$this->rangeDate}";
     }
     public function getGeneral_consultations()
     {
-        return "select count(*) as label from consultation c where c.type = 'Consultation generale' {$this->rangeDate}";
+        return "select count(*) as data from consultation c where c.type = 'Consultation generale' {$this->rangeDate}";
     }
     public function getSpecial_consultations()
     {
-        return "select count(*) as label from consultation c where c.type != 'Consultation generale' {$this->rangeDate}";
+        return "select count(*) as data from consultation c where c.type != 'Consultation generale' {$this->rangeDate}";
     }
     public function getOriented()
     {
-        return "select count(*) as label from (select id from consultation c where c.type != 'Consultation generale' {$this->rangeDate} group by c.person_id)A";
+        return "select count(*) as data from (select id from consultation c where c.type != 'Consultation generale' {$this->rangeDate} group by c.person_id)A";
     }
 
     /* Effectif des étudiants ayant une couverture sociale par type de couverture */
@@ -98,7 +98,7 @@ Class StatsQuery{
     /* Nombre de cas de troubles visuels corrigés et non corrigés */
     public function getConsultations_visual_issue()
     {
-        return "select count(*) as data from test left join consultation c on c.id = test.consultation_id where hasvisualissue = 1 {$this->rangeDate}";
+        return "select fixedvisualissue as label, count(*) as data from test left join consultation c on c.id = test.consultation_id where hasvisualissue = 1 {$this->rangeDate} group by fixedvisualissue";
     }
 
     /* Nombre des malades orientés vers la consultation médicale spécialisée par spécialité médicale */

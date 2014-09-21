@@ -39,7 +39,10 @@ class ConsultationType extends AbstractType
 
         if($this->general)
             $builder
-                ->add('decision', 'textarea', array('label'=>'Décision prise', 'required'  => false))
+                ->add('decision', 'choice', array('label'=>'Décision prise', 'choices' => array(
+                            'Préscription du traitement' => 'Préscription du traitement',
+                            'Orientation vers la consultation médicale spécialisé' => 'Orientation vers la consultation médicale spécialisé'),
+                    'required' => false,))
                 ->add('chronic', 'checkbox', array('label'=>'Maladie chronique ?', 'required'  => false));
 
         $builder->add('consultationmeds', 'collection', array('label'=>'Medicaments déliverés par le centre', 'type' => new ConsultationMedsType(), 'allow_add' => true, 'by_reference' => false, 'allow_delete' => true,'prototype' => true,))

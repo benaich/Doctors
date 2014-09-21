@@ -677,3 +677,5 @@ border-color: #48c9b0;
     margin-top: 10px;
 }
 hr{border-top: 1px solid #D3D3D3;}
+#widgetModal label{font-weight: normal;}
+#widgetModal .checkbox input{margin-top: 2px;}

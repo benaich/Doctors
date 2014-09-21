@@ -24,27 +24,18 @@ class DefaultController extends Controller
     {
         $daterange = $request->get('daterange');
         $statsHandler = $this->get('ben.stats_handler')->setDateRange($daterange);
-        $stats['meds'] = $statsHandler->setDataColumn('meds')->processData();
-        $stats['consultations'] = $statsHandler->setDataColumn('consultations')->processData();
-        $stats['stock'] = $statsHandler->setDataColumn('stock')->processData()[0]['label'];
-        
-        $stats['cnss'] = $statsHandler->setDataColumn('cnss')->processData();
-        $stats['consultations_demande'] = $statsHandler->setDataColumn('consultations_demande')->processData()[0]['data'];
-        $stats['consultations_demande_gender'] = $statsHandler->setDataColumn('consultations_demande_gender')->processData();
-        $stats['consultations_demande_resident'] = $statsHandler->setDataColumn('consultations_demande_resident')->processData()[0]['data'];
-        $stats['consultations_demande_resident_gender'] = $statsHandler->setDataColumn('consultations_demande_resident_gender')->processData();
-
-        $stats['consultations_systematique_resident'] = $statsHandler->setDataColumn('consultations_systematique_resident')->processData()[0]['data'];
-        $stats['consultations_systematique_resident_gender'] = $statsHandler->setDataColumn('consultations_systematique_resident_gender')->processData();
-        $stats['consultations_visual_issue'] = $statsHandler->setDataColumn('consultations_visual_issue')->processData()[0]['data'];
-        $stats['consultations_special'] = $statsHandler->setDataColumn('consultations_special')->processData();
-        $stats['consultations_special_gender'] = $statsHandler->setDataColumn('consultations_special_gender')->processData();
-        
-        $stats['consultations_chronic'] = $statsHandler->setDataColumn('consultations_chronic')->processData()[0]['data'];
-        $stats['consultations_not_chronic'] = $statsHandler->setDataColumn('consultations_not_chronic')->processData()[0]['data'];
-        $stats['consultations_structures'] = $statsHandler->setDataColumn('consultations_structures')->processData();
-
-        // var_dump($stats);die;
+        $availableWidgets = ['meds', 'stock', 'cnss', 'consultations_demande', 'consultations_demande_gender', 'consultations_demande_resident',
+                         'consultations_demande_resident_gender', 'consultations_systematique_resident', 'consultations_systematique_resident_gender',
+                          'consultations_visual_issue', 'consultations_special', 'consultations_special_gender', 'consultations_chronic', 
+                          'consultations_not_chronic', 'consultations_structures'];
+        $widgets = $request->get('widgets');
+        $stats = [];
+        if (isset($widgets)) {
+            foreach ($widgets as $key => $val) {
+                if(in_array($key, $availableWidgets))
+                    $stats[$key] = $statsHandler->setDataColumn($key)->processData();
+            }
+        }
        
         return $this->render('BenDoctorsBundle:Default:ajaxStats.html.twig', array(
             'stats' => $stats));

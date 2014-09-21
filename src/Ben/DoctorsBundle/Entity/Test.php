@@ -26,13 +26,6 @@ class Test
     /**
      * @var string
      *
-     * @ORM\Column(name="name", type="string", length=255)
-     */
-    private $name;
-
-    /**
-     * @var string
-     *
      * @ORM\Column(name="type", type="string", length=255)
      */
     private $type;
@@ -89,13 +82,6 @@ class Test
     /**
      * @var string
      *
-     * @ORM\Column(name="symptomes", type="text", nullable=true)
-     */
-    private $symptomes;
-
-    /**
-     * @var string
-     *
      * @ORM\Column(name="request", type="text", nullable=true)
      */
     private $request;
@@ -116,7 +102,6 @@ class Test
     
     public function __construct()
     {
-        $this->metadata = new \Doctrine\Common\Collections\ArrayCollection();
     }
     
     /************ getters & setters  ************/
@@ -129,29 +114,6 @@ class Test
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set name
-     *
-     * @param string $name
-     * @return Test
-     */
-    public function setName($name)
-    {
-        $this->name = $name;
-
-        return $this;
-    }
-
-    /**
-     * Get name
-     *
-     * @return string 
-     */
-    public function getName()
-    {
-        return $this->name;
     }
 
     /**
@@ -202,40 +164,6 @@ class Test
     public function getConsultation()
     {
         return $this->consultation;
-    }
-
-    /**
-     * Add metadata
-     *
-     * @param \Ben\DoctorsBundle\Entity\Metadata $metadata
-     * @return Test
-     */
-    public function addMetadatum(\Ben\DoctorsBundle\Entity\Metadata $metadata)
-    {
-        $metadata->setTest($this);
-        $this->metadata->add($metadata);
-
-        return $this;
-    }
-
-    /**
-     * Remove metadata
-     *
-     * @param \Ben\DoctorsBundle\Entity\Metadata $metadata
-     */
-    public function removeMetadatum(\Ben\DoctorsBundle\Entity\Metadata $metadata)
-    {
-        $this->metadata->removeElement($metadata);
-    }
-
-    /**
-     * Get metadata
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getMetadata()
-    {
-        return $this->metadata;
     }
 
     /**
@@ -351,29 +279,6 @@ class Test
     public function getOg()
     {
         return $this->og;
-    }
-
-    /**
-     * Set symptomes
-     *
-     * @param string $symptomes
-     * @return Test
-     */
-    public function setSymptomes($symptomes)
-    {
-        $this->symptomes = $symptomes;
-
-        return $this;
-    }
-
-    /**
-     * Get symptomes
-     *
-     * @return string 
-     */
-    public function getSymptomes()
-    {
-        return $this->symptomes;
     }
 
     /**

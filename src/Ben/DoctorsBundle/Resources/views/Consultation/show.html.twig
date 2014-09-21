@@ -4,7 +4,7 @@ Tableau de bord | {{ parent() }}
 {% endblock %}
 {% block body -%}
 <h3><span class="glyphicon glyphicon-tag"></span> {{ entity.isSpecial ? 'Orientation vers une consultation spécialisée' : 'Consultation médicale générale '}}</h3>
-<div class="row">
+<div id="mycontainer" class="row">
     <div class="col-md-10">    
         <table class="table table-striped table-hover table-bordered">
             <tbody>
@@ -61,7 +61,10 @@ Tableau de bord | {{ parent() }}
                 {% endif %}
                 <tr>
                     <th>Traitement</th>
-                    <td>{{ entity.treatment|nl2br }}</td>
+                    <td>
+                        <button class="btn btn-sm btn-default pull-right print-only-this"><span class="glyphicon glyphicon-print"></span></button>
+                        <p>{{ entity.treatment|nl2br }}</p>
+                    </td>
                 </tr>
             </tbody>
         </table>
@@ -80,23 +83,17 @@ Tableau de bord | {{ parent() }}
                 </span>
             </h3>
             
-            
-
             {% for entity in entity.tests %}
                 <table class="table table-striped table-hover table-bordered">
                 <thead>
                     <tr>
-                        <th colspan="2" class="text-center"><a href="{{ path('test_edit', { 'id': entity.id }) }}">{{ entity.name }}</a></th>
+                        <th colspan="2" class="text-center"><a href="{{ path('test_edit', { 'id': entity.id }) }}">{{ entity.type }}</a></th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <th style="width: 150px;">Type</th>
-                        <td>{{ entity.type }}</td>
-                    </tr>
                     {% if entity.isGeneral %}
                     <tr>
-                        <th>Taille</th>
+                        <th style="width: 150px;">Taille</th>
                         <td>{{ entity.taille }}</td>
                     </tr>
                     <tr>
@@ -119,22 +116,20 @@ Tableau de bord | {{ parent() }}
                         <th>Trouble visuel</th>
                         <td>{{ entity.hasvisualissue ? entity.fixedvisualissue : 'Non'}}</td>
                     </tr>
-                    <tr>
-                        <th>Examen clinique</th>
-                        <td>{{ entity.symptomes|nl2br }}</td>
-                    </tr>
                     {% else %}
                     <tr>
-                        <th>Symptomes</th>
-                        <td>{{ entity.symptomes|nl2br }}</td>
-                    </tr>
-                    <tr>
                         <th>Demande</th>
-                        <td>{{ entity.request|nl2br }}</td>
+                        <td>
+                            <button class="btn btn-sm btn-default pull-right print-only-this"><span class="glyphicon glyphicon-print"></span></button>
+                            <p>{{ entity.request|nl2br }}</p>
+                        </td>
                     </tr>
                     <tr>
                         <th>Resultats</th>
-                        <td>{{ entity.result|nl2br }}</td>
+                        <td>
+                            <button class="btn btn-sm btn-default pull-right print-only-this"><span class="glyphicon glyphicon-print"></span></button>
+                            <p>{{ entity.result|nl2br }}</p>
+                        </td>
                     </tr>
                     {% endif %}
                 </tbody>
@@ -171,5 +166,22 @@ Tableau de bord | {{ parent() }}
         </form> 
     </div>
 </div>
+<div id="printzone" class="visible-print"></div>
 {% endblock %}
 
+{% block javascripts %}
+{{ parent() }}
+<script> 
+    (function($) {
+        var mycontainer = $('#mycontainer'),
+            printOnly = mycontainer.find('.print-only-this'),
+            printzone = $('#printzone');
+        printOnly.on('click', function(){
+            mycontainer.addClass('hidden-print');
+            printzone.html($(this).next().html());
+            window.print();
+            printzone.html('');
+        });
+    })(jQuery);
+</script>
+{% endblock %}

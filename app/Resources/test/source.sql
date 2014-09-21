@@ -1,4 +1,4 @@
-use doctors;
+-- use doctors;
 -- -- show tables;
 -- -- select * from config;
 
@@ -40,3 +40,8 @@ use doctors;
 -- update person set resident = 1;
 
 -- select * from meds;
+-- select fixedvisualissue as label, count(*) as data from test left join consultation c on c.id = test.consultation_id where hasvisualissue = 1 group by fixedvisualissue;
+
+
+use benlogement;
+SELECT name FROM university;

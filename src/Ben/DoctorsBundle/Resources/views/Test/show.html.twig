@@ -42,15 +42,7 @@ Tableau de bord | {{ parent() }}
                 <th>OG</th>
                 <td>{{ entity.og }}</td>
             </tr>
-            <tr>
-                <th>Symptomes</th>
-                <td>{{ entity.symptomes|nl2br }}</td>
-            </tr>
             {% else %}
-            <tr>
-                <th>Symptomes</th>
-                <td>{{ entity.symptomes|nl2br }}</td>
-            </tr>
             <tr>
                 <th>Demande</th>
                 <td>{{ entity.request|nl2br }}</td>

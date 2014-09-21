@@ -3,7 +3,7 @@
 Tableau de bord | {{ parent() }}
 {% endblock %}
 {% block body %}
-<h3><span class="glyphicon glyphicon-file"></span> Liste des Exameins</h3>
+<h3><span class="glyphicon glyphicon-file"></span> Liste des Examens</h3>
 <form  id="jsForm" role="form" method="post" action="">
         <input id="pagenumber" type="hidden" name="searchParam[page]" value="1"> 
         <input id="sortBy" type="hidden" name="searchParam[sortBy]" value="all"> 
@@ -20,11 +20,12 @@ Tableau de bord | {{ parent() }}
           </div><!-- /.col-md-6 -->
           <div class="col-md-7">
             <div class="btn-group pull-right">                       
-              <a href="#" data-toggle="modal" data-target="#searchModal" class="btn btn-primary"><span class="glyphicon glyphicon-search"></span> Recherche avancée</a>
+              <button class="btn btn-primary "><span class="glyphicon glyphicon-cog"></span>  Selectioner une action</button>
               <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
                 <span class="caret"></span>
               </button>
               <ul class="dropdown-menu" role="menu">
+                <li><a href="#" data-toggle="modal" data-target="#searchModal"><span class="glyphicon glyphicon-search"></span> Recherche avancée</a></li>
                 <li><a href="#" id="js-delete"><span class="glyphicon glyphicon-trash"></span> Supprimer</a></li>
               </ul>
             </div>
@@ -34,17 +35,17 @@ Tableau de bord | {{ parent() }}
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Examen</th>
                 <th>Type</th>
                 <th>Etudiant</th>
                 <th>Medecin</th>
+                <th>demande</th>
                 <th>Actions</th>
             </tr>
         </thead>
         <tbody id="dataContainer"></tbody>
         </table>
         <div class="caption">
-          <strong>Total:</strong> <em>{{ entitiesLength }} Consultations</em>
+          <strong>Total:</strong> <em>{{ entitiesLength }} examens</em>
         </div>
 <!-- Modal advanced search -->
 <div class="modal fade" id="searchModal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">

@@ -50,6 +50,8 @@ function confirmation() {
 
     /* print button */
     $('#btnPrint').on('click', function () {
+        $('#mycontainer').removeClass('hidden-print');
+        
     	window.print();
     });
 

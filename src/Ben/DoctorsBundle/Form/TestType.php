@@ -20,10 +20,7 @@ class TestType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder
-            ->add('name', 'text', array('label'=>'Motif'))
-            ->add('consultation')
-            ;
+        $builder->add('consultation');
 
         if($this->general)
             $builder
@@ -38,7 +35,6 @@ class TestType extends AbstractType
                         'multiple' => false,
                         'label' => false,
                         ))
-                ->add('symptomes', 'textarea', array('label'=>'Examen clinique','required'  => false))
                 ;
         else 
             $builder
@@ -46,7 +42,6 @@ class TestType extends AbstractType
                     'Examens biologiques' => 'Examens biologiques',
                     'Examens radioloqiue' => 'Examens radioloqiue',
                     'Autre' => 'Autre')))
-                ->add('symptomes', 'textarea', array('label'=>'Symptomes','required'  => false))
                 ->add('request', 'textarea', array('label'=>'Demande','required'  => false))
                 ->add('result', 'textarea', array('label'=>'Resultat','required'  => false))
                 ;

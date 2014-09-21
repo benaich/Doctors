@@ -59,6 +59,13 @@ Tableau de bord | {{ parent() }}
           }
         });
 
+        universityData = $.map(universityData, function(val,index){return {id:val, text:val};});
+        $('#ben_person_university').removeClass('form-control').select2({
+          createSearchChoice:function(term, data) { if ($(data).filter(function() { return this.text.localeCompare(term)===0; }).length===0) {return {id:term, text:term};} },
+          multiple: false,
+          data: universityData
+        });
+
     })(jQuery);
 </script>
 {% endblock %}
