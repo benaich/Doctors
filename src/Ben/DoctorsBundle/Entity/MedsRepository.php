@@ -24,7 +24,7 @@ class MedsRepository extends EntityRepository
         if(!empty($ids))
             $qb->andWhere('m.id in (:ids)')->setParameter('ids', $ids);
         if(!empty($sortBy)){
-            $sortBy = in_array($sortBy, array('name', 'type', 'count')) ? $sortBy : 'id';
+            $sortBy = in_array($sortBy, array('name', 'type', 'count', 'expdate')) ? $sortBy : 'id';
             $sortDir = ($sortDir == 'DESC') ? 'DESC' : 'ASC';
             $qb->orderBy('m.' . $sortBy, $sortDir);
         }

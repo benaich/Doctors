@@ -8,11 +8,19 @@
     <td>{{ entity.role}}</td>
     <td class="hidden-print">
         <div class="text-center">
-            <a class="btn btn-primary btn-xs" href="{{ path('ben_show_user', { 'id': entity.id }) }}"><span class="glyphicon glyphicon-search"></span></a>
-            <a class="btn btn-danger btn-xs" href="{{ path('ben_edit_user', { 'id': entity.id }) }}"><span class="glyphicon glyphicon-edit"></span></a>
+            <a class="btn btn-primary btn-xs" data-toggle="tooltip" data-placement="top" title="afficher" href="{{ path('ben_show_user', { 'id': entity.id }) }}"><span class="glyphicon glyphicon-search"></span></a>
+            <a class="btn btn-danger btn-xs" data-toggle="tooltip" data-placement="top" title="modifier" href="{{ path('ben_edit_user', { 'id': entity.id }) }}"><span class="glyphicon glyphicon-edit"></span></a>
         </div>
     </td>
   </tr>
 {% endfor %}
                 
 {% include "BenDoctorsBundle:Default:pagination.html.twig" %}
+<script>   
+(function($) {
+
+    /* tooltip */
+    $('a[data-toggle="tooltip"]').tooltip();
+
+})(jQuery);
+</script>

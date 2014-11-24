@@ -23,66 +23,84 @@ Tableau de bord | {{ parent() }}
             <span>August 26, 2014 - August 26, 2014</span> <b class="caret"></b>
         </div>
 		<a class="btn btn-primary pull-right" id="btnPrint"><span class="glyphicon glyphicon-print"></span> imprimer</a>
-		<a class="btn btn-primary pull-right" data-toggle="modal" data-target="#widgetModal"><span class="glyphicon glyphicon-filter"></span> Filtrer</a>
+		<a class="btn btn-primary pull-right" data-toggle="modal" data-target="#widgetModal"><span class="glyphicon glyphicon-filter"></span> Indicateurs clés</a>
 	</div>
 </div>
 <!-- Modal advanced widget -->
 <div class="modal fade" id="widgetModal" tabindex="-1" role="dialog" aria-labelledby="widgetModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
+  <div class="modal-dialog" style="width: 700px;">
     <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-        <h4 class="modal-title" id="searchModalLabel">Indicateurs clés</h4>
-      </div>
-      <div class="modal-body">
-			<label class="checkbox" for="meds">
-				<input type="checkbox" id="meds" name="widgets[meds]" data-toggle="checkbox"> Médicament délivré par le centre
-			</label>
-			<label class="checkbox" for="stock">
-				<input type="checkbox" id="stock" name="widgets[stock]" data-toggle="checkbox"> Nombre de médicament dans le stock
-			</label>
-			<label class="checkbox" for="cnss">
-				<input type="checkbox" id="cnss" name="widgets[cnss]" data-toggle="checkbox"> Effectif des étudiants ayant une couverture sociale par type de couverture
-			</label>
-			<label class="checkbox" for="consultations_demande">
-				<input type="checkbox" id="consultations_demande" name="widgets[consultations_demande]" data-toggle="checkbox"> Nombre des consultations médicales à la demande 
-			</label>
-			<label class="checkbox" for="consultations_demande_gender">
-				<input type="checkbox" id="consultations_demande_gender" name="widgets[consultations_demande_gender]" data-toggle="checkbox"> Nombre des consultations médicales à la demande par sexe
-			</label>
-			<label class="checkbox" for="consultations_demande_resident">
-				<input type="checkbox" id="consultations_demande_resident" name="widgets[consultations_demande_resident]" data-toggle="checkbox"> Nombre des résidents ayant subi une consultation médicale à la demande 
-			</label>
-			<label class="checkbox" for="consultations_demande_resident_gender">
-				<input type="checkbox" id="consultations_demande_resident_gender" name="widgets[consultations_demande_resident_gender]" data-toggle="checkbox"> Nombre des résidents ayant subi une consultation médicale à la demande par sexe 
-			</label>
-			<label class="checkbox" for="consultations_systematique_resident">
-				<input type="checkbox" id="consultations_systematique_resident" name="widgets[consultations_systematique_resident]" data-toggle="checkbox"> Nombre des résidents ayant subi un examen médical systématique 
-			</label>
-			<label class="checkbox" for="consultations_systematique_resident_gender">
-				<input type="checkbox" id="consultations_systematique_resident_gender" name="widgets[consultations_systematique_resident_gender]" data-toggle="checkbox"> Nombre des résidents ayant subi un examen médical systématique 
-			</label>
-			<label class="checkbox" for="consultations_visual_issue">
-				<input type="checkbox" id="consultations_visual_issue" name="widgets[consultations_visual_issue]" data-toggle="checkbox"> Nombre des résidents ayant subi un examen médical systématique 
-			</label>
-			<label class="checkbox" for="consultations_special">
-				<input type="checkbox" id="consultations_special" name="widgets[consultations_special]" data-toggle="checkbox"> Nombre des malades orientés vers la consultation médicale spécialisée par spécialité médicale 
-			</label>
-			<label class="checkbox" for="consultations_special_gender">
-				<input type="checkbox" id="consultations_special_gender" name="widgets[consultations_special_gender]" data-toggle="checkbox"> Nombre des malades ayant subi une consultation médicale spécialisée par spécialité et par sexe 
-			</label>
-			<label class="checkbox" for="consultations_chronic">
-				<input type="checkbox" id="consultations_chronic" name="widgets[consultations_chronic]" data-toggle="checkbox"> Nombre  de cas des maladies chroniques 
-			</label>
-			<label class="checkbox" for="consultations_not_chronic">
-				<input type="checkbox" id="consultations_not_chronic" name="widgets[consultations_not_chronic]" data-toggle="checkbox"> Nombre  de cas des maladies dépistées 
-			</label>
-			<label class="checkbox" for="consultations_structures">
-				<input type="checkbox" id="consultations_structures" name="widgets[consultations_structures]" data-toggle="checkbox"> Nombre  de cas des maladies chroniques 
-			</label>
-      </div>
-      <div class="modal-footer" style="margin:0;">
-        <button type="submit" class="btn btn-primary">Envoyer</button>
+      <div class="modal-body" style="padding: 0;">
+      <table class="table table-striped table-hover table-bordered" style="margin: 0;">
+      	<thead>
+      		<tr>
+      			<th><input type="checkbox" id="checkall" data-toggle="checkbox"></th>
+      			<th>Indicateurs clés <button type="submit" class="btn btn-xs btn-primary pull-right">Envoyer</button></th>
+      		</tr>
+      	</thead>
+      	<tbody>
+      		<tr>
+				<td><input type="checkbox" id="meds" name="widgets[meds]" data-toggle="checkbox"></td>
+				<td>Médicament délivré par le centre</td>
+			</tr>   						
+			<tr>
+				<td><input type="checkbox" id="stock" name="widgets[stock]" data-toggle="checkbox"></td>
+				<td>Nombre de médicament dans le stock</td>
+			</tr>				
+			<tr>
+				<td><input type="checkbox" id="cnss" name="widgets[cnss]" data-toggle="checkbox"></td>
+				<td>Effectif des étudiants ayant une couverture sociale par type de couverture</td>
+			</tr>				
+			<tr>
+				<td><input type="checkbox" id="consultations_demande" name="widgets[consultations_demande]" data-toggle="checkbox"></td>
+				<td>Nombre des consultations médicales à la demande</td>
+			</tr>				 
+			<tr>
+				<td><input type="checkbox" id="consultations_demande_gender" name="widgets[consultations_demande_gender]" data-toggle="checkbox"></td>
+				<td>Nombre des consultations médicales à la demande par sexe</td>
+			</tr>				
+			<tr>
+				<td><input type="checkbox" id="consultations_demande_resident" name="widgets[consultations_demande_resident]" data-toggle="checkbox"></td>
+				<td>Nombre des résidents ayant subi une consultation médicale à la demande</td>
+			</tr>				 
+			<tr>
+				<td><input type="checkbox" id="consultations_demande_resident_gender" name="widgets[consultations_demande_resident_gender]" data-toggle="checkbox"></td>
+				<td>Nombre des résidents ayant subi une consultation médicale à la demande par sexe </td>
+			</tr>				
+			<tr>
+				<td><input type="checkbox" id="consultations_systematique_resident" name="widgets[consultations_systematique_resident]" data-toggle="checkbox"></td>
+				<td>Nombre des résidents ayant subi un examen médical systématique </td>
+			</tr>				
+			<tr>
+				<td><input type="checkbox" id="consultations_systematique_resident_gender" name="widgets[consultations_systematique_resident_gender]" data-toggle="checkbox"></td>
+				<td>Nombre des résidents ayant subi un examen médical systématique </td>
+			</tr>				
+			<tr>
+				<td><input type="checkbox" id="consultations_visual_issue" name="widgets[consultations_visual_issue]" data-toggle="checkbox"></td>
+				<td>Nombre des résidents ayant subi un examen médical systématique </td>
+			</tr>				
+			<tr>
+				<td><input type="checkbox" id="consultations_special" name="widgets[consultations_special]" data-toggle="checkbox"></td>
+				<td>Nombre des malades orientés vers la consultation médicale spécialisée par spécialité médicale </td>
+			</tr>				
+			<tr>
+				<td><input type="checkbox" id="consultations_special_gender" name="widgets[consultations_special_gender]" data-toggle="checkbox"></td>
+				<td>Nombre des malades ayant subi une consultation médicale spécialisée par spécialité et par sexe </td>
+			</tr>				
+			<tr>
+				<td><input type="checkbox" id="consultations_chronic" name="widgets[consultations_chronic]" data-toggle="checkbox"></td>
+				<td>Nombre  de cas des maladies chroniques </td>
+			</tr>				
+			<tr>
+				<td><input type="checkbox" id="consultations_not_chronic" name="widgets[consultations_not_chronic]" data-toggle="checkbox"></td>
+				<td>Nombre  de cas des maladies dépistées </td>
+			</tr>				
+			<tr>
+				<td><input type="checkbox" id="consultations_structures" name="widgets[consultations_structures]" data-toggle="checkbox"></td>
+				<td>Nombre  de cas des maladies chroniques</td>
+			</tr>
+      	</tbody>
+      </table>
       </div>
     </div>
   </div>
