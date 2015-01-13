@@ -7,3 +7,41 @@ Ben\DoctorsBundle\Entity\Person:
             - NotBlank: ~
         cne:
             - NotBlank: ~
+        familyname:
+            - NotBlank: ~
+        firstname:
+            - NotBlank: ~
+        birthday:
+            - NotBlank: ~
+        birthcity:
+            - NotBlank: ~
+        gender:
+            - NotBlank: ~
+        contry:
+            - NotBlank: ~
+        cin:
+            - NotBlank: ~
+        cne:
+            - NotBlank: ~
+        university:
+            - NotBlank: ~
+        etablissement:
+            - NotBlank: ~
+        address:
+            - NotBlank: ~
+        parentAddress:
+            - NotBlank: ~
+        city:
+            - NotBlank: ~
+        gsm:
+            - NotBlank: ~
+        email:
+            - NotBlank: ~
+        cnsstype:
+            - NotBlank: ~
+        parentName:
+            - NotBlank: ~
+        parentGsm:
+            - NotBlank: ~
+        parentFixe:
+            - NotBlank: ~
