@@ -1,0 +1,12 @@
+✔ au niveau de l'ajout d'un nouvel étudiant:
+	✔ enlever le champs du numéro de couverture sociale
+ 	✔ pour la date de naissance activer le calendrier et définir le format au dessous
+ 	✔ université au lieu de university et enlever la liste des écoles et des établissements (donner la main à ajouter d'autres universités)
+	✔ donner la main à ajouter les provinces (ajouter une liste plus généreuse si c'est possible)
+	✔ tous les champs à remplir doivent être obligatoires.
+  
+✔ au niveau de la suppression d'un étudiant: le bouton supprimer ne marche pas
+
+✔ au niveau de l'ajout d'un examen médical ou général: le bouton ajouter ne marche pas
+
+✔ au niveau  du champs diagnostic: donner la main à saisir d'autre maladies (exist déja)
