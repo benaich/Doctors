@@ -65,9 +65,6 @@ class TestController extends Controller
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            foreach ($entity->getMetadata() as $item) {
-                $em->persist($item);
-            }
             $em->persist($entity);
             $em->flush();
             $this->get('session')->getFlashBag()->add('info', "L'examen a été ajouté avec succès.");
