@@ -2,11 +2,16 @@
 {% block title %}
 Tableau de bord | {{ parent() }}
 {% endblock %}
+{% block stylesheet %}
+    {{ parent() }}
+    <link href="{{ asset('bootstrap/css/bootstrap-datetimepicker.min.css') }}" rel="stylesheet">
+{% endblock %}
 {% block body %}
 <div class="col-md-12">
     <h3><span class="glyphicon glyphicon-user"></span> Inscription d'un nouveau etudiant</h3>
 
 <form action="{{ path('person_create') }}"  class="form-horizontal col-md-8" method="post">
+
     {% include "BenDoctorsBundle:Person:form.html.twig" %}
 
     <div class="form-group">
@@ -17,11 +22,17 @@ Tableau de bord | {{ parent() }}
 </form>
 </div>
 {% endblock %}
-
 {% block javascripts %}
 {{ parent() }}
+
+    <script src="{{ asset('js/moment.js') }}"></script>
+    <script src="{{ asset('bootstrap/js/bootstrap-datetimepicker.js') }}"></script> 
 <script> 
     (function($) {
+
+        $('.has-datepicker').attr('data-date-format', 'YYYY-MM-DD').parent().datetimepicker({
+          pickTime: false
+        });
 
         cityData = [{% for item in cities %}'{{item.label}}'{% if not loop.last %},{% endif %}{% endfor %}];
 
@@ -59,6 +70,7 @@ Tableau de bord | {{ parent() }}
           multiple: false,
           data: universityData
         });
+
     })(jQuery);
 </script>
 {% endblock %}
