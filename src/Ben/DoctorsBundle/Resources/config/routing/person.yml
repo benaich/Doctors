@@ -36,5 +36,5 @@ person_delete:
 
 person_remove:
     path:     /remove
-    defaults: { _controller: "BenDoctorsBundle:Person:delete" }
+    defaults: { _controller: "BenDoctorsBundle:Person:remove" }
     requirements: { _method: post|delete }
