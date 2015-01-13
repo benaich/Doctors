@@ -31,7 +31,7 @@ class PersonType extends AbstractType
             ->add('etablissement')
             ->add('university')
             ->add('gsm')
-            ->add('cnss')
+            // ->add('cnss')
             ->add('cnsstype', 'choice', array('choices' => array('Ramed' => 'Ramed','Cnops' => 'Cnops','Cnss' => 'Cnss','Assurance privé' => 'Assurance privé','sans' => 'sans')))
             ->add('parentName')
             ->add('parentAddress')
