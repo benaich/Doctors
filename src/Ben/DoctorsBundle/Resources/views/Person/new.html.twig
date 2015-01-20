@@ -34,8 +34,6 @@ Tableau de bord | {{ parent() }}
           pickTime: false
         });
 
-        cityData = [{% for item in cities %}'{{item.label}}'{% if not loop.last %},{% endif %}{% endfor %}];
-
         cityData = $.map(cityData, function(val,index){return {id:val, text:val};});
         $('#ben_person_city').removeClass('form-control').select2({
           createSearchChoice:function(term, data) { if ($(data).filter(function() { return this.text.localeCompare(term)===0; }).length===0) {return {id:term, text:term};} },

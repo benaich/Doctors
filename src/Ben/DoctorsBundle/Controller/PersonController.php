@@ -69,13 +69,13 @@ class PersonController extends Controller
             $this->get('session')->getFlashBag()->add('info', "L'étudiant a été ajouté avec succès.");
             return $this->redirect($this->generateUrl('person_show', array('id' => $entity->getId())));
         }
-        $cities = $em->getRepository('BenDoctorsBundle:Person')->getCities();
+        // $cities = $em->getRepository('BenDoctorsBundle:Person')->getCities();
 
         $this->get('session')->getFlashBag()->add('danger', "Il y a des erreurs dans le formulaire soumis !");
         return $this->render('BenDoctorsBundle:Person:new.html.twig', array(
             'entity' => $entity,
             'form'   => $form->createView(),
-            'cities' => $cities,
+            // 'cities' => $cities,
         ));
     }
 
@@ -89,12 +89,12 @@ class PersonController extends Controller
         $entity = new Person();
         $form = $this->createForm(new PersonType(), $entity);
         $em = $this->getDoctrine()->getManager();
-        $cities = $em->getRepository('BenDoctorsBundle:Person')->getCities();
+        // $cities = $em->getRepository('BenDoctorsBundle:Person')->getCities();
 
         return $this->render('BenDoctorsBundle:Person:new.html.twig', array(
             'entity' => $entity,
             'form'   => $form->createView(),
-            'cities' => $cities,
+            // 'cities' => $cities,
         ));
     }
 
@@ -137,13 +137,13 @@ class PersonController extends Controller
         }
         $editForm = $this->createForm(new PersonType(), $entity);
         $deleteForm = $this->createDeleteForm($id);
-        $cities = $em->getRepository('BenDoctorsBundle:Person')->getCities();
+        // $cities = $em->getRepository('BenDoctorsBundle:Person')->getCities();
 
         return $this->render('BenDoctorsBundle:Person:edit.html.twig', array(
             'entity'      => $entity,
             'form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
-            'cities' => $cities,
+            // 'cities' => $cities,
         ));
     }
     /**
@@ -171,14 +171,14 @@ class PersonController extends Controller
             $this->get('session')->getFlashBag()->add('info', "L'étudiant a été mis à jour avec succès.");
             return $this->redirect($this->generateUrl('person_edit', array('id' => $id)));
         }
-        $cities = $em->getRepository('BenDoctorsBundle:Person')->getCities();
+        // $cities = $em->getRepository('BenDoctorsBundle:Person')->getCities();
 
         $this->get('session')->getFlashBag()->add('danger', "Il y a des erreurs dans le formulaire soumis !");
         return $this->render('BenDoctorsBundle:Person:edit.html.twig', array(
             'entity'      => $entity,
             'form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
-            'cities' => $cities,
+            // 'cities' => $cities,
         ));
     }
     /**
