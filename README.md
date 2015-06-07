@@ -1,8 +1,18 @@
 Doctors Web Application
 ========================
 
+This is a web application for managing medical pre-operation and post-operation for patients and cases. Doctors login, create patient and case profiles. The application allows managing medical cases and the different users of the aplication (admin, simple user, manager). This application uses Symfony version 2.5 and AJAX for an enhanced user experience. 
 
-1) Installation
+This software is perfectly suited for cosmetic surgons,dermatologists, and hospitals who need to share or train doctors or students.
+
+
+1) Demo
+-------
+
+https://www.youtube.com/watch?v=_x2wfyudZqI
+
+
+2) Installation
 ----------------------------------
 
 When it comes to installing the Symfony Standard Edition, you have the
@@ -20,7 +30,7 @@ After you download composer, run the following command:
     php composer.phar install
 
 
-2) Checking your System Configuration
+3) Checking your System Configuration
 -------------------------------------
 
 Before starting coding, make sure that your local system is properly

@@ -4,6 +4,22 @@
 		"selected_items":
 		[
 			[
+				"com",
+				"compareTo"
+			],
+			[
+				"B",
+				"BIT_SIZE"
+			],
+			[
+				"cre",
+				"createMatrix"
+			],
+			[
+				"get",
+				"getX"
+			],
+			[
 				"pr",
 				"printOnly"
 			],
@@ -498,41 +514,74 @@
 			[
 				"print",
 				"print_r"
-			],
-			[
-				"r",
-				"ret	return"
-			],
-			[
-				"wid",
-				"width"
-			],
-			[
-				"head",
-				"header	Tag"
-			],
-			[
-				"b",
-				"buttons"
 			]
 		]
 	},
 	"buffers":
 	[
+		{
+			"file": "web/app_dev.php",
+			"settings":
+			{
+				"buffer_size": 1182,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/bootstrap.php.cache",
+			"settings":
+			{
+				"buffer_size": 92291,
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
 	"command_palette":
 	{
-		"height": 265.0,
+		"height": 173.0,
+		"last_filter": "synjava",
 		"selected_items":
 		[
 			[
-				"copy",
-				"File: Copy Path"
+				"synjava",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"synjav",
+				"Set Syntax: Java"
+			],
+			[
+				"synja",
+				"Set Syntax: Java"
+			],
+			[
+				"synma",
+				"Set Syntax: MATLAB"
+			],
+			[
+				"syn",
+				"Set Syntax: Ruby"
+			],
+			[
+				"synph",
+				"Set Syntax: PHP"
+			],
+			[
+				"sync",
+				"Set Syntax: C#"
 			],
 			[
 				"cop",
-				"File: Copy Name"
+				"File: Copy Path From Project Encoded"
+			],
+			[
+				"copy",
+				"File: Copy Path"
 			],
 			[
 				"sfcom",
@@ -691,16 +740,8 @@
 				"Set Syntax: CSS"
 			],
 			[
-				"sync",
-				"Set Syntax: CSS"
-			],
-			[
 				"sysh",
 				"Set Syntax: Shell Script (Bash)"
-			],
-			[
-				"syn",
-				"Set Syntax: SQL"
 			],
 			[
 				"syntw",
@@ -800,15 +841,58 @@
 	},
 	"expanded_folders":
 	[
-		"/C/wamp/www/doctors",
-		"/C/wamp/www/doctors/app/Resources",
-		"/C/wamp/www/doctors/app/Resources/test",
-		"/C/wamp/www/doctors/src/Ben/DoctorsBundle/Resources/views",
-		"/C/wamp/www/doctors/src/Ben/DoctorsBundle/Resources/views/Person",
-		"/C/Users/home/Downloads/datpicker"
+		"/C/wamp/www/doctors"
 	],
 	"file_history":
 	[
+		"/C/wamp/www/doctors/vendor/composer/autoload_real.php",
+		"/C/wamp/www/doctors/app/config/parameters.yml",
+		"/C/wamp/www/doctors/web/app_dev.php",
+		"/C/wamp/www/doctors/app/config/config.yml",
+		"/C/wamp/www/doctors/app/config/config_dev.yml",
+		"/C/wamp/www/doctors/web/app.php",
+		"/C/wamp/www/doctors/src/Ben/DoctorsBundle/Resources/views/Form/fields.html.twig",
+		"/C/wamp/www/doctors/src/Ben/UserBundle/Resources/views/admin/index.html.twig",
+		"/C/Users/home/Desktop/IAO/S2/Complexite/project/benaich/ecc.txt",
+		"/C/Users/home/Desktop/IAO/S2/Complexite/project/benaich/matrix_scrambling.txt",
+		"/C/Users/home/Documents/data.xml",
+		"/C/Users/home/Desktop/IAO/S2/Complexite/project/benaich/rapport.txt",
+		"/C/Users/home/Downloads/phpecc-master/src/Point.php",
+		"/C/Users/home/Downloads/phpecc-master/src/PrivateKey.php",
+		"/C/Users/home/Downloads/phpecc-master/src/MathAdapterInterface.php",
+		"/C/Users/home/Desktop/IAO/S2/Complexite/project/benaich/java/Point.java",
+		"/C/Users/home/Downloads/phpecc-master/src/Math/DebugDecorator.php",
+		"/C/Users/home/Downloads/phpecc-master/src/Math/PrimeFieldArithmetic.php",
+		"/C/Users/home/Downloads/phpecc-master/src/Math/MathAdapterFactory.php",
+		"/C/Users/home/Downloads/phpecc-master/src/NumberTheory.php",
+		"/C/Users/home/Downloads/phpecc-master/src/PointInterface.php",
+		"/C/Users/home/Downloads/phpecc-master/src/KeyPair.php",
+		"/C/Users/home/Downloads/phpecc-master/src/CurveFp.php",
+		"/C/Users/home/Downloads/phpecc-master/src/File/FileLoader.php",
+		"/C/Users/home/Downloads/phpecc-master/doc/bcmath.txt",
+		"/C/Users/home/Downloads/phpecc-master/doc/gmp.txt",
+		"/C/Users/home/Downloads/phpecc-master/doc/hw_details.txt",
+		"/C/Users/home/Desktop/IAO/S2/Complexite/project/benaich/CourbesElliptiques.mws",
+		"/C/Users/home/AppData/Local/Temp/Rar$DI18.174/__INSTALL.txt",
+		"/C/Users/home/Downloads/crack/ReadMe.txt",
+		"/C/Users/home/Desktop/IAO/S2/Complexite/udacity/criptoTest.php",
+		"/C/wamp/www/doctors/src/Ben/DoctorsBundle/Entity/PersonRepository.php",
+		"/C/wamp/www/doctors/src/Ben/DoctorsBundle/Controller/PersonController.php",
+		"/C/wamp/www/doctors/src/Ben/DoctorsBundle/Resources/views/Person/index.html.twig",
+		"/C/wamp/www/doctors/web/bootstrap/css/bootstrap.css",
+		"/C/wamp/www/doctors/app/config/security.yml",
+		"/C/wamp/www/doctors/web/css/main.css",
+		"/C/wamp/www/doctors/src/Ben/DoctorsBundle/Resources/views/Default/index.html.twig",
+		"/C/wamp/www/doctors/web/js/application.js",
+		"/C/wamp/www/doctors/src/Ben/DoctorsBundle/Resources/views/layout.html.twig",
+		"/C/wamp/www/doctors/web/js/icon-font-ie7.js",
+		"/C/wamp/www/doctors/src/Ben/DoctorsBundle/Resources/views/Default/flashes.html.twig",
+		"/C/wamp/www/doctors/vendor/sensiolabs/security-checker/security-checker",
+		"/C/wamp/www/doctors/vendor/jms/security-extra-bundle/JMS/SecurityExtraBundle/Resources/config/security_expressions.xml",
+		"/C/wamp/www/doctors/app/Resources/test/source.sql",
+		"/C/wamp/www/doctors/composer.json",
+		"/C/wamp/www/doctors/src/Ben/DoctorsBundle/Entity/ConsultationMeds.php",
+		"/C/wamp/www/doctors/doctors.sublime-project",
 		"/C/wamp/www/doctors/TODO",
 		"/C/wamp/www/doctors/src/Ben/DoctorsBundle/Resources/views/Person/form.html.twig",
 		"/C/wamp/www/doctors/src/Ben/DoctorsBundle/Resources/views/Person/new.html.twig",
@@ -816,8 +900,6 @@
 		"/C/wamp/www/doctors/vendor/gedmo/doctrine-extensions/tests/Gedmo/Translator/Fixture/PersonCustom.php",
 		"/C/wamp/www/doctors/src/Ben/DoctorsBundle/Form/PersonType.php",
 		"/C/wamp/www/doctors/vendor/symfony/symfony/src/Symfony/Component/Templating/PhpEngine.php",
-		"/C/wamp/www/doctors/app/config/parameters.yml",
-		"/C/wamp/www/doctors/src/Ben/DoctorsBundle/Controller/PersonController.php",
 		"/C/wamp/www/doctors/app/Resources/test/source.php",
 		"/C/wamp/www/doctors/src/Ben/DoctorsBundle/Entity/Test.php",
 		"/C/wamp/www/doctors/src/Ben/DoctorsBundle/Entity/Test.php~",
@@ -844,13 +926,9 @@
 		"/C/wamp/www/doctors/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Tests/TestUser.php",
 		"/C/wamp/www/doctors/vendor/doctrine/orm/lib/Doctrine/ORM/Tools/ToolEvents.php",
 		"/C/wamp/www/doctors/src/Ben/DoctorsBundle/Resources/config/routing/person.yml",
-		"/C/wamp/www/doctors/src/Ben/DoctorsBundle/Resources/views/Default/flashes.html.twig",
 		"/C/wamp/www/doctors/src/Ben/DoctorsBundle/Entity/Person.php",
-		"/C/wamp/www/doctors/src/Ben/DoctorsBundle/Resources/views/Default/index.html.twig",
 		"/C/Users/home/Downloads/datpicker/index.html",
-		"/C/wamp/www/doctors/src/Ben/DoctorsBundle/Resources/views/layout.html.twig",
 		"/C/wamp/www/doctors/src/Ben/DoctorsBundle/Resources/config/validation.yml",
-		"/C/wamp/www/doctors/src/Ben/DoctorsBundle/Entity/PersonRepository.php",
 		"/C/wamp/www/doctors/vendor/jdorn/sql-formatter/tests/performance.php",
 		"/C/wamp/www/doctors/vendor/doctrine/orm/lib/Doctrine/ORM/Mapping/PreFlush.php",
 		"/C/wamp/www/doctors/web/js/jquery.min.js",
@@ -864,7 +942,6 @@
 		"/C/wamp/www/doctors/vendor/jms/security-extra-bundle/JMS/SecurityExtraBundle/Security/Acl/Expression/PermissionEvaluator.php",
 		"/C/wamp/www/doctors/vendor/doctrine/common/tests/Doctrine/Tests/Common/Reflection/DeeperNamespaceParent.php",
 		"/C/Users/home/Downloads/bootstrap-datetimepicker.js",
-		"/C/wamp/www/doctors/src/Ben/DoctorsBundle/Resources/views/Person/index.html.twig",
 		"/C/wamp/www/doctors/vendor/symfony/symfony/src/Symfony/Component/Routing/CompiledRoute.php",
 		"/C/wamp/www/doctors/vendor/symfony/symfony/src/Symfony/Component/Routing/RequestContext.php",
 		"/C/wamp/www/doctors/vendor/symfony/symfony/src/Symfony/Component/Routing/Route.php",
@@ -889,54 +966,13 @@
 		"/C/wamp/www/doctors/src/Ben/DoctorsBundle/Form/ConsultationType.php",
 		"/C/wamp/www/doctors/src/Ben/DoctorsBundle/Entity/Consultation.php",
 		"/C/wamp/www/doctors/src/Ben/DoctorsBundle/Entity/ConfigRepository.php",
-		"/C/wamp/www/doctors/app/config/config.yml",
 		"/C/wamp/www/doctors/src/Ben/UserBundle/Controller/SecurityController.php",
 		"/C/wamp/www/doctors/src/Ben/DoctorsBundle/Tests/Controller/PersonControllerTest.php",
 		"/C/wamp/www/doctors/src/Ben/UserBundle/Controller/GroupController.php",
 		"/C/wamp/www/doctors/src/Ben/UserBundle/Controller/AdminController.php",
 		"/C/wamp/www/doctors/src/Ben/DoctorsBundle/Tests/Controller/DocControllerTest.php",
 		"/C/wamp/www/doctors/src/Ben/UserBundle/Controller/ProfileController.php",
-		"/C/wamp/www/doctors/src/Ben/DoctorsBundle/Controller/DefaultController.php",
-		"/C/wamp/www/doctors/src/Ben/UserBundle/Controller/UserController.php",
-		"/C/wamp/www/doctors/src/Ben/DoctorsBundle/Tests/Controller/MedsControllerTest.php",
-		"/C/wamp/www/doctors/src/Ben/DoctorsBundle/Controller/ConfigController.php",
-		"/C/wamp/www/doctors/vendor/composer/autoload_namespaces.php",
-		"/C/wamp/www/doctors/vendor/composer/autoload_files.php",
-		"/C/wamp/www/doctors/vendor/composer/ClassLoader.php",
-		"/C/wamp/www/doctors/vendor/composer/autoload_classmap.php",
-		"/C/wamp/www/doctors/src/Ben/DoctorsBundle/Entity/Antecedent.php",
-		"/C/wamp/www/doctors/web/app.php",
-		"/C/wamp/www/doctors/vendor/symfony/symfony/src/Symfony/Component/HttpFoundation/Request.php",
-		"/C/wamp/www/doctors/vendor/doctrine/orm/lib/Doctrine/ORM/Query/ResultSetMapping.php",
-		"/C/wamp/www/doctors/vendor/doctrine/orm/lib/Doctrine/ORM/Mapping/SqlResultSetMapping.php",
-		"/C/wamp/www/doctors/vendor/doctrine/orm/doctrine-mapping.xsd",
-		"/C/wamp/www/doctors/vendor/gedmo/doctrine-extensions/doc/mapping.md",
-		"/C/Users/home/Desktop/IAO/android/samples/FragmentBasics/src/com/example/android/fragments/ArticleFragment.java",
-		"/C/wamp/www/doctors/src/Ben/DoctorsBundle/Resources/views/Consultation/index.html.twig",
-		"/C/wamp/www/doctors/vendor/symfony/symfony/src/Symfony/Component/Console/Output/ConsoleOutputInterface.php",
-		"/C/wamp/www/doctors/src/Ben/DoctorsBundle/Resources/views/Person/ajax_list.html.twig",
-		"/C/wamp/www/doctors/src/Ben/DoctorsBundle/Resources/views/Person/a8ae13ab-e1e4-4378-82d7-a7ffd00aa831.dmp",
-		"/C/wamp/www/doctors/vendor/doctrine/common/lib/Doctrine/Common/Persistence/PersistentObject.php",
-		"/C/wamp/www/doctors/src/Ben/DoctorsBundle/Entity/MedsRepository.php",
-		"/C/wamp/www/doctors/src/Ben/DoctorsBundle/Resources/views/Meds/index.html.twig",
-		"/C/wamp/www/doctors/database.sql",
-		"/C/wamp/www/doctors/src/Ben/DoctorsBundle/Entity/Meds.php",
-		"/C/wamp/www/doctors/src/Ben/DoctorsBundle/Resources/views/Default/menu.html.twig",
-		"/C/wamp/www/doctors/src/Ben/UserBundle/Resources/views/admin/ajax_list.html.twig",
-		"/C/wamp/www/doctors/vendor/symfony/monolog-bundle/DependencyInjection/Compiler/AddSwiftMailerTransportPass.php",
-		"/C/wamp/www/doctors/src/Ben/DoctorsBundle/Resources/views/Consultation/ajax_list.html.twig",
-		"/C/wamp/www/doctors/src/Ben/DoctorsBundle/Resources/views/Meds/ajax_list.html.twig",
-		"/C/wamp/www/doctors/src/Ben/DoctorsBundle/Resources/views/Test/ajax_list.html.twig",
-		"/C/wamp/www/doctors/src/Ben/DoctorsBundle/Resources/views/Default/ajaxStats.html.twig",
-		"/C/wamp/www/doctors/web/css/main.css",
-		"/C/wamp/www/doctors/src/Ben/DoctorsBundle/Resources/views/Person/show.html.twig",
-		"/C/wamp/www/doctors/vendor/gedmo/doctrine-extensions/tests/Gedmo/Translatable/Fixture/Personal/PersonalArticleTranslation.php",
-		"/C/wamp/www/doctors/vendor/doctrine/orm/lib/Doctrine/ORM/PersistentCollection.php",
-		"/C/wamp/www/doctors/vendor/twig/twig/doc/tests/defined.rst",
-		"/C/wamp/www/doctors/vendor/twig/extensions/doc/index.rst",
-		"/C/wamp/www/doctors/vendor/twig/twig/lib/Twig/NodeInterface.php",
-		"/C/wamp/www/doctors/vendor/kriswallsmith/assetic/src/Assetic/Filter/DependencyExtractorInterface.php",
-		"/C/wamp/www/doctors/src/Ben/DoctorsBundle/Resources/views/Test/index.html.twig"
+		"/C/wamp/www/doctors/src/Ben/DoctorsBundle/Controller/DefaultController.php"
 	],
 	"find":
 	{
@@ -956,134 +992,134 @@
 		"case_sensitive": false,
 		"find_history":
 		[
-			", ",
-			"=>",
-			"cities",
-			"needs",
-			"form.",
-			"form",
-			"form.",
-			"form",
-			"/",
-			"general",
-			"GENERAL",
-			"_once",
-			"req",
-			"DIRECTORY_SEPARATOR",
-			"href",
-			"</tr>",
-			"</td>",
-			"</tr>",
-			"<in",
-			"<inp",
-			"<input",
-			"<i",
-			"-toggle=\"checkbox\">",
-			"</label>",
-			"<label",
-			"label",
-			"searchModal",
-			"name",
-			"metadata",
-			"Metadata",
-			"metadata",
-			"type",
-			"\n                ->add('symptomes', 'textarea', array('label'=>'Examen clinique','required'  => false))",
-			"print-only-this",
-			"has-submenu",
-			"CONSULTATION MEDICALE A LA DEMANDE",
-			"EXAMEN MEDICAL SYSTEMATIQUE",
-			"infrastructureData",
-			"universityData",
-			"diagnosticInput",
-			"stats.consultations",
-			"button",
-			"argument",
-			"js-form",
-			"addClass",
-			"e=\"widgets[",
-			"consultations_structures",
-			"for",
-			"moment().subtract('days', 29).format('D MMMM YYYY') + ' - ' + moment().format('D MMMM YYYY')",
-			"search",
-			"label",
-			"select count(*) as",
-			"stock",
-			"consultations_special_gender",
-			"badge",
-			"{% if stats.",
-			"{% endif %}",
-			" %}",
-			"class=\"col-md-6\">",
-			"<div class=\"col-md-6\"> ",
-			"\n    <div class=\"col-md-6\">",
-			"item",
-			"value=\"Corrigé\"",
-			"consultations_structures",
-			"widgets",
-			"meds",
-			"ajaxPost",
-			"[0]['data']",
-			"badge",
-			"badge pull-right",
-			"consultations_demande",
-			"[0]['data']",
-			"col-md-6",
-			"locale",
-			"entity",
-			"fille",
-			"garçon",
-			"print",
-			"created",
-			"),",
-			"meds",
-			"2015",
-			"l, '2014",
-			"2014",
-			"la consultation",
-			"js-delete",
-			"deleteForm",
-			"Unauthorized",
-			",\n",
-			"boolean",
-			"fixedvisualissue",
-			"getFlashBag",
-			"success",
-			"getFlashBag",
-			"success",
-			"error",
-			"formu",
-			"user",
-			"ROLE_USER",
-			"genderselect",
-			"ids",
-			"type",
-			"badge",
-			"consultations_systematique_resident_gender",
-			"consultations_demande_resident_gender",
-			"consultations_visual_issue",
-			"consultations_systematique_resident_gender",
-			"consultations_systematique_resident",
-			"resident",
-			"test",
-			"consultations_demande_resident_gender",
-			"onsultations_special_gender",
-			"consultations_demande_resident",
-			"consultations_demande_gender",
-			"consultations_demande",
-			"getC",
-			"cnss",
-			"consultations_demande",
-			"User",
-			"created",
-			"cnss",
-			"$query = ",
-			"\n        return $query;",
-			"\n        $query .= $this->rangeDate;",
-			"        $query .= $this->rangeDate;",
-			" where 1=1",
-			"fromTo",
-			"bindquery"
+			"profiler",
+			"i",
+			"I",
+			"i",
+			"I",
+			".",
+			",",
+			".",
+			",",
+			"hizmyznameziszbenaichzandzizdesignzanzecczapizusingzjava",
+			" ",
+			"10	00	00	\n10	00	00	\n10	00	01	\n01	01	01	\n01	00	00",
+			"10	00	00	\n10	00	00	\n10	00	01	\n01	01	01	\n01	00	00	",
+			"10	00	00	\n10	00	00	\n10	00	01	\n01	01	01	\n01	00	00",
+			"00	00	10	\n00	00	10	\n01	00	10	\n01	01	01	\n01	00	00",
+			"00	10	00	\n00	10	00	\n01	00	10	\n01	01	01	\n01	00	00	",
+			"00	00	10	\n00	00	10	\n01	00	10	\n01	01	01	\n01	00	00",
+			"10	00	00	\n10	00	00	\n10	00	01	\n01	01	01	\n01	00	00",
+			"10	00	00",
+			"10	00	00	\n10	00	00	\n10	00	01	\n01	01	01	\n01	00	00",
+			"encode",
+			"Encoder",
+			"privateKey",
+			"        return data;",
+			"private String[][] ",
+			", int op",
+			"(, int ",
+			", int ",
+			"String[][] data",
+			"A[",
+			"A",
+			"String[][] ",
+			"numBits",
+			"publicKey",
+			"'",
+			"koblitzProbabilistic",
+			"generateKeyPair",
+			"ECPoint",
+			"encrypt(",
+			"Encrypt",
+			"encrypt",
+			"p_k",
+			"P_K",
+			"p_k",
+			"P_K",
+			"p_k",
+			"P_K",
+			"p_k",
+			"P_K",
+			"ECPoint",
+			"circularLeftShift",
+			"%",
+			"createList",
+			"createMatrix",
+			"intToBits",
+			"pointToBits",
+			"paddBits",
+			"createMatrix",
+			"ECPoint",
+			"INFINTIY",
+			"ECPoint",
+			".y",
+			".x",
+			"isPointOfInfinity",
+			"ECPoint",
+			".",
+			"$",
+			"function",
+			"->",
+			"$",
+			"$other",
+			"long",
+			"$yR",
+			"$xR",
+			"math.",
+			"Math.",
+			"math.",
+			"Math.",
+			"math.",
+			"math",
+			"addend",
+			"$slope",
+			"$modMath",
+			"$math",
+			"math",
+			"Math",
+			"math",
+			"Math",
+			"math",
+			"Math",
+			"math",
+			"Math",
+			"math",
+			"Adapter",
+			"$this",
+			"addend",
+			"->",
+			"private",
+			"routines",
+			"o`",
+			"`e",
+			"ˆe",
+			"`a",
+			"`a ",
+			"´e",
+			"´",
+			"createBinaryListFromMatrix",
+			"createListFromMatrix",
+			"pList",
+			"x",
+			"i",
+			"int ",
+			"int",
+			"convertPointToBinaryList",
+			"$",
+			"pad_bits",
+			"convert_to_bits",
+			"Decoding",
+			"convertPointToBinaryList",
+			"int",
+			"k",
+			"i",
+			"marshalling",
+			"$",
+			"add",
+			"push",
+			"j<n",
+			"i"
 		],
 		"highlight": false,
 		"in_selection": false,
@@ -1102,14 +1138,71 @@
 	"groups":
 	[
 		{
+			"selected": 1,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "web/app_dev.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1182,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								890,
+								899
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "app/bootstrap.php.cache",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 92291,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
 			]
 		}
 	],
 	"incremental_find":
 	{
-		"height": 23.0
+		"height": 22.0
 	},
 	"input":
 	{
@@ -1150,17 +1243,119 @@
 	{
 		"height": 361.0
 	},
+	"pinned_build_system": "",
 	"project": "doctors.sublime-project",
 	"replace":
 	{
-		"height": 42.0
+		"height": 40.0
 	},
 	"save_all_on_build": true,
 	"select_file":
 	{
 		"height": 0.0,
+		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"autoload_real",
+				"doctors\\vendor\\composer\\autoload_real.php"
+			],
+			[
+				"apd",
+				"doctors\\web\\app_dev.php"
+			],
+			[
+				"app_de",
+				"doctors\\web\\app_dev.php"
+			],
+			[
+				"app.",
+				"doctors\\web\\app.php"
+			],
+			[
+				"app_dev",
+				"doctors\\web\\app_dev.php"
+			],
+			[
+				"config_d",
+				"doctors\\app\\config\\config_dev.yml"
+			],
+			[
+				"para",
+				"doctors\\app\\config\\parameters.yml"
+			],
+			[
+				"config",
+				"doctors\\app\\config\\config_dev.yml"
+			],
+			[
+				"fie",
+				"views\\Form\\fields.html.twig"
+			],
+			[
+				"admininde",
+				"doctors\\src\\Ben\\UserBundle\\Resources\\views\\admin\\index.html.twig"
+			],
+			[
+				"personinde",
+				"views\\Person\\index.html.twig"
+			],
+			[
+				"personc",
+				"doctors\\src\\Ben\\DoctorsBundle\\Controller\\PersonController.php"
+			],
+			[
+				"personre",
+				"doctors\\src\\Ben\\DoctorsBundle\\Entity\\PersonRepository.php"
+			],
+			[
+				"boo",
+				"doctors\\web\\bootstrap\\css\\bootstrap.css"
+			],
+			[
+				"app",
+				"doctors\\web\\js\\application.js"
+			],
+			[
+				"defau/",
+				"views\\Default\\index.html.twig"
+			],
+			[
+				"boot",
+				"doctors\\web\\bootstrap\\css\\bootstrap.css"
+			],
+			[
+				"main",
+				"doctors\\web\\css\\main.css"
+			],
+			[
+				"view/person",
+				"views\\Person\\index.html.twig"
+			],
+			[
+				"view/",
+				"views\\layout.html.twig"
+			],
+			[
+				"fiel",
+				"views\\Form\\fields.html.twig"
+			],
+			[
+				"secu",
+				"doctors\\app\\config\\security.yml"
+			],
+			[
+				"confy",
+				"doctors\\app\\config\\config.yml"
+			],
+			[
+				"comp",
+				"doctors\\composer.json"
+			],
+			[
+				"la",
+				"views\\layout.html.twig"
+			],
 			[
 				"personed",
 				"views\\Person\\edit.html.twig"
@@ -1212,10 +1407,6 @@
 			[
 				"jq",
 				"doctors\\web\\js\\jquery.min.js"
-			],
-			[
-				"la",
-				"views\\layout.html.twig"
 			],
 			[
 				"lay",
@@ -1316,10 +1507,6 @@
 			[
 				"persaja",
 				"views\\Person\\ajax_list.html.twig"
-			],
-			[
-				"personinde",
-				"views\\Person\\index.html.twig"
 			],
 			[
 				"mai",
@@ -1458,10 +1645,6 @@
 				"doctors\\web\\css\\layout.css"
 			],
 			[
-				"main",
-				"doctors\\web\\css\\main.css"
-			],
-			[
 				"me",
 				"views\\Default\\menu.html.twig"
 			],
@@ -1484,10 +1667,6 @@
 			[
 				"conf",
 				"doctors\\app\\config\\config.yml"
-			],
-			[
-				"para",
-				"doctors\\app\\config\\parameters.yml"
 			],
 			[
 				"config.php",
@@ -1554,10 +1733,6 @@
 				"DoctorsBundle\\Resources\\config\\routing\\meds.yml"
 			],
 			[
-				"personc",
-				"DoctorsBundle\\Controller\\PersonController.php"
-			],
-			[
 				"medscontro",
 				"DoctorsBundle\\Controller\\MedsController.php"
 			],
@@ -1592,86 +1767,6 @@
 			[
 				"val",
 				"DoctorsBundle\\Resources\\config\\validation.yml"
-			],
-			[
-				"percontroller",
-				"DoctorsBundle\\Controller\\PersonController.php"
-			],
-			[
-				"admic",
-				"UserBundle\\Controller\\AdminController.php"
-			],
-			[
-				"bootcs",
-				"doctors\\web\\bootstrap\\css\\bootstrap.css"
-			],
-			[
-				"adminc",
-				"UserBundle\\Controller\\AdminController.php"
-			],
-			[
-				"consaja",
-				"views\\Consultation\\ajax_list.html.twig"
-			],
-			[
-				"consindex",
-				"views\\Consultation\\index.html.twig"
-			],
-			[
-				"consurep",
-				"DoctorsBundle\\Entity\\ConsultationRepository.php"
-			],
-			[
-				"sta",
-				"UserBundle\\Stats\\StatsQuery.php"
-			],
-			[
-				"consty",
-				"DoctorsBundle\\Form\\ConsultationType.php"
-			],
-			[
-				"sou",
-				"doctors\\app\\Resources\\test\\source.sql"
-			],
-			[
-				"source",
-				"doctors\\app\\Resources\\test\\source.sql"
-			],
-			[
-				"antec",
-				"DoctorsBundle\\Entity\\Antecedent.php"
-			],
-			[
-				"persor",
-				"DoctorsBundle\\Entity\\PersonRepository.php"
-			],
-			[
-				"personre",
-				"DoctorsBundle\\Entity\\PersonRepository.php"
-			],
-			[
-				"userrep",
-				"UserBundle\\Entity\\UserRepository.php"
-			],
-			[
-				"consmedsty",
-				"DoctorsBundle\\Form\\ConsultationMedsType.php"
-			],
-			[
-				"const",
-				"DoctorsBundle\\Form\\ConsultationType.php"
-			],
-			[
-				"flash",
-				"views\\Default\\flashes.html.twig"
-			],
-			[
-				"medajax",
-				"views\\Meds\\ajax_list.html.twig"
-			],
-			[
-				"personsho",
-				"DoctorsBundle\\Resources\\views\\Person\\show.html.twig"
 			]
 		],
 		"width": 0.0
@@ -1679,6 +1774,7 @@
 	"select_project":
 	{
 		"height": 0.0,
+		"last_filter": "",
 		"selected_items":
 		[
 		],
@@ -1687,6 +1783,7 @@
 	"select_symbol":
 	{
 		"height": 0.0,
+		"last_filter": "",
 		"selected_items":
 		[
 		],

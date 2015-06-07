@@ -14,10 +14,6 @@
 		{
 			"follow_symlinks": true,
 			"path": "src\\Ben\\DoctorsBundle\\Resources\\views"
-		},
-		{
-			"follow_symlinks": true,
-			"path": "C:\\Users\\home\\Downloads\\datpicker"
 		}
 	]
 }
